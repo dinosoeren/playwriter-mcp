@@ -51,6 +51,8 @@ describe('MCP Server Tests', () => {
                 code: js`
           const newPage = await context.newPage();
           state.page = newPage;
+          if (!state.pages) state.pages = [];
+          state.pages.push(newPage);
         `,
             },
         })
@@ -91,6 +93,8 @@ describe('MCP Server Tests', () => {
                 code: js`
           const newPage = await context.newPage();
           state.page = newPage;
+          if (!state.pages) state.pages = [];
+          state.pages.push(newPage);
         `,
             },
         })
@@ -110,7 +114,7 @@ describe('MCP Server Tests', () => {
             typeof result === 'object' && result.content?.[0]?.text
                 ? tryJsonParse(result.content[0].text)
                 : result
-        expect(initialData).toMatchFileSnapshot(
+        await expect(initialData).toMatchFileSnapshot(
             'snapshots/hacker-news-initial-accessibility.md',
         )
         expect(result.content).toBeDefined()
@@ -125,6 +129,8 @@ describe('MCP Server Tests', () => {
                 code: js`
           const newPage = await context.newPage();
           state.page = newPage;
+          if (!state.pages) state.pages = [];
+          state.pages.push(newPage);
         `,
             },
         })
@@ -144,10 +150,30 @@ describe('MCP Server Tests', () => {
             typeof snapshot === 'object' && snapshot.content?.[0]?.text
                 ? tryJsonParse(snapshot.content[0].text)
                 : snapshot
-        expect(data).toMatchFileSnapshot('snapshots/shadcn-ui-accessibility.md')
+        await expect(data).toMatchFileSnapshot('snapshots/shadcn-ui-accessibility.md')
         expect(snapshot.content).toBeDefined()
         expect(data).toContain('shadcn')
     }, 30000)
+
+    it('should close all created pages', async () => {
+        const result = await client.callTool({
+            name: 'execute',
+            arguments: {
+                code: js`
+          if (state.pages && state.pages.length > 0) {
+            for (const page of state.pages) {
+              await page.close();
+            }
+            const closedCount = state.pages.length;
+            state.pages = [];
+            return { closedCount };
+          }
+          return { closedCount: 0 };
+        `,
+            },
+        })
+
+    })
 })
 function tryJsonParse(str: string) {
     try {
