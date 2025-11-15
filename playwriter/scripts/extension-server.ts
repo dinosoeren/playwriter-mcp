@@ -1,4 +1,4 @@
-import { startRelayServer } from '../src/extension/extension-context-factory.js'
+import { startRelayServer } from '../src/extension/cdp-relay.js'
 
 async function main() {
   const server = await startRelayServer({ port: 9988 })
