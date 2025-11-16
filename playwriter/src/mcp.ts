@@ -108,7 +108,7 @@ async function getCurrentPage() {
 
 const server = new McpServer({
   name: 'playwriter',
-  title: 'Playwright MCP Server',
+  title: 'The better playwright MCP: works as a browser extension. No context bloat. More capable.',
   version: '1.0.0',
 })
 
@@ -121,7 +121,7 @@ server.tool(
     code: z
       .string()
       .describe(
-        'JavaScript code to execute with page and context in scope. Should be one line, using ; to execute multiple statements. To execute complex actions call execute multiple times. ',
+        'JavaScript code to execute with page, state, context in scope. Should be one line, using ; to execute multiple statements. To execute complex actions call execute multiple times. ',
       ),
     timeout: z.number().default(3000).describe('Timeout in milliseconds for code execution (default: 3000ms)'),
   },
