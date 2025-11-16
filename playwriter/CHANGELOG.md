@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.6
+
+### Patch Changes
+
+- Added `resetPlaywright` functionality to reset Playwright connection
+- Added `getCdpUrl` utility function for CDP endpoint access
+- Support for multiple tabs in CDP relay
+- Support for multiple Playwright clients
+- Enhanced prompt documentation with better examples
+- Improved CDP relay error handling and logging
+- Added `utils.ts` with helper functions
+
 ## 0.0.5
 
 ### Patch Changes
