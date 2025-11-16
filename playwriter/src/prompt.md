@@ -91,10 +91,10 @@ then remember to call `context.removeAllListeners()` or `page.removeAllListeners
 
 ## reading past logs
 
-you can keep track of logs using `globalThis.logs = []; page.on('console', msg => globalThis.logs.push({ type: msg.type(), text: msg.text() }))`
+you can keep track of logs using `state.logs = []; page.on('console', msg => state.logs.push({ type: msg.type(), text: msg.text() }))`
 
 later, you can read logs that you care about. For example, to get the last 100 logs that contain the word "error":
 
-`console.log('errors:'); globalThis.logs.filter(log => log.type === 'error').slice(-100).forEach(x => console.log(x))`
+`console.log('errors:'); state.logs.filter(log => log.type === 'error').slice(-100).forEach(x => console.log(x))`
 
-then to reset logs: `globalThis.logs = []` and to stop listening: `page.removeAllListeners('console')`
+then to reset logs: `state.logs = []` and to stop listening: `page.removeAllListeners('console')`
