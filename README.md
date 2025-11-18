@@ -2,7 +2,7 @@
     <br/>
     <br/>
     <h3>playwriter</h3>
-    <p>Still in development</p>
+    <p>Still in development. Not ready to use</p>
     <p>Like Playwright MCP but via extension. 90% less context window. 10x more capable (full playwright API)</p>
     <br/>
     <br/>
