@@ -1,4 +1,4 @@
-import { RelayConnection, debugLog } from './relayConnection'
+import { RelayConnection, logger } from './relayConnection'
 import { createStore } from 'zustand/vanilla'
 
 // Relay URL - fixed port for MCP bridge
@@ -80,8 +80,8 @@ declare global {
 async function resetDebugger() {
   let targets = await chrome.debugger.getTargets()
   targets = targets.filter((x) => x.tabId && x.attached)
-  console.log(`found ${targets.length} existing debugger targets. detaching them before background script starts`)
-  console.log(targets)
+  logger.log(`found ${targets.length} existing debugger targets. detaching them before background script starts`)
+  logger.log(targets)
   for (const target of targets) {
     await chrome.debugger.detach({ tabId: target.tabId })
   }
@@ -145,7 +145,7 @@ const icons = {
 } as const
 
 useExtensionStore.subscribe(async (state, prevState) => {
-  console.log(state)
+  logger.log(state)
   const { connectionState, connectedTabs, errorText } = state
 
   const tabs = await chrome.tabs.query({})
@@ -193,54 +193,54 @@ useExtensionStore.subscribe(async (state, prevState) => {
 async function ensureConnection(): Promise<void> {
   const { connection } = useExtensionStore.getState()
   if (connection) {
-    debugLog('Connection already exists, reusing')
+    logger.debug('Connection already exists, reusing')
     return
   }
 
-  debugLog('No existing connection, creating new relay connection')
-  debugLog('Waiting for server at http://localhost:19988...')
+  logger.debug('No existing connection, creating new relay connection')
+  logger.debug('Waiting for server at http://localhost:19988...')
 
   useExtensionStore.setState({ connectionState: 'reconnecting' })
   while (true) {
     try {
       await fetch('http://localhost:19988', { method: 'HEAD' })
-      debugLog('Server is available')
+      logger.debug('Server is available')
       break
     } catch (error: any) {
-      debugLog('Server not available, retrying in 1 second...')
+      logger.debug('Server not available, retrying in 1 second...')
       await new Promise((resolve) => setTimeout(resolve, 1000))
     }
   }
 
-  debugLog('Server is ready, creating WebSocket connection to:', RELAY_URL)
+  logger.debug('Server is ready, creating WebSocket connection to:', RELAY_URL)
   const socket = new WebSocket(RELAY_URL)
-  debugLog('WebSocket created, initial readyState:', socket.readyState, '(0=CONNECTING, 1=OPEN, 2=CLOSING, 3=CLOSED)')
+  logger.debug('WebSocket created, initial readyState:', socket.readyState, '(0=CONNECTING, 1=OPEN, 2=CLOSING, 3=CLOSED)')
 
   await new Promise<void>((resolve, reject) => {
     let timeoutFired = false
     const timeout = setTimeout(() => {
       timeoutFired = true
-      debugLog('=== WebSocket connection TIMEOUT after 5 seconds ===')
-      debugLog('Final WebSocket readyState:', socket.readyState)
-      debugLog('WebSocket URL:', socket.url)
-      debugLog('Socket protocol:', socket.protocol)
+      logger.debug('=== WebSocket connection TIMEOUT after 5 seconds ===')
+      logger.debug('Final WebSocket readyState:', socket.readyState)
+      logger.debug('WebSocket URL:', socket.url)
+      logger.debug('Socket protocol:', socket.protocol)
       reject(new Error('Connection timeout'))
     }, 5000)
 
     socket.onopen = () => {
       if (timeoutFired) {
-        debugLog('WebSocket opened but timeout already fired!')
+        logger.debug('WebSocket opened but timeout already fired!')
         return
       }
-      debugLog('WebSocket onopen fired! readyState:', socket.readyState)
+      logger.debug('WebSocket onopen fired! readyState:', socket.readyState)
       clearTimeout(timeout)
       resolve()
     }
 
     socket.onerror = (error) => {
-      debugLog('WebSocket onerror during connection:', error)
-      debugLog('Error type:', error.type)
-      debugLog('Current readyState:', socket.readyState)
+      logger.debug('WebSocket onerror during connection:', error)
+      logger.debug('Error type:', error.type)
+      logger.debug('Current readyState:', socket.readyState)
       if (!timeoutFired) {
         clearTimeout(timeout)
         reject(new Error('WebSocket connection failed'))
@@ -248,7 +248,7 @@ async function ensureConnection(): Promise<void> {
     }
 
     socket.onclose = (event) => {
-      debugLog('WebSocket onclose during connection setup:', {
+      logger.debug('WebSocket onclose during connection setup:', {
         code: event.code,
         reason: event.reason,
         wasClean: event.wasClean,
@@ -260,19 +260,19 @@ async function ensureConnection(): Promise<void> {
       }
     }
 
-    debugLog('Event handlers set, waiting for connection...')
+    logger.debug('Event handlers set, waiting for connection...')
   })
 
-  debugLog('WebSocket connected successfully, creating RelayConnection instance')
+  logger.debug('WebSocket connected successfully, creating RelayConnection instance')
   const newConnection = new RelayConnection({
     ws: socket,
     onClose: (reason, code) => {
-      debugLog('=== Relay connection onClose callback triggered ===', { reason, code })
+      logger.debug('=== Relay connection onClose callback triggered ===', { reason, code })
       const { connectedTabs } = useExtensionStore.getState()
-      debugLog('Connected tabs before potential reconnection:', Array.from(connectedTabs.keys()))
+      logger.debug('Connected tabs before potential reconnection:', Array.from(connectedTabs.keys()))
 
       if (reason === 'Extension Replaced' || code === 4001) {
-        debugLog('Connection replaced by another extension instance. Not reconnecting.')
+        logger.debug('Connection replaced by another extension instance. Not reconnecting.')
         useExtensionStore.setState({
           connection: undefined,
           connectionState: 'error',
@@ -284,15 +284,15 @@ async function ensureConnection(): Promise<void> {
       useExtensionStore.setState({ connection: undefined, connectionState: 'disconnected' })
 
       if (connectedTabs.size > 0) {
-        debugLog('Tabs still connected, triggering reconnection')
+        logger.debug('Tabs still connected, triggering reconnection')
         void reconnect()
       } else {
-        debugLog('No tabs to reconnect')
+        logger.debug('No tabs to reconnect')
       }
     },
     onTabDetached: (tabId, reason) => {
-      debugLog('=== Manual tab detachment detected for tab:', tabId, '===')
-      debugLog('User closed debugger via Chrome automation bar')
+      logger.debug('=== Manual tab detachment detected for tab:', tabId, '===')
+      logger.debug('User closed debugger via Chrome automation bar')
 
       useExtensionStore.setState((state) => {
         const newTabs = new Map(state.connectedTabs)
@@ -303,17 +303,17 @@ async function ensureConnection(): Promise<void> {
         // if user cancels debugger. disconnect everything
         useExtensionStore.setState({ connectionState: 'disconnected' })
       }
-      debugLog('Removed tab from _connectedTabs map')
+      logger.debug('Removed tab from _connectedTabs map')
     },
   })
 
   useExtensionStore.setState({ connection: newConnection })
-  debugLog('Connection established, WebSocket open (caller should set connectionState)')
+  logger.debug('Connection established, WebSocket open (caller should set connectionState)')
 }
 
 async function connectTab(tabId: number): Promise<void> {
   try {
-    debugLog(`=== Starting connection to tab ${tabId} ===`)
+    logger.debug(`=== Starting connection to tab ${tabId} ===`)
 
     useExtensionStore.setState((state) => {
       const newTabs = new Map(state.connectedTabs)
@@ -326,11 +326,11 @@ async function connectTab(tabId: number): Promise<void> {
 
     await ensureConnection()
 
-    debugLog('Calling attachTab for tab:', tabId)
+    logger.debug('Calling attachTab for tab:', tabId)
     const { connection } = useExtensionStore.getState()
     if (!connection) return
     const targetInfo = await connection.attachTab(tabId)
-    debugLog('attachTab completed, updating targetId in connectedTabs map')
+    logger.debug('attachTab completed, updating targetId in connectedTabs map')
     useExtensionStore.setState((state) => {
       const newTabs = new Map(state.connectedTabs)
       newTabs.set(tabId, {
@@ -340,11 +340,11 @@ async function connectTab(tabId: number): Promise<void> {
       return { connectedTabs: newTabs, connectionState: 'connected' }
     })
 
-    debugLog(`=== Successfully connected to tab ${tabId} ===`)
+    logger.debug(`=== Successfully connected to tab ${tabId} ===`)
   } catch (error: any) {
-    debugLog(`=== Failed to connect to tab ${tabId} ===`)
-    debugLog('Error details:', error)
-    debugLog('Error stack:', error.stack)
+    logger.debug(`=== Failed to connect to tab ${tabId} ===`)
+    logger.debug('Error details:', error)
+    logger.debug('Error stack:', error.stack)
 
     useExtensionStore.setState((state) => {
       const newTabs = new Map(state.connectedTabs)
@@ -367,55 +367,55 @@ async function connectTab(tabId: number): Promise<void> {
 }
 
 async function disconnectTab(tabId: number): Promise<void> {
-  debugLog(`=== Disconnecting tab ${tabId} ===`)
+  logger.debug(`=== Disconnecting tab ${tabId} ===`)
 
   const { connectedTabs, connection } = useExtensionStore.getState()
   if (!connectedTabs.has(tabId)) {
-    debugLog('Tab not in connectedTabs map, ignoring disconnect')
+    logger.debug('Tab not in connectedTabs map, ignoring disconnect')
     return
   }
 
-  debugLog('Calling detachTab on connection')
+  logger.debug('Calling detachTab on connection')
   connection?.detachTab(tabId)
   useExtensionStore.setState((state) => {
     const newTabs = new Map(state.connectedTabs)
     newTabs.delete(tabId)
     return { connectedTabs: newTabs }
   })
-  debugLog('Tab removed from connectedTabs map')
+  logger.debug('Tab removed from connectedTabs map')
 
   const { connectedTabs: updatedTabs, connection: updatedConnection } = useExtensionStore.getState()
-  debugLog('Connected tabs remaining:', updatedTabs.size)
+  logger.debug('Connected tabs remaining:', updatedTabs.size)
   if (updatedTabs.size === 0 && updatedConnection) {
-    debugLog('No tabs remaining, closing relay connection')
+    logger.debug('No tabs remaining, closing relay connection')
     updatedConnection.close('All tabs disconnected')
     useExtensionStore.setState({ connection: undefined, connectionState: 'disconnected' })
   }
 }
 
 async function reconnect(): Promise<void> {
-  debugLog('=== Starting reconnection ===')
+  logger.debug('=== Starting reconnection ===')
   const { connectedTabs } = useExtensionStore.getState()
-  debugLog('Tabs to reconnect:', Array.from(connectedTabs.keys()))
+  logger.debug('Tabs to reconnect:', Array.from(connectedTabs.keys()))
 
   try {
     await ensureConnection()
 
     const tabsToReconnect = Array.from(connectedTabs.keys())
-    debugLog('Re-attaching', tabsToReconnect.length, 'tabs')
+    logger.debug('Re-attaching', tabsToReconnect.length, 'tabs')
 
     for (const tabId of tabsToReconnect) {
       const { connectedTabs: currentTabs } = useExtensionStore.getState()
       if (!currentTabs.has(tabId)) {
-        debugLog('Tab', tabId, 'was manually disconnected during reconnection, skipping')
+        logger.debug('Tab', tabId, 'was manually disconnected during reconnection, skipping')
         continue
       }
 
       try {
-        debugLog('Checking if tab', tabId, 'still exists')
+        logger.debug('Checking if tab', tabId, 'still exists')
         await chrome.tabs.get(tabId)
 
-        debugLog('Re-attaching tab:', tabId)
+        logger.debug('Re-attaching tab:', tabId)
         const { connection } = useExtensionStore.getState()
         if (!connection) return
         const targetInfo = await connection.attachTab(tabId)
@@ -427,9 +427,9 @@ async function reconnect(): Promise<void> {
           })
           return { connectedTabs: newTabs }
         })
-        debugLog('Successfully re-attached tab:', tabId)
+        logger.debug('Successfully re-attached tab:', tabId)
       } catch (error: any) {
-        debugLog('Failed to re-attach tab:', tabId, error.message)
+        logger.debug('Failed to re-attach tab:', tabId, error.message)
         useExtensionStore.setState((state) => {
           const newTabs = new Map(state.connectedTabs)
           newTabs.delete(tabId)
@@ -439,18 +439,18 @@ async function reconnect(): Promise<void> {
     }
 
     const { connectedTabs: finalTabs } = useExtensionStore.getState()
-    debugLog('=== Reconnection complete ===')
-    debugLog('Successfully reconnected tabs:', finalTabs.size)
+    logger.debug('=== Reconnection complete ===')
+    logger.debug('Successfully reconnected tabs:', finalTabs.size)
 
     if (finalTabs.size > 0) {
       useExtensionStore.setState({ connectionState: 'connected' })
-      debugLog('Set connectionState to connected')
+      logger.debug('Set connectionState to connected')
     } else {
-      debugLog('No tabs successfully reconnected, staying in reconnecting state')
+      logger.debug('No tabs successfully reconnected, staying in reconnecting state')
       useExtensionStore.setState({ connectionState: 'disconnected' })
     }
   } catch (error: any) {
-    debugLog('=== Reconnection failed ===', error)
+    logger.debug('=== Reconnection failed ===', error)
 
     useExtensionStore.setState({
       connectedTabs: new Map(),
@@ -462,21 +462,21 @@ async function reconnect(): Promise<void> {
 
 async function onTabRemoved(tabId: number): Promise<void> {
   const { connectedTabs } = useExtensionStore.getState()
-  debugLog('Tab removed event for tab:', tabId, 'is connected:', connectedTabs.has(tabId))
+  logger.debug('Tab removed event for tab:', tabId, 'is connected:', connectedTabs.has(tabId))
   if (!connectedTabs.has(tabId)) return
 
-  debugLog(`Connected tab ${tabId} was closed, disconnecting`)
+  logger.debug(`Connected tab ${tabId} was closed, disconnecting`)
   await disconnectTab(tabId)
 }
 
 async function onTabActivated(activeInfo: chrome.tabs.TabActiveInfo): Promise<void> {
-  debugLog('Tab activated:', activeInfo.tabId)
+  logger.debug('Tab activated:', activeInfo.tabId)
   useExtensionStore.setState({ currentTabId: activeInfo.tabId })
 }
 
 async function onActionClicked(tab: chrome.tabs.Tab): Promise<void> {
   if (!tab.id) {
-    debugLog('No tab ID available')
+    logger.debug('No tab ID available')
     return
   }
 
@@ -484,13 +484,13 @@ async function onActionClicked(tab: chrome.tabs.Tab): Promise<void> {
   const tabInfo = connectedTabs.get(tab.id)
 
   if (connectionState === 'error') {
-    debugLog('Global error state - retrying reconnection')
+    logger.debug('Global error state - retrying reconnection')
     await reconnect()
     return
   }
 
   if (connectionState === 'reconnecting') {
-    debugLog('User clicked during reconnection, canceling and disconnecting all tabs')
+    logger.debug('User clicked during reconnection, canceling and disconnecting all tabs')
 
     const tabsToDisconnect = Array.from(connectedTabs.keys())
 
@@ -508,7 +508,7 @@ async function onActionClicked(tab: chrome.tabs.Tab): Promise<void> {
   }
 
   if (tabInfo?.state === 'error') {
-    debugLog('Tab has error - disconnecting to clear state')
+    logger.debug('Tab has error - disconnecting to clear state')
     await disconnectTab(tab.id)
     return
   }
@@ -520,7 +520,7 @@ async function onActionClicked(tab: chrome.tabs.Tab): Promise<void> {
   }
 }
 
-debugLog(`Using relay URL: ${RELAY_URL}`)
+logger.debug(`Using relay URL: ${RELAY_URL}`)
 chrome.tabs.onRemoved.addListener(onTabRemoved)
 chrome.tabs.onActivated.addListener(onTabActivated)
 chrome.action.onClicked.addListener(onActionClicked)

@@ -44,4 +44,12 @@ export type ExtensionEventMessage =
     }
   }[keyof ProtocolMapping.Events]
 
-export type ExtensionMessage = ExtensionResponseMessage | ExtensionEventMessage
+export type ExtensionLogMessage = {
+  method: 'log'
+  params: {
+    level: 'log' | 'debug' | 'info' | 'warn' | 'error'
+    args: string[]
+  }
+}
+
+export type ExtensionMessage = ExtensionResponseMessage | ExtensionEventMessage | ExtensionLogMessage

@@ -51,3 +51,5 @@ each test() block should reset the extension connection to make sure tests are i
 NEVER call browser.close() in the tests
 
 remember that every time the extension is activated in a tab that tab gets added to the available pages. so if you toggle the extension and then do .newPage() there will be 2 pages, not 1.
+
+to debug server or extension issues you can also inspect the file playwriter/relay-server.log to see both extension and server logs. with all cdp events sent. to see if there are events missing or something broken. this file is recreated every time the server is started and appended in real time. use rg to only read relevant lines and parts because it can get quite long

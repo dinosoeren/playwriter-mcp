@@ -17,13 +17,55 @@
 import type { CDPEvent, Protocol } from 'playwriter/src/cdp-types';
 import type { ExtensionCommandMessage, ExtensionResponseMessage } from 'playwriter/src/extension/protocol';
 
-export function debugLog(...args: unknown[]): void {
-  const enabled = true;
-  if (enabled) {
-    // eslint-disable-next-line no-console
-    console.log('[Extension]', ...args);
+let activeConnection: RelayConnection | undefined;
+
+export const logger = {
+  log: (...args: any[]) => logToRemote('log', args),
+  debug: (...args: any[]) => logToRemote('debug', args),
+  info: (...args: any[]) => logToRemote('info', args),
+  warn: (...args: any[]) => logToRemote('warn', args),
+  error: (...args: any[]) => logToRemote('error', args),
+};
+
+function logToRemote(level: 'log' | 'debug' | 'info' | 'warn' | 'error', args: any[]) {
+  // Always log to local console
+  console[level](...args);
+
+  if (activeConnection) {
+    activeConnection.sendLog(level, args);
   }
 }
+
+function safeSerialize(arg: any): string {
+  if (arg === undefined) return 'undefined';
+  if (arg === null) return 'null';
+  if (typeof arg === 'function') return `[Function: ${arg.name || 'anonymous'}]`;
+  if (typeof arg === 'symbol') return String(arg);
+
+  if (arg instanceof Error) {
+    return arg.stack || arg.message || String(arg);
+  }
+
+  if (typeof arg === 'object') {
+    try {
+      const seen = new WeakSet();
+      return JSON.stringify(arg, (key, value) => {
+        if (typeof value === 'object' && value !== null) {
+          if (seen.has(value)) return '[Circular]';
+          seen.add(value);
+        }
+        return value;
+      });
+    } catch (e) {
+      return String(arg);
+    }
+  }
+
+  return String(arg);
+}
+
+
+
 
 interface AttachedTab {
   debuggee: chrome.debugger.Debuggee;
@@ -58,7 +100,7 @@ export class RelayConnection {
       try {
         message = JSON.parse(event.data);
       } catch (error: any) {
-        debugLog('Error parsing message:', error);
+        logger.debug('Error parsing message:', error);
         this._sendMessage({
           error: {
             code: -32700,
@@ -68,7 +110,7 @@ export class RelayConnection {
         return;
       }
 
-      debugLog('Received message:', message);
+      logger.debug('Received message:', message);
 
       const response: ExtensionResponseMessage = {
         id: message.id,
@@ -76,14 +118,14 @@ export class RelayConnection {
       try {
         response.result = await this._handleCommand(message);
       } catch (error: any) {
-        debugLog('Error handling command:', error);
+        logger.debug('Error handling command:', error);
         response.error = error.message;
       }
-      debugLog('Sending response:', response);
+      logger.debug('Sending response:', response);
       this._sendMessage(response);
     };
     this._ws.onclose = (event: CloseEvent) => {
-      debugLog('WebSocket onclose event:', {
+      logger.debug('WebSocket onclose event:', {
         code: event.code,
         reason: event.reason,
         wasClean: event.wasClean
@@ -91,33 +133,44 @@ export class RelayConnection {
       this._onClose(event.reason, event.code);
     };
     this._ws.onerror = (event: Event) => {
-      debugLog('WebSocket onerror event:', event);
+      logger.debug('WebSocket onerror event:', event);
     };
     chrome.debugger.onEvent.addListener(this._onDebuggerEvent);
     chrome.debugger.onDetach.addListener(this._onDebuggerDetach);
-    debugLog('RelayConnection created, WebSocket readyState:', this._ws.readyState);
+    logger.debug('RelayConnection created, WebSocket readyState:', this._ws.readyState);
+    activeConnection = this;
+  }
+
+  sendLog(level: string, args: any[]) {
+    this._sendMessage({
+      method: 'log',
+      params: {
+        level,
+        args: args.map(arg => safeSerialize(arg))
+      }
+    });
   }
 
   async attachTab(tabId: number): Promise<Protocol.Target.TargetInfo> {
     const debuggee = { tabId };
 
-    debugLog('Attaching debugger to tab:', tabId, 'WebSocket state:', this._ws.readyState);
+    logger.debug('Attaching debugger to tab:', tabId, 'WebSocket state:', this._ws.readyState);
 
     try {
       await chrome.debugger.attach(debuggee, '1.3');
-      debugLog('Debugger attached successfully to tab:', tabId);
+      logger.debug('Debugger attached successfully to tab:', tabId);
     } catch (error: any) {
-      debugLog('ERROR attaching debugger to tab:', tabId, error);
+      logger.debug('ERROR attaching debugger to tab:', tabId, error);
       throw error;
     }
 
-    debugLog('Sending Target.getTargetInfo command for tab:', tabId);
+    logger.debug('Sending Target.getTargetInfo command for tab:', tabId);
     const result = await chrome.debugger.sendCommand(
       debuggee,
       'Target.getTargetInfo'
     ) as Protocol.Target.GetTargetInfoResponse;
 
-    debugLog('Received targetInfo for tab:', tabId, result.targetInfo);
+    logger.debug('Received targetInfo for tab:', tabId, result.targetInfo);
 
     const targetInfo = result.targetInfo;
     const sessionId = `pw-tab-${this._nextSessionId++}`;
@@ -130,7 +183,7 @@ export class RelayConnection {
       executionContexts: new Map()
     });
 
-    debugLog('Sending Target.attachedToTarget event, WebSocket state:', this._ws.readyState);
+    logger.debug('Sending Target.attachedToTarget event, WebSocket state:', this._ws.readyState);
     this._sendMessage({
       method: 'forwardCDPEvent',
       params: {
@@ -146,7 +199,7 @@ export class RelayConnection {
       }
     });
 
-    debugLog('Tab attached successfully:', tabId, 'sessionId:', sessionId, 'targetId:', targetInfo.targetId);
+    logger.debug('Tab attached successfully:', tabId, 'sessionId:', sessionId, 'targetId:', targetInfo.targetId);
     return targetInfo;
   }
 
@@ -157,11 +210,11 @@ export class RelayConnection {
   private _cleanupTab(tabId: number, shouldDetachDebugger: boolean): void {
     const tab = this._attachedTabs.get(tabId);
     if (!tab) {
-      debugLog('cleanupTab: tab not found in map:', tabId);
+      logger.debug('cleanupTab: tab not found in map:', tabId);
       return;
     }
 
-    debugLog('Cleaning up tab:', tabId, 'sessionId:', tab.sessionId, 'shouldDetach:', shouldDetachDebugger);
+    logger.debug('Cleaning up tab:', tabId, 'sessionId:', tab.sessionId, 'shouldDetach:', shouldDetachDebugger);
 
     this._sendMessage({
       method: 'forwardCDPEvent',
@@ -175,32 +228,32 @@ export class RelayConnection {
     });
 
     this._attachedTabs.delete(tabId);
-    debugLog('Removed tab from _attachedTabs map. Remaining tabs:', this._attachedTabs.size);
+    logger.debug('Removed tab from _attachedTabs map. Remaining tabs:', this._attachedTabs.size);
 
     if (shouldDetachDebugger) {
       chrome.debugger.detach(tab.debuggee)
         .then(() => {
-          debugLog('Successfully detached debugger from tab:', tabId);
+          logger.debug('Successfully detached debugger from tab:', tabId);
         })
         .catch((err) => {
-          debugLog('Error detaching debugger from tab:', tabId, err.message);
+          logger.debug('Error detaching debugger from tab:', tabId, err.message);
         });
     }
   }
 
   close(message: string): void {
-    debugLog('Closing RelayConnection, reason:', message, 'current state:', this._ws.readyState);
+    logger.debug('Closing RelayConnection, reason:', message, 'current state:', this._ws.readyState);
     this._ws.close(1000, message);
     this._onClose(message, 1000);
   }
 
   private _onClose(reason: string = 'Unknown', code: number = 1000) {
     if (this._closed) {
-      debugLog('_onClose called but already closed');
+      logger.debug('_onClose called but already closed');
       return;
     }
 
-    debugLog('Connection closing, attached tabs count:', this._attachedTabs.size);
+    logger.debug('Connection closing, attached tabs count:', this._attachedTabs.size);
     this._closed = true;
 
 
@@ -208,23 +261,26 @@ export class RelayConnection {
     chrome.debugger.onDetach.removeListener(this._onDebuggerDetach);
 
     const tabIds = Array.from(this._attachedTabs.keys());
-    debugLog('Detaching all tabs:', tabIds);
+    logger.debug('Detaching all tabs:', tabIds);
 
     for (const [tabId, tab] of this._attachedTabs) {
-      debugLog('Detaching debugger from tab:', tabId);
+      logger.debug('Detaching debugger from tab:', tabId);
       chrome.debugger.detach(tab.debuggee)
         .then(() => {
-          debugLog('Successfully detached from tab:', tabId);
+          logger.debug('Successfully detached from tab:', tabId);
         })
         .catch((err) => {
-          debugLog('Error detaching from tab:', tabId, err.message);
+          logger.debug('Error detaching from tab:', tabId, err.message);
         });
     }
 
     this._attachedTabs.clear();
-    debugLog('All tabs cleared from map. Chrome automation bar should disappear in a few seconds.');
+    logger.debug('All tabs cleared from map. Chrome automation bar should disappear in a few seconds.');
 
-    debugLog('Connection closed, calling onClose callback');
+    logger.debug('Connection closed, calling onClose callback');
+    if (activeConnection === this) {
+      activeConnection = undefined;
+    }
     this._onCloseCallback?.(reason, code);
   }
 
@@ -238,17 +294,17 @@ export class RelayConnection {
     if (method === 'Runtime.executionContextCreated') {
       const contextEvent = params as Protocol.Runtime.ExecutionContextCreatedEvent;
       tab.executionContexts.set(contextEvent.context.id, contextEvent);
-      debugLog('Cached execution context:', contextEvent.context.id, 'for tab:', source.tabId, 'total contexts:', tab.executionContexts.size);
+      logger.debug('Cached execution context:', contextEvent.context.id, 'for tab:', source.tabId, 'total contexts:', tab.executionContexts.size);
     } else if (method === 'Runtime.executionContextDestroyed') {
       const destroyedEvent = params as Protocol.Runtime.ExecutionContextDestroyedEvent;
       tab.executionContexts.delete(destroyedEvent.executionContextId);
-      debugLog('Removed execution context:', destroyedEvent.executionContextId, 'from tab:', source.tabId, 'remaining:', tab.executionContexts.size);
+      logger.debug('Removed execution context:', destroyedEvent.executionContextId, 'from tab:', source.tabId, 'remaining:', tab.executionContexts.size);
     } else if (method === 'Runtime.executionContextsCleared') {
       tab.executionContexts.clear();
-      debugLog('Cleared all execution contexts for tab:', source.tabId);
+      logger.debug('Cleared all execution contexts for tab:', source.tabId);
     }
 
-    debugLog('Forwarding CDP event:', method, 'from tab:', source.tabId);
+    logger.debug('Forwarding CDP event:', method, 'from tab:', source.tabId);
 
     this._sendMessage({
       method: 'forwardCDPEvent',
@@ -262,15 +318,15 @@ export class RelayConnection {
 
   private _onDebuggerDetach = (source: chrome.debugger.Debuggee, reason: `${chrome.debugger.DetachReason}`): void => {
     const tabId = source.tabId;
-    debugLog('_onDebuggerDetach called for tab:', tabId, 'reason:', reason, 'isAttached:', tabId ? this._attachedTabs.has(tabId) : false);
+    logger.debug('_onDebuggerDetach called for tab:', tabId, 'reason:', reason, 'isAttached:', tabId ? this._attachedTabs.has(tabId) : false);
 
     if (!tabId || !this._attachedTabs.has(tabId)) {
-      debugLog('Ignoring debugger detach event for untracked tab:', tabId);
+      logger.debug('Ignoring debugger detach event for untracked tab:', tabId);
       return;
     }
 
-    debugLog(`Manual debugger detachment detected for tab ${tabId}: ${reason}`);
-    debugLog('User closed debugger via Chrome automation bar, calling onTabDetached callback');
+    logger.debug(`Manual debugger detachment detected for tab ${tabId}: ${reason}`);
+    logger.debug('User closed debugger via Chrome automation bar, calling onTabDetached callback');
     this._onTabDetachedCallback?.(tabId, reason);
 
     this._cleanupTab(tabId, false);
@@ -286,14 +342,14 @@ export class RelayConnection {
 
       if (msg.params.method === 'Target.createTarget') {
         const url = msg.params.params?.url || 'about:blank';
-        debugLog('Creating new tab with URL:', url);
+        logger.debug('Creating new tab with URL:', url);
 
         const tab = await chrome.tabs.create({ url, active: false });
         if (!tab.id) {
           throw new Error('Failed to create tab');
         }
 
-        debugLog('Created tab:', tab.id, 'waiting for it to load...');
+        logger.debug('Created tab:', tab.id, 'waiting for it to load...');
 
         // Wait a bit for tab to initialize
         await new Promise(resolve => setTimeout(resolve, 100));
@@ -305,17 +361,17 @@ export class RelayConnection {
       }
 
       if (msg.params.method === 'Target.closeTarget'  && msg.params.params?.targetId) {
-        debugLog('Closing target:', msg.params.params.targetId);
+        logger.debug('Closing target:', msg.params.params.targetId);
 
         for (const [tabId, tab] of this._attachedTabs) {
           if (tab.targetId === msg.params.params.targetId) {
-            debugLog('Found tab to close:', tabId);
+            logger.debug('Found tab to close:', tabId);
             await chrome.tabs.remove(tabId);
             return { success: true };
           }
         }
 
-        debugLog('Target not found:', msg.params.params.targetId);
+        logger.debug('Target not found:', msg.params.params.targetId);
         throw new Error(`Target not found: ${msg.params.params.targetId}`);
       }
 
@@ -338,7 +394,7 @@ export class RelayConnection {
         }
       }
 
-      debugLog('CDP command:', msg.params.method, 'for tab:', targetTab.debuggee.tabId);
+      logger.debug('CDP command:', msg.params.method, 'for tab:', targetTab.debuggee.tabId);
 
       const debuggerSession: chrome.debugger.DebuggerSession = {
         ...targetTab.debuggee,
@@ -356,10 +412,10 @@ export class RelayConnection {
       // This causes page.evaluate() to hang because Playwright has no execution context IDs.
       // Solution: manually replay all cached contexts so Playwright gets fresh, valid IDs.
       if (msg.params.method === 'Runtime.enable' && targetTab.executionContexts.size > 0) {
-        debugLog('Runtime.enable called, replaying', targetTab.executionContexts.size, 'cached execution contexts for tab:', targetTab.debuggee.tabId);
+        logger.debug('Runtime.enable called, replaying', targetTab.executionContexts.size, 'cached execution contexts for tab:', targetTab.debuggee.tabId);
 
         for (const contextEvent of targetTab.executionContexts.values()) {
-          debugLog('Replaying execution context:', contextEvent.context.id);
+          logger.debug('Replaying execution context:', contextEvent.context.id);
           this._sendMessage({
             method: 'forwardCDPEvent',
             params: {
@@ -379,12 +435,12 @@ export class RelayConnection {
     if (this._ws.readyState === WebSocket.OPEN) {
       try {
         this._ws.send(JSON.stringify(message));
-        debugLog('Message sent successfully, type:', message.method || 'response');
+        // logger.debug('Message sent successfully, type:', message.method || 'response');
       } catch (error: any) {
-        debugLog('ERROR sending message:', error, 'message type:', message.method || 'response');
+        logger.debug('ERROR sending message:', error, 'message type:', message.method || 'response');
       }
     } else {
-      debugLog('Cannot send message, WebSocket not open. State:', this._ws.readyState, 'message type:', message.method || 'response');
+      logger.debug('Cannot send message, WebSocket not open. State:', this._ws.readyState, 'message type:', message.method || 'response');
     }
   }
 }

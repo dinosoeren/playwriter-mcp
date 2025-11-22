@@ -379,6 +379,11 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
           } else {
             pending.resolve(message.result)
           }
+        } else if (message.method === 'log') {
+          const { level, args } = message.params
+          const logFn = (logger as any)[level] || logger.log
+          const prefix = chalk.yellow(`[Extension] [${level.toUpperCase()}]`)
+          logFn(prefix, ...args)
         } else {
           const extensionEvent = message as ExtensionEventMessage
 
