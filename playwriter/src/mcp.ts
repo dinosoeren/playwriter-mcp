@@ -84,7 +84,7 @@ const NO_TABS_ERROR = `No browser tabs are connected. Please install and enable 
 async function isPortTaken(port: number): Promise<boolean> {
   try {
     const response = await fetch(`http://localhost:${port}/`, {
-      signal: AbortSignal.timeout(500)
+      signal: AbortSignal.timeout(100)
     })
     return response.ok
   } catch {
