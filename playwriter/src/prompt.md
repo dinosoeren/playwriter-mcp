@@ -44,6 +44,8 @@ state.localhostPage = pages[0];
 await state.localhostPage.bringToFront();
 ```
 
+IMPORTANT! never call bringToFront unless specifically asked by the user. It is very bothering to the user otherwise!
+
 ## rules
 
 - only call `page.close()` if the user asks you so or if you previously created this page yourself with `newPage`. do not close user created pages unless asked
