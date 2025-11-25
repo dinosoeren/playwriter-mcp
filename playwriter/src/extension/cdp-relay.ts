@@ -137,7 +137,7 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
     }
   }
 
-  async function sendToExtension({ method, params }: { method: string; params?: any }) {
+  async function sendToExtension({ method, params, timeout = 30000 }: { method: string; params?: any; timeout?: number }) {
     if (!extensionWs) {
       throw new Error('Extension not connected')
     }
@@ -148,7 +148,21 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
     extensionWs.send(JSON.stringify(message))
 
     return new Promise((resolve, reject) => {
-      extensionPendingRequests.set(id, { resolve, reject })
+      const timeoutId = setTimeout(() => {
+        extensionPendingRequests.delete(id)
+        reject(new Error(`Extension request timeout after ${timeout}ms: ${method}`))
+      }, timeout)
+
+      extensionPendingRequests.set(id, {
+        resolve: (result) => {
+          clearTimeout(timeoutId)
+          resolve(result)
+        },
+        reject: (error) => {
+          clearTimeout(timeoutId)
+          reject(error)
+        }
+      })
     })
   }
 
