@@ -271,9 +271,9 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
   app.post('/mcp-log', async (c) => {
     try {
       const { level, args } = await c.req.json()
-      const logFn = (logger as any)[level] || logger?.log
+      const logFn = (logger as any)?.[level] || logger?.log
       const prefix = chalk.red(`[MCP] [${level.toUpperCase()}]`)
-      logFn(prefix, ...args)
+      logFn?.(prefix, ...args)
       return c.json({ ok: true })
     } catch {
       return c.json({ ok: false }, 400)
@@ -449,9 +449,9 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
           }
         } else if (message.method === 'log') {
           const { level, args } = message.params
-          const logFn = (logger as any)[level] || logger?.log
+          const logFn = (logger as any)?.[level] || logger?.log
           const prefix = chalk.yellow(`[Extension] [${level.toUpperCase()}]`)
-          logFn(prefix, ...args)
+          logFn?.(prefix, ...args)
         } else {
           const extensionEvent = message as ExtensionEventMessage
 

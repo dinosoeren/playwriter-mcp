@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.15
+
+### Patch Changes
+
+- **Fixed logger safety**: Added optional chaining to logger calls in CDP relay to prevent errors when logger methods are undefined
+
 ## 0.0.14
 
 ### Patch Changes
