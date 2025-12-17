@@ -486,20 +486,19 @@ server.tool(
           throw new Error('getLocatorStringForElement: argument must be a Playwright Locator or ElementHandle')
         }
 
-        return await element.evaluate(async (el: any) => {
-          const WIN = globalThis as any
-          if (!WIN.__selectorGenerator) {
-            const module: SelectorGenerator = await import(
-              // @ts-ignore
-              'https://unpkg.com/@mizchi/selector-generator@1.50.0-next/dist/index.js'
-            )
-            WIN.__selectorGenerator = {
-              createSelectorGenerator: module.createSelectorGenerator,
-              toLocator: module.toLocator,
-            }
-          }
-          const { createSelectorGenerator, toLocator } = WIN.__selectorGenerator as SelectorGenerator
-          const generator = createSelectorGenerator(WIN)
+        const elementPage = element.page ? element.page() : page
+        const hasGenerator = await elementPage.evaluate(() => !!(globalThis as any).__selectorGenerator)
+
+        if (!hasGenerator) {
+          const currentDir = path.dirname(fileURLToPath(import.meta.url))
+          const scriptPath = path.join(currentDir, '..', 'dist', 'selector-generator.js')
+          const scriptContent = fs.readFileSync(scriptPath, 'utf-8')
+          await elementPage.addScriptTag({ content: scriptContent })
+        }
+
+        return await element.evaluate((el: any) => {
+          const { createSelectorGenerator, toLocator } = (globalThis as any).__selectorGenerator
+          const generator = createSelectorGenerator(globalThis)
           const result = generator(el)
           return toLocator(result.selector, 'javascript')
         })

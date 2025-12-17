@@ -175,6 +175,37 @@ describe('MCP Server Tests', () => {
         return testCtx.browserContext
     }
 
+    it('should inject script via addScriptTag through CDP relay', async () => {
+        const browserContext = getBrowserContext()
+        const serviceWorker = await getExtensionServiceWorker(browserContext)
+
+        const page = await browserContext.newPage()
+        await page.setContent('<html><body><button id="btn">Click</button></body></html>')
+        await page.bringToFront()
+
+        await serviceWorker.evaluate(async () => {
+            await globalThis.toggleExtensionForActiveTab()
+        })
+        await new Promise(r => setTimeout(r, 500))
+
+        const browser = await chromium.connectOverCDP(getCdpUrl())
+        const cdpPage = browser.contexts()[0].pages().find(p => {
+            return p.url().startsWith('about:')
+        })
+        expect(cdpPage).toBeDefined()
+
+        const hasGlobalBefore = await cdpPage!.evaluate(() => !!(globalThis as any).__testGlobal)
+        expect(hasGlobalBefore).toBe(false)
+
+        await cdpPage!.addScriptTag({ content: 'globalThis.__testGlobal = { foo: "bar" };' })
+
+        const hasGlobalAfter = await cdpPage!.evaluate(() => (globalThis as any).__testGlobal)
+        expect(hasGlobalAfter).toEqual({ foo: 'bar' })
+
+        await browser.close()
+        await page.close()
+    }, 60000)
+
     it('should execute code and capture console output', async () => {
         await client.callTool({
             name: 'execute',
@@ -1331,6 +1362,60 @@ describe('MCP Server Tests', () => {
         await page.close()
     }, 60000)
 
+    it('should get locator string for element using getLocatorStringForElement', async () => {
+        const browserContext = getBrowserContext()
+        const serviceWorker = await getExtensionServiceWorker(browserContext)
+
+        const page = await browserContext.newPage()
+        await page.setContent(`
+            <html>
+                <body>
+                    <button id="test-btn">Click Me</button>
+                    <input type="text" placeholder="Enter name" />
+                </body>
+            </html>
+        `)
+        await page.bringToFront()
+
+        await serviceWorker.evaluate(async () => {
+            await globalThis.toggleExtensionForActiveTab()
+        })
+
+        await new Promise(r => setTimeout(r, 500))
+
+        const result = await client.callTool({
+            name: 'execute',
+            arguments: {
+                code: js`
+                    let testPage;
+                    for (const p of context.pages()) {
+                        const html = await p.content();
+                        if (html.includes('test-btn')) { testPage = p; break; }
+                    }
+                    if (!testPage) throw new Error('Test page not found');
+                    const btn = testPage.locator('#test-btn');
+                    const locatorString = await getLocatorStringForElement(btn);
+                    console.log('Locator string:', locatorString);
+                    const locatorFromString = eval('testPage.' + locatorString);
+                    const count = await locatorFromString.count();
+                    console.log('Locator count:', count);
+                    const text = await locatorFromString.textContent();
+                    console.log('Locator text:', text);
+                `,
+                timeout: 30000,
+            },
+        })
+
+        expect(result.isError).toBeFalsy()
+        const text = (result.content as any)[0]?.text || ''
+        expect(text).toContain('Locator string:')
+        expect(text).toContain("getByRole('button', { name: 'Click Me' })")
+        expect(text).toContain('Locator count: 1')
+        expect(text).toContain('Locator text: Click Me')
+
+        await page.close()
+    }, 60000)
+
     it('should return correct layout metrics via CDP', async () => {
         const browserContext = getBrowserContext()
         const serviceWorker = await getExtensionServiceWorker(browserContext)
@@ -1711,7 +1796,7 @@ describe('CDP Session Tests', () => {
             sampleFunctionNames: functionNames,
         }).toMatchInlineSnapshot(`
           {
-            "durationMicroseconds": 6486,
+            "durationMicroseconds": 6205,
             "hasNodes": true,
             "nodeCount": 3,
             "sampleFunctionNames": [

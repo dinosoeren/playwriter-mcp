@@ -126,14 +126,24 @@ Then you can use `page.locator(`aria-ref=${ref}`)` to get an element with a spec
 
 IMPORTANT: notice that we do not add any quotes in `aria-ref`! it MUST be called without quotes
 
-## getting selector for a locator identified by snapshot aria-ref
+## getting a stable selector for an element (getLocatorStringForElement)
 
-in some cases you want to get a selector for a locator you just identified using `const element = page.locator('aria-ref=${ref}')`. To do so you can use `await getLocatorStringForElement(element)`. This is useful if you need to find other elements of the same type in a list for example. If you know the selector you can usually change a bit the selector to find the other elements of the same type in the list or table
+The `aria-ref` values from accessibility snapshots are ephemeral - they change on page reload and when components remount. Use `getLocatorStringForElement(element)` to get a stable Playwright locator string that you can reuse programmatically.
+
+This is useful for:
+- Getting a selector you can store and reuse across page reloads
+- Finding similar elements in a list (modify the selector pattern)
+- Debugging which selector Playwright would use for an element
 
 ```js
-const loc = page.locator('aria-ref=123');
-console.log(await getLocatorStringForElement(loc)); 
-// => "getByRole('button', { name: 'Save' })" or similar
+const loc = page.locator('aria-ref=e14');
+const selector = await getLocatorStringForElement(loc);
+console.log(selector);
+// => "getByRole('button', { name: 'Save' })"
+
+// use the selector programmatically with eval:
+const stableLocator = page.getByRole('button', { name: 'Save' })
+await stableLocator.click();
 ```
 
 ## finding specific elements with snapshot
