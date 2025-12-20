@@ -369,7 +369,7 @@ const server = new McpServer({
 
 const promptContent =
   fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'prompt.md'), 'utf-8') +
-  `\n\nfor debugging errors, check relay server logs at: ${LOG_FILE_PATH}`
+  `\n\nfor debugging errors, check playwriter relay server logs at: ${LOG_FILE_PATH}`
 
 server.tool(
   'execute',
