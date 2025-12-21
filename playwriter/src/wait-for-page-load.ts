@@ -1,4 +1,5 @@
 import type { Page } from 'playwright-core'
+import { sleep } from './utils.js'
 
 const FILTERED_DOMAINS = [
   'doubleclick',
@@ -130,7 +131,7 @@ export async function waitForPageLoad(options: WaitForPageLoadOptions): Promise<
     return result
   }
 
-  await new Promise((resolve) => setTimeout(resolve, minWait))
+  await sleep(minWait)
 
   while (Date.now() - startTime < timeout) {
     try {
@@ -158,7 +159,7 @@ export async function waitForPageLoad(options: WaitForPageLoadOptions): Promise<
       }
     }
 
-    await new Promise((resolve) => setTimeout(resolve, pollInterval))
+    await sleep(pollInterval)
   }
 
   timedOut = true

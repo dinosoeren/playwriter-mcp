@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import dedent from 'string-dedent'
 import { createPatch } from 'diff'
-import { getCdpUrl, LOG_FILE_PATH, VERSION } from './utils.js'
+import { getCdpUrl, LOG_FILE_PATH, VERSION, sleep } from './utils.js'
 import { killPortProcess } from 'kill-port-process'
 import { waitForPageLoad, WaitForPageLoadOptions, WaitForPageLoadResult } from './wait-for-page-load.js'
 import { getCDPSessionForPage, CDPSession } from './cdp-session.js'
@@ -111,12 +111,6 @@ async function setDeviceScaleFactorForMacOS(context: BrowserContext): Promise<vo
     return
   }
   options.deviceScaleFactor = 2
-  // for (const page of context.pages()) {
-  //   const delegate = (page as any)._delegate
-  //   if (delegate?.updateEmulatedViewportSize) {
-  //     await delegate.updateEmulatedViewportSize().catch(() => {})
-  //   }
-  // }
 }
 
 async function preserveSystemColorScheme(context: BrowserContext): Promise<void> {
@@ -127,11 +121,6 @@ async function preserveSystemColorScheme(context: BrowserContext): Promise<void>
   options.colorScheme = 'no-override'
   options.reducedMotion = 'no-override'
   options.forcedColors = 'no-override'
-  // await Promise.all(
-  //   context.pages().map((page) => {
-  //     return page.emulateMedia({ colorScheme: null, reducedMotion: null, forcedColors: null }).catch(() => {})
-  //   }),
-  // )
 }
 
 function isRegExp(value: any): value is RegExp {
@@ -182,7 +171,7 @@ async function getServerVersion(port: number): Promise<string | null> {
 async function killRelayServer(port: number): Promise<void> {
   try {
     await killPortProcess(port)
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    await sleep(500)
   } catch {}
 }
 
@@ -210,11 +199,11 @@ async function ensureRelayServer(): Promise<void> {
   serverProcess.unref()
 
   for (let i = 0; i < 10; i++) {
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    await sleep(500)
     const newVersion = await getServerVersion(RELAY_PORT)
     if (newVersion === VERSION) {
       console.error('CDP relay server started successfully, waiting for extension to connect...')
-      await new Promise((resolve) => setTimeout(resolve, 3000))
+      await sleep(1000)
       return
     }
   }
@@ -249,6 +238,10 @@ async function ensureConnection(): Promise<{ browser: Browser; page: Page }> {
   // Set up console listener for all existing pages
   context.pages().forEach((p) => setupPageConsoleListener(p))
 
+  // These functions only set context-level options, they do NOT send CDP commands to pages.
+  // Sending CDP commands (like Emulation.setEmulatedMedia or setDeviceMetricsOverride) to pages
+  // immediately after connectOverCDP causes pages to render white/blank with about:blank URLs,
+  // because pages may not be fully initialized yet. Playwright applies these settings lazily.
   await preserveSystemColorScheme(context)
   await setDeviceScaleFactorForMacOS(context)
 

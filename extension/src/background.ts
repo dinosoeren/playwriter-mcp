@@ -5,6 +5,10 @@ import type { ExtensionCommandMessage, ExtensionResponseMessage } from 'playwrit
 
 const RELAY_URL = 'ws://localhost:19988/extension'
 
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 let ws: WebSocket | null = null
 let childSessions: Map<string, number> = new Map()
 let nextSessionId = 1
@@ -224,7 +228,7 @@ async function handleCommand(msg: ExtensionCommandMessage): Promise<any> {
       }
       try {
         await chrome.debugger.sendCommand(debuggee, 'Runtime.disable')
-        await new Promise((resolve) => setTimeout(resolve, 200))
+        await sleep(200)
       } catch (e) {
         logger.debug('Error disabling Runtime (ignoring):', e)
       }
@@ -237,7 +241,7 @@ async function handleCommand(msg: ExtensionCommandMessage): Promise<any> {
       const tab = await chrome.tabs.create({ url, active: false })
       if (!tab.id) throw new Error('Failed to create tab')
       logger.debug('Created tab:', tab.id, 'waiting for it to load...')
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      await sleep(100)
       const targetInfo = await attachTab(tab.id)
       return { targetId: targetInfo.targetId } satisfies Protocol.Target.CreateTargetResponse
     }
@@ -350,7 +354,7 @@ async function attachTab(tabId: number): Promise<Protocol.Target.TargetInfo> {
   await chrome.debugger.attach(debuggee, '1.3')
   logger.debug('Debugger attached successfully to tab:', tabId)
 
-  await new Promise((resolve) => setTimeout(resolve, 400))
+  await sleep(400)
 
   const result = (await chrome.debugger.sendCommand(
     debuggee,
@@ -495,7 +499,7 @@ async function ensureConnection(): Promise<void> {
       break
     } catch {
       logger.debug('Server not available, retrying in 1 second...')
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await sleep(1000)
     }
   }
 
