@@ -11,7 +11,8 @@ import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import dedent from 'string-dedent'
 import { createPatch } from 'diff'
-import { getCdpUrl, LOG_FILE_PATH } from './utils.js'
+import { getCdpUrl, LOG_FILE_PATH, VERSION } from './utils.js'
+import { killPortProcess } from 'kill-port-process'
 import { waitForPageLoad, WaitForPageLoadOptions, WaitForPageLoadResult } from './wait-for-page-load.js'
 import { getCDPSessionForPage, CDPSession } from './cdp-session.js'
 
@@ -152,7 +153,7 @@ function clearConnectionState() {
 
 async function sendLogToRelayServer(level: string, ...args: any[]) {
   try {
-    await fetch(`http://localhost:${RELAY_PORT}/mcp-log`, {
+    await fetch(`http://127.0.0.1:${RELAY_PORT}/mcp-log`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ level, args }),
@@ -163,25 +164,41 @@ async function sendLogToRelayServer(level: string, ...args: any[]) {
   }
 }
 
-async function isPortTaken(port: number): Promise<boolean> {
+async function getServerVersion(port: number): Promise<string | null> {
   try {
-    const response = await fetch(`http://localhost:${port}/`, {
-      signal: AbortSignal.timeout(100),
+    const response = await fetch(`http://127.0.0.1:${port}/version`, {
+      signal: AbortSignal.timeout(500),
     })
-    return response.ok
-  } catch {
-    return false
+    if (!response.ok) {
+      return null
+    }
+    const data = (await response.json()) as { version: string }
+    return data.version
+  } catch (error) {
+    return null
   }
 }
 
-async function ensureRelayServer(): Promise<void> {
-  const portTaken = await isPortTaken(RELAY_PORT)
+async function killRelayServer(port: number): Promise<void> {
+  try {
+    await killPortProcess(port)
+    await new Promise((resolve) => setTimeout(resolve, 500))
+  } catch {}
+}
 
-  if (portTaken) {
+async function ensureRelayServer(): Promise<void> {
+  const serverVersion = await getServerVersion(RELAY_PORT)
+
+  if (serverVersion === VERSION) {
     return
   }
 
-  console.error('CDP relay server not running, starting it...')
+  if (serverVersion !== null) {
+    console.error(`CDP relay server version mismatch (server: ${serverVersion}, mcp: ${VERSION}), restarting...`)
+    await killRelayServer(RELAY_PORT)
+  } else {
+    console.error('CDP relay server not running, starting it...')
+  }
 
   const scriptPath = require.resolve('../dist/start-relay-server.js')
 
@@ -194,8 +211,8 @@ async function ensureRelayServer(): Promise<void> {
 
   for (let i = 0; i < 10; i++) {
     await new Promise((resolve) => setTimeout(resolve, 500))
-    const isRunning = await isPortTaken(RELAY_PORT)
-    if (isRunning) {
+    const newVersion = await getServerVersion(RELAY_PORT)
+    if (newVersion === VERSION) {
       console.error('CDP relay server started successfully')
       return
     }
@@ -622,9 +639,7 @@ server.tool(
           timeout,
           displayErrors: true,
         }),
-        new Promise((_, reject) =>
-          setTimeout(() => reject(new CodeExecutionTimeoutError(timeout)), timeout),
-        ),
+        new Promise((_, reject) => setTimeout(() => reject(new CodeExecutionTimeoutError(timeout)), timeout)),
       ])
 
       let responseText = formatConsoleLogs(consoleLogs)

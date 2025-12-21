@@ -14,6 +14,7 @@ import { getCDPSessionForPage } from './cdp-session.js'
 import { startPlayWriterCDPRelayServer, type RelayServer } from './extension/cdp-relay.js'
 import { createFileLogger } from './create-logger.js'
 import type { CDPCommand } from './cdp-types.js'
+import { killPortProcess } from 'kill-port-process'
 
 declare const window: any
 declare const document: any
@@ -51,15 +52,10 @@ function js(strings: TemplateStringsArray, ...values: any[]): string {
 
 async function killProcessOnPort(port: number): Promise<void> {
     try {
-        const { stdout } = await execAsync(`lsof -ti:${port}`)
-        const pids = stdout.trim().split('\n').filter(Boolean)
-        if (pids.length > 0) {
-            await execAsync(`kill -9 ${pids.join(' ')}`)
-            console.log(`Killed processes ${pids.join(', ')} on port ${port}`)
-            await new Promise((resolve) => setTimeout(resolve, 1000))
-        }
-    } catch (error) {
-        // No process running on port or already killed
+        await killPortProcess(port)
+        console.log(`Killed processes on port ${port}`)
+    } catch (err) {
+        console.error('Error killing process on port:', err)
     }
 }
 
@@ -1635,7 +1631,7 @@ describe('MCP Server Tests', () => {
 
         const wsUrl = getCdpUrl()
         const client = await getCDPSessionForPage({ page: cdpPage!, wsUrl })
-        
+
         const layoutMetrics = await client.send('Page.getLayoutMetrics')
         expect(layoutMetrics.cssVisualViewport).toBeDefined()
         expect(layoutMetrics.cssVisualViewport.clientWidth).toBeGreaterThan(0)
@@ -1968,14 +1964,20 @@ describe('CDP Session Tests', () => {
             sampleFunctionNames: functionNames,
         }).toMatchInlineSnapshot(`
           {
-            "durationMicroseconds": 15772,
+            "durationMicroseconds": 7398,
             "hasNodes": true,
-            "nodeCount": 7,
+            "nodeCount": 21,
             "sampleFunctionNames": [
               "(root)",
               "(program)",
               "(idle)",
               "evaluate",
+              "fibonacci",
+              "fibonacci",
+              "fibonacci",
+              "fibonacci",
+              "fibonacci",
+              "fibonacci",
             ],
           }
         `)

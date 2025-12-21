@@ -9,33 +9,12 @@ export type Logger = {
   logFilePath: string
 }
 
-function cleanupOldLogs(logsDir: string): void {
-  if (!fs.existsSync(logsDir)) {
-    return
-  }
-  const files = fs.readdirSync(logsDir)
-    .filter((f) => f.startsWith('relay-server-') && f.endsWith('.log'))
-    .map((f) => ({
-      name: f,
-      path: path.join(logsDir, f),
-      mtime: fs.statSync(path.join(logsDir, f)).mtime.getTime(),
-    }))
-    .sort((a, b) => b.mtime - a.mtime)
-  
-  if (files.length > 10) {
-    files.slice(10).forEach((f) => {
-      fs.unlinkSync(f.path)
-    })
-  }
-}
-
 export function createFileLogger({ logFilePath }: { logFilePath?: string } = {}): Logger {
   const resolvedLogFilePath = logFilePath || LOG_FILE_PATH
   const logDir = path.dirname(resolvedLogFilePath)
   if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir, { recursive: true })
   }
-  cleanupOldLogs(logDir)
   fs.writeFileSync(resolvedLogFilePath, '')
 
   let queue: Promise<void> = Promise.resolve()

@@ -7,6 +7,7 @@ import type { CDPCommand, CDPResponseBase, CDPEventBase, CDPEventFor, RelayServe
 import type { ExtensionMessage, ExtensionEventMessage } from './protocol.js'
 import chalk from 'chalk'
 import { EventEmitter } from 'node:events'
+import { VERSION } from '../utils.js'
 
 type ConnectedTarget = {
   sessionId: string
@@ -274,6 +275,10 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
 
   app.get('/', (c) => {
     return c.text('OK')
+  })
+
+  app.get('/version', (c) => {
+    return c.json({ version: VERSION })
   })
 
   app.post('/mcp-log', async (c) => {

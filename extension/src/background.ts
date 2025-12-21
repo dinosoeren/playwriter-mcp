@@ -328,6 +328,7 @@ function onDebuggerDetach(source: chrome.debugger.Debuggee, reason: `${chrome.de
   })
 
   if (reason === chrome.debugger.DetachReason.CANCELED_BY_USER) {
+    // Chrome's debugger info bar cancellation detaches ALL debugger sessions, not just one tab
     store.setState({ connectionState: 'disconnected', errorText: undefined })
   }
 }
@@ -451,6 +452,7 @@ function handleConnectionClose(reason: string, code: number): void {
   if (reason === 'Extension Replaced' || code === 4001) {
     logger.debug('Connection replaced by another extension instance')
     store.setState({
+      tabs: new Map(),
       connectionState: 'error',
       errorText: 'Disconnected: Replaced by another extension',
     })
