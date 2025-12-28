@@ -124,5 +124,5 @@ The `Runtime.enable` fix addresses reason #1 at the CDP level, but test waits ar
 
 ## Files Changed
 
-- `playwriter/src/extension/cdp-relay.ts` - Added event-based wait in `Runtime.enable` handler
+- `playwriter/src/cdp-relay.ts` - Added event-based wait in `Runtime.enable` handler
 - `extension/src/background.ts` - Removed arbitrary `sleep(200)` from `Runtime.enable` handler

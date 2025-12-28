@@ -3,7 +3,7 @@ declare const process: { env: { PLAYWRITER_PORT: string } }
 import { createStore } from 'zustand/vanilla'
 import type { ExtensionState, ConnectionState, TabState, TabInfo } from './types'
 import type { CDPEvent, Protocol } from 'playwriter/src/cdp-types'
-import type { ExtensionCommandMessage, ExtensionResponseMessage } from 'playwriter/src/extension/protocol'
+import type { ExtensionCommandMessage, ExtensionResponseMessage } from 'playwriter/src/protocol'
 
 const RELAY_PORT = process.env.PLAYWRITER_PORT
 const RELAY_URL = `ws://localhost:${RELAY_PORT}/extension`

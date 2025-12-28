@@ -1,4 +1,4 @@
-import { startPlayWriterCDPRelayServer } from '../src/extension/cdp-relay.js'
+import { startPlayWriterCDPRelayServer } from '../src/cdp-relay.js'
 
 async function main() {
   const server = await startPlayWriterCDPRelayServer({ port: 19988 })

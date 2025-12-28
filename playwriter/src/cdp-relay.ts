@@ -2,12 +2,12 @@ import { Hono } from 'hono'
 import { serve } from '@hono/node-server'
 import { createNodeWebSocket } from '@hono/node-ws'
 import type { WSContext } from 'hono/ws'
-import type { Protocol } from '../cdp-types.js'
-import type { CDPCommand, CDPResponseBase, CDPEventBase, CDPEventFor, RelayServerEvents } from '../cdp-types.js'
+import type { Protocol } from './cdp-types.js'
+import type { CDPCommand, CDPResponseBase, CDPEventBase, CDPEventFor, RelayServerEvents } from './cdp-types.js'
 import type { ExtensionMessage, ExtensionEventMessage } from './protocol.js'
 import chalk from 'chalk'
 import { EventEmitter } from 'node:events'
-import { VERSION } from '../utils.js'
+import { VERSION } from './utils.js'
 
 type ConnectedTarget = {
   sessionId: string

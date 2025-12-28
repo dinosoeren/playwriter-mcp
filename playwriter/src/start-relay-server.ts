@@ -1,4 +1,4 @@
-import { startPlayWriterCDPRelayServer } from './extension/cdp-relay.js'
+import { startPlayWriterCDPRelayServer } from './cdp-relay.js'
 import { createFileLogger } from './create-logger.js'
 
 process.title = 'playwriter-ws-server'

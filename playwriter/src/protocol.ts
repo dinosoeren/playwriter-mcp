@@ -1,4 +1,4 @@
-import { CDPEventFor, ProtocolMapping } from '../cdp-types.js'
+import { CDPEventFor, ProtocolMapping } from './cdp-types.js'
 
 export const VERSION = 1
 
