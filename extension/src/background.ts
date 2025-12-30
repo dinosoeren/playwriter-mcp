@@ -775,7 +775,7 @@ async function resetDebugger(): Promise<void> {
 // We can't distinguish them without the `tabs` permission, so we just let attachment fail.
 function isRestrictedUrl(url: string | undefined): boolean {
   if (!url) return false
-  const restrictedPrefixes = ['chrome://', 'chrome-extension://', 'devtools://', 'edge://']
+  const restrictedPrefixes = ['chrome://', 'chrome-extension://', 'devtools://', 'edge://', 'https://chrome.google.com/', 'https://chromewebstore.google.com/']
   return restrictedPrefixes.some((prefix) => url.startsWith(prefix))
 }
 
@@ -789,7 +789,7 @@ const icons = {
     },
     title: 'Connected - Click to disconnect',
     badgeText: '',
-    badgeColor: [0, 0, 0, 0] as [number, number, number, number],
+    badgeColor: [64, 64, 64, 255] as [number, number, number, number],
   },
   connecting: {
     path: {
@@ -800,7 +800,7 @@ const icons = {
     },
     title: 'Waiting for MCP WS server...',
     badgeText: '...',
-    badgeColor: [0, 0, 0, 0] as [number, number, number, number],
+    badgeColor: [64, 64, 64, 255] as [number, number, number, number],
   },
   disconnected: {
     path: {
@@ -811,7 +811,7 @@ const icons = {
     },
     title: 'Click to attach debugger',
     badgeText: '',
-    badgeColor: [0, 0, 0, 0] as [number, number, number, number],
+    badgeColor: [64, 64, 64, 255] as [number, number, number, number],
   },
   restricted: {
     path: {
@@ -822,7 +822,7 @@ const icons = {
     },
     title: 'Cannot attach to this page',
     badgeText: '',
-    badgeColor: [0, 0, 0, 0] as [number, number, number, number],
+    badgeColor: [64, 64, 64, 255] as [number, number, number, number],
   },
   error: {
     path: {
