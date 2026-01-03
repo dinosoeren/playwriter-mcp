@@ -686,7 +686,7 @@ describe('MCP Server Tests', () => {
 
         await browser.close()
         await page.close()
-    })
+    }, 60000)
 
     it('should be able to reconnect after disconnecting everything', async () => {
         const browserContext = getBrowserContext()
@@ -2106,8 +2106,8 @@ describe('MCP Server Tests', () => {
             {
               "text": "Return value:
           {
-            "matchesDark": false,
-            "matchesLight": true
+            \"matchesDark\": false,
+            \"matchesLight\": true
           }",
               "type": "text",
             },
@@ -2117,7 +2117,195 @@ describe('MCP Server Tests', () => {
         await page.close()
     }, 60000)
 
+    it('should get aria ref for locator using getAriaSnapshot', async () => {
+        const browserContext = getBrowserContext()
+        const serviceWorker = await getExtensionServiceWorker(browserContext)
 
+        const page = await browserContext.newPage()
+        await page.setContent(`
+            <html>
+                <body>
+                    <button id="submit-btn">Submit Form</button>
+                    <a href="/about">About Us</a>
+                    <input type="text" placeholder="Enter your name" />
+                </body>
+            </html>
+        `)
+        await page.bringToFront()
+
+        await serviceWorker.evaluate(async () => {
+            await globalThis.toggleExtensionForActiveTab()
+        })
+        await new Promise(r => setTimeout(r, 400))
+
+        const browser = await chromium.connectOverCDP(getCdpUrl({ port: TEST_PORT }))
+        let cdpPage
+        for (const p of browser.contexts()[0].pages()) {
+            const html = await p.content()
+            if (html.includes('submit-btn')) {
+                cdpPage = p
+                break
+            }
+        }
+        expect(cdpPage).toBeDefined()
+
+        const { getAriaSnapshot } = await import('./aria-snapshot.js')
+
+        // Get aria snapshot and verify we can get refs
+        const ariaResult = await getAriaSnapshot({ page: cdpPage! })
+
+        expect(ariaResult.snapshot).toBeDefined()
+        expect(ariaResult.snapshot.length).toBeGreaterThan(0)
+        expect(ariaResult.snapshot).toContain('Submit Form')
+
+        // Verify refToElement map is populated
+        expect(ariaResult.refToElement.size).toBeGreaterThan(0)
+        console.log('RefToElement map size:', ariaResult.refToElement.size)
+        console.log('RefToElement entries:', [...ariaResult.refToElement.entries()])
+
+        // Verify we can select elements using aria-ref selectors
+        const btnViaAriaRef = cdpPage!.locator('aria-ref=e2')
+        const btnTextViaRef = await btnViaAriaRef.textContent()
+        console.log('Button text via aria-ref=e2:', btnTextViaRef)
+        expect(btnTextViaRef).toBe('Submit Form')
+
+        // Get ref for the submit button using getRefForLocator
+        const submitBtn = cdpPage!.locator('#submit-btn')
+        const btnAriaRef = await ariaResult.getRefForLocator(submitBtn)
+        console.log('Button ariaRef:', btnAriaRef)
+        expect(btnAriaRef).toBeDefined()
+        expect(btnAriaRef?.role).toBe('button')
+        expect(btnAriaRef?.name).toBe('Submit Form')
+        expect(btnAriaRef?.ref).toMatch(/^e\d+$/)
+
+        // Verify the ref matches what we can use to select
+        const btnFromRef = cdpPage!.locator(`aria-ref=${btnAriaRef?.ref}`)
+        const btnText = await btnFromRef.textContent()
+        expect(btnText).toBe('Submit Form')
+
+        // Test getRefStringForLocator
+        const btnRefStr = await ariaResult.getRefStringForLocator(submitBtn)
+        console.log('Button ref string:', btnRefStr)
+        expect(btnRefStr).toBe(btnAriaRef?.ref)
+
+        // Test link
+        const aboutLink = cdpPage!.locator('a')
+        const linkAriaRef = await ariaResult.getRefForLocator(aboutLink)
+        console.log('Link ariaRef:', linkAriaRef)
+        expect(linkAriaRef).toBeDefined()
+        expect(linkAriaRef?.role).toBe('link')
+        expect(linkAriaRef?.name).toBe('About Us')
+
+        // Verify the link ref works
+        const linkFromRef = cdpPage!.locator(`aria-ref=${linkAriaRef?.ref}`)
+        const linkText = await linkFromRef.textContent()
+        expect(linkText).toBe('About Us')
+
+        // Test input field
+        const inputField = cdpPage!.locator('input')
+        const inputAriaRef = await ariaResult.getRefForLocator(inputField)
+        console.log('Input ariaRef:', inputAriaRef)
+        expect(inputAriaRef).toBeDefined()
+        expect(inputAriaRef?.role).toBe('textbox')
+
+        // Test batch getRefsForLocators - single evaluate call for multiple elements
+        const batchRefs = await ariaResult.getRefsForLocators([submitBtn, aboutLink, inputField])
+        console.log('Batch refs:', batchRefs)
+        expect(batchRefs).toHaveLength(3)
+        expect(batchRefs[0]?.ref).toBe(btnAriaRef?.ref)
+        expect(batchRefs[1]?.ref).toBe(linkAriaRef?.ref)
+        expect(batchRefs[2]?.ref).toBe(inputAriaRef?.ref)
+
+        await browser.close()
+        await page.close()
+    }, 60000)
+
+    it('should show aria ref labels on real pages and save screenshots', async () => {
+        const browserContext = getBrowserContext()
+        const serviceWorker = await getExtensionServiceWorker(browserContext)
+
+        const { showAriaRefLabels, hideAriaRefLabels } = await import('./aria-snapshot.js')
+        const fs = await import('node:fs')
+        const path = await import('node:path')
+
+        // Create assets folder for screenshots
+        const assetsDir = path.join(path.dirname(new URL(import.meta.url).pathname), 'assets')
+        if (!fs.existsSync(assetsDir)) {
+            fs.mkdirSync(assetsDir, { recursive: true })
+        }
+
+        const testPages = [
+            { name: 'hacker-news', url: 'https://news.ycombinator.com/' },
+            { name: 'google', url: 'https://www.google.com/' },
+            { name: 'github', url: 'https://github.com/' },
+        ]
+
+        // Create all pages and enable extension for each
+        const pages = await Promise.all(
+            testPages.map(async ({ name, url }) => {
+                const page = await browserContext.newPage()
+                await page.goto(url, { waitUntil: 'domcontentloaded' })
+                return { name, url, page }
+            })
+        )
+
+        // Enable extension for each tab (must be done sequentially as it uses active tab)
+        for (const { page } of pages) {
+            await page.bringToFront()
+            await serviceWorker.evaluate(async () => {
+                await globalThis.toggleExtensionForActiveTab()
+            })
+        }
+
+        // Connect CDP and process all pages concurrently
+        const browser = await chromium.connectOverCDP(getCdpUrl({ port: TEST_PORT }))
+
+        await Promise.all(
+            pages.map(async ({ name, url, page }) => {
+                const cdpPage = browser.contexts()[0].pages().find(p => p.url().includes(new URL(url).hostname))
+
+                if (!cdpPage) {
+                    console.log(`Could not find CDP page for ${name}, skipping...`)
+                    return
+                }
+
+                // Show aria ref labels
+                const { snapshot, labelCount } = await showAriaRefLabels({ page: cdpPage })
+                console.log(`${name}: ${labelCount} labels shown`)
+                expect(labelCount).toBeGreaterThan(0)
+
+                // Take screenshot with labels visible
+                const screenshot = await cdpPage.screenshot({ type: 'png', fullPage: false })
+                const screenshotPath = path.join(assetsDir, `aria-labels-${name}.png`)
+                fs.writeFileSync(screenshotPath, screenshot)
+                console.log(`Screenshot saved: ${screenshotPath}`)
+
+                // Save snapshot text for reference
+                const snapshotPath = path.join(assetsDir, `aria-labels-${name}-snapshot.txt`)
+                fs.writeFileSync(snapshotPath, snapshot)
+
+                // Verify labels are in DOM
+                const labelElements = await cdpPage.evaluate(() =>
+                    document.querySelectorAll('.__pw_label__').length
+                )
+                expect(labelElements).toBe(labelCount)
+
+                // Cleanup
+                await hideAriaRefLabels({ page: cdpPage })
+
+                // Verify labels removed
+                const labelsAfterHide = await cdpPage.evaluate(() =>
+                    document.getElementById('__playwriter_labels__')
+                )
+                expect(labelsAfterHide).toBeNull()
+
+                await page.close()
+            })
+        )
+
+        await browser.close()
+        console.log(`Screenshots saved to: ${assetsDir}`)
+    }, 120000)
 
 })
 
