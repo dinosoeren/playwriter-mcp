@@ -1,7 +1,19 @@
 import posthtml from 'posthtml'
 import beautify from 'posthtml-beautify'
 
-export async function formatHtmlForPrompt(html: string) {
+export interface FormatHtmlOptions {
+    html: string
+    keepStyles?: boolean
+    maxAttrLen?: number
+    maxContentLen?: number
+}
+
+export async function formatHtmlForPrompt({
+    html,
+    keepStyles = false,
+    maxAttrLen = 200,
+    maxContentLen = 500,
+}: FormatHtmlOptions) {
     const tagsToRemove = [
         'hint',
         'style',
@@ -11,12 +23,9 @@ export async function formatHtmlForPrompt(html: string) {
         'noscript',
         'svg',
         'head',
-        // 'head',
     ]
+
     const attributesToKeep = [
-        'data-framer-name',
-        // 'class',
-        // 'id',
         'label',
         'title',
         'alt',
@@ -27,11 +36,23 @@ export async function formatHtmlForPrompt(html: string) {
         'placeholder',
         'type',
         'role',
-        // 'src',
         'target',
-        'data-llm-id',
         'vimium-label',
+        // Test IDs (data-testid, data-test, data-cy are covered by data-* prefix)
+        'testid',
+        'test-id',
+        // Conditionally added: 'style', 'class'
     ]
+
+    if (keepStyles) {
+        attributesToKeep.push('style', 'class')
+    }
+
+    const truncate = (str: string, maxLen: number): string => {
+        if (str.length <= maxLen) return str
+        const remaining = str.length - maxLen
+        return str.slice(0, maxLen) + `...${remaining} more characters`
+    }
 
     // Create a custom plugin to remove tags and filter attributes
     const removeTagsAndAttrsPlugin = () => {
@@ -48,7 +69,10 @@ export async function formatHtmlForPrompt(html: string) {
             // Process each node recursively
             const processNode = (node) => {
                 if (typeof node === 'string') {
-                    return node
+                    // Truncate text content
+                    const trimmed = node.trim()
+                    if (trimmed.length === 0) return node
+                    return truncate(node, maxContentLen)
                 }
 
                 // Remove unwanted tags
@@ -60,8 +84,16 @@ export async function formatHtmlForPrompt(html: string) {
                 if (node.attrs) {
                     const newAttrs: typeof node.attrs = {}
                     for (const [attr, value] of Object.entries(node.attrs)) {
-                        if (attr.startsWith('aria-') || attributesToKeep.includes(attr)) {
-                            newAttrs[attr] = value
+                        const shouldKeep =
+                            attr.startsWith('aria-') ||
+                            attr.startsWith('data-') ||
+                            attributesToKeep.includes(attr)
+
+                        if (shouldKeep) {
+                            // Truncate attribute values
+                            newAttrs[attr] = typeof value === 'string'
+                                ? truncate(value, maxAttrLen)
+                                : value
                         }
                     }
                     node.attrs = newAttrs
@@ -122,18 +154,15 @@ export async function formatHtmlForPrompt(html: string) {
                     // Check for consecutive empty elements (skipping whitespace-only strings)
                     if (isEmptyElement(current)) {
                         const emptyElements = [current]
-                        const indicesToSkip = [i]
                         let j = i + 1
 
                         while (j < content.length) {
                             if (isWhitespaceOnly(content[j])) {
-                                indicesToSkip.push(j)
                                 j++
                                 continue
                             }
                             if (isEmptyElement(content[j]) && content[j].tag === current.tag) {
                                 emptyElements.push(content[j])
-                                indicesToSkip.push(j)
                                 j++
                                 continue
                             }

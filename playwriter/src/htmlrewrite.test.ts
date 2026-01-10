@@ -4,33 +4,33 @@ import { formatHtmlForPrompt } from './htmlrewrite.js'
 test('formatHtmlForPrompt', async () => {
   const res = await fetch('https://framer.com')
   const html = await res.text()
-  const newHtml = await formatHtmlForPrompt(html)
+  const newHtml = await formatHtmlForPrompt({ html })
   expect(newHtml).toMatchInlineSnapshot(
     `
     "<!doctype html>
-    <html>
+    <html data-redirect-timezone="1">
      <body>
-      <div>
-       <div>
+      <div data-framer-hydrate-v2="{&quot;routeId&quot;:&quot;Zw20hns9v&quot;,&quot;localeId&quot;:&quot;default&quot;,&quot;breakpoints&quot;:[{&quot;hash&quot;:&quot;2ngqvi&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 1200px)&quot;},{&quot;hash&quot;:&quot;11ziuji&quot;,&quot;mediaQuery&quot;:&quot;(min-width: 810px) and (max-width: 1199.98px)&quot;},{&quot;hash&quot;:...237 more characters" data-framer-ssr-released-at="2026-01-09T18:19:52.935Z" data-framer-page-optimized-at="2026-01-09T18:42:33.421Z" data-framer-generated-page="">
+       <div data-layout-template="true" data-selection="true">
         <div>
          <div>
-          <nav data-framer-name="Desktop Nav">
+          <nav data-framer-name="Desktop Nav" data-hide-scrollbars="true">
            <div data-framer-name="Wrapper">
             <div data-framer-name="Logo + CTA">
              <div>
-              <a data-framer-name="On" href="./">
-               <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+              <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+               <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
               </a>
              </div>
              <div>
               <div>
                <div>
-                <div data-framer-name="LoggedOut">
+                <div data-framer-appear-id="rdbkdo" data-framer-name="LoggedOut">
                  <div data-framer-name="Log in" name="Log in">
-                  <div name="Log in" data-framer-name="Login">
+                  <div name="Log in" data-framer-name="Login" data-highlight="true">
                    <div data-framer-name="Start for free" name="Start for free">
-                    <a name="Start for free" data-framer-name="Label" href="https://framer.com/r/login">
-                     <div data-framer-name="Item">
+                    <a name="Start for free" data-signup-debug-id="header-sign-up" data-framer-name="Label" data-highlight="true" href="https://framer.com/r/login">
+                     <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                       <div>Log in</div>
                      </div>
                     </a>
@@ -38,10 +38,10 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Sign up" name="Sign up">
-                  <div name="Sign up" data-framer-name="Signup">
+                  <div name="Sign up" data-signup-debug-id="header-sign-up" data-framer-name="Signup" data-highlight="true">
                    <div data-framer-name="Start for free" name="Start for free">
-                    <a name="Start for free" data-framer-name="Button" href="https://www.framer.com/r/signup/">
-                     <div data-framer-name="Item">
+                    <a name="Start for free" data-signup-debug-id="header-sign-up" data-framer-name="Button" data-highlight="true" href="https://www.framer.com/r/signup/">
+                     <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                       <div>Sign up</div>
                      </div>
                     </a>
@@ -55,34 +55,34 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Links: Brand Jorn">
                <div data-framer-name="Link: Copy" name="Link: Copy">
-                <a name="Link: Copy" data-framer-name="Large">
+                <a name="Link: Copy" data-framer-name="Large" data-highlight="true">
                  <div>
                   <div></div>
                  </div>
                  <div data-framer-name="Topbar Links Text Jorn">
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Copy</p>
                    </div>
                   </div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Logo as SVG</p>
                   </div>
                  </div>
                 </a>
                </div>
                <div data-framer-name="Link: Brand" name="Link: Brand">
-                <a name="Link: Brand" data-framer-name="Large" href="./brand">
+                <a name="Link: Brand" data-framer-name="Large" data-highlight="true" href="./brand">
                  <div>
                   <div></div>
                  </div>
                  <div data-framer-name="Topbar Links Text Jorn">
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Brand</p>
                    </div>
                   </div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Guidelines</p>
                   </div>
                  </div>
@@ -91,52 +91,52 @@ test('formatHtmlForPrompt', async () => {
               </div>
              </div>
             </div>
-            <div data-framer-name="Links">
-             <div data-framer-name="Features" name="Features">
-              <a name="Features" data-framer-name="Label">
-               <div data-framer-name="Item">
+            <div data-framer-appear-id="z52upp" data-framer-name="Links" data-hide-scrollbars="true">
+             <div data-framer-appear-id="1suul34" data-framer-name="Features" name="Features">
+              <a name="Features" data-framer-name="Label" data-highlight="true">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Product</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Teams" name="Teams">
-              <a name="Teams" data-framer-name="Label">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="xxq6xe" data-framer-name="Teams" name="Teams">
+              <a name="Teams" data-framer-name="Label" data-highlight="true">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Teams</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Resources" name="Resources">
-              <a name="Resources" data-framer-name="Label">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="17czzg4" data-framer-name="Resources" name="Resources">
+              <a name="Resources" data-framer-name="Label" data-highlight="true">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Resources</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Community" name="Community">
-              <a name="Community" data-framer-name="Label">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="14dr99a" data-framer-name="Community" name="Community">
+              <a name="Community" data-framer-name="Label" data-highlight="true">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Community</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Help" name="Help">
-              <a name="Help" data-framer-name="Label">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="jblisq" data-framer-name="Help" name="Help">
+              <a name="Help" data-framer-name="Label" data-highlight="true">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Support</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Enterprise" name="Enterprise">
-              <a name="Enterprise" data-framer-name="Label" href="./enterprise/">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="3bosee" data-framer-name="Enterprise" name="Enterprise">
+              <a name="Enterprise" data-framer-name="Label" data-highlight="true" href="./enterprise/">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Enterprise</div>
                </div>
               </a>
              </div>
-             <div data-framer-name="Pricing" name="Pricing">
-              <a name="Pricing" data-framer-name="Label" href="./pricing">
-               <div data-framer-name="Item">
+             <div data-framer-appear-id="h4b5w4" data-framer-name="Pricing" name="Pricing">
+              <a name="Pricing" data-framer-name="Label" data-highlight="true" href="./pricing">
+               <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                 <div>Pricing</div>
                </div>
               </a>
@@ -146,16 +146,16 @@ test('formatHtmlForPrompt', async () => {
           </nav>
          </div>
          <div>
-          <nav data-framer-name="Mobile Nav">
+          <nav data-framer-name="Mobile Nav" data-hide-scrollbars="true">
            <div data-framer-name="Wrapper">
             <div data-framer-name="Logo + CTA">
              <div>
-              <a data-framer-name="On" href="./">
-               <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+              <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+               <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
               </a>
              </div>
              <div data-framer-name="Mobile Menu" name="Mobile Menu">
-              <div name="Mobile Menu" data-framer-name="Menu">
+              <div name="Mobile Menu" data-framer-name="Menu" data-highlight="true">
                <div data-framer-name="Bottom"></div>
                <div data-framer-name="Top"></div>
               </div>
@@ -165,16 +165,16 @@ test('formatHtmlForPrompt', async () => {
           </nav>
          </div>
          <div>
-          <nav data-framer-name="Mobile Nav">
+          <nav data-framer-name="Mobile Nav" data-hide-scrollbars="true">
            <div data-framer-name="Wrapper">
             <div data-framer-name="Logo + CTA">
              <div>
-              <a data-framer-name="On" href="./">
-               <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+              <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+               <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
               </a>
              </div>
              <div data-framer-name="Mobile Menu" name="Mobile Menu">
-              <div name="Mobile Menu" data-framer-name="Menu">
+              <div name="Mobile Menu" data-framer-name="Menu" data-highlight="true">
                <div data-framer-name="Bottom"></div>
                <div data-framer-name="Top"></div>
               </div>
@@ -186,39 +186,39 @@ test('formatHtmlForPrompt', async () => {
         </div>
         <div data-framer-name="Developers Sidebar" name="Developers Sidebar">
          <nav name="Developers Sidebar" data-framer-name="Sidebar">
-          <div>
+          <div data-hide-scrollbars="true">
            <div>
-            <div data-framer-name="Developers">
+            <div data-border="true" data-framer-name="Developers">
              <div>
               <div>
                <button aria-label="Search Icon"></button>
               </div>
              </div>
              <div></div>
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>Search...</p>
              </div>
             </div>
            </div>
            <div>
             <div data-framer-name="Fetch">
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>Get Started</p>
              </div>
              <div>
-              <div data-framer-name="Title">
+              <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                <p>
-                <a href="./developers/">Overview</a>
+                <a data-styles-preset="QITH89Isy" href="./developers/">Overview</a>
                </p>
               </div>
-              <div data-framer-name="Title">
+              <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                <p>
-                <a href="./developers/comparison">Compare</a>
+                <a data-styles-preset="QITH89Isy" href="./developers/comparison">Compare</a>
                </p>
               </div>
-              <div data-framer-name="Title">
+              <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                <p>
-                <a href="./developers/faq">FAQ</a>
+                <a data-styles-preset="QITH89Isy" href="./developers/faq">FAQ</a>
                </p>
               </div>
              </div>
@@ -226,9 +226,9 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div data-framer-name="Closed">
               <div>
-               <div>
+               <div data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./">Plugins</a>
+                 <a data-styles-preset="uexyNUZEC" href="./">Plugins</a>
                 </p>
                </div>
               </div>
@@ -236,51 +236,51 @@ test('formatHtmlForPrompt', async () => {
                <div>
                 <div>
                  <div data-framer-name="Nav Item">
-                  <div data-framer-name="Title">
+                  <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                    <p>
-                    <a href="./developers/plugins-introduction">Introduction</a>
+                    <a data-styles-preset="QITH89Isy" href="./developers/plugins-introduction">Introduction</a>
                    </p>
                   </div>
                  </div>
                  <div data-framer-name="Nav Item">
-                  <div data-framer-name="Title">
+                  <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                    <p>
-                    <a href="./developers/plugins-quick-start">Quick Start</a>
+                    <a data-styles-preset="QITH89Isy" href="./developers/plugins-quick-start">Quick Start</a>
                    </p>
                   </div>
                  </div>
                  <div data-framer-name="Nav Item">
-                  <div data-framer-name="Title">
+                  <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                    <p>
-                    <a href="./developers/publishing">Publishing</a>
+                    <a data-styles-preset="QITH89Isy" href="./developers/publishing">Publishing</a>
                    </p>
                   </div>
                  </div>
                  <div data-framer-name="Nav Item">
-                  <div data-framer-name="Title">
+                  <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                    <p>
-                    <a href="./developers/changelog">Changelog</a>
+                    <a data-styles-preset="QITH89Isy" href="./developers/changelog">Changelog</a>
                    </p>
                   </div>
                  </div>
                  <div data-framer-name="Nav Item">
-                  <div data-framer-name="Title">
+                  <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                    <p>
-                    <a href="./developers/reference">Reference</a>
+                    <a data-styles-preset="QITH89Isy" href="./developers/reference">Reference</a>
                    </p>
                   </div>
                  </div>
                 </div>
                 <div>
-                 <div>
+                 <div data-highlight="true">
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Guides</p>
                    </div>
                    <div>
                     <div data-framer-name="Closed">
                      <div>
-                      <div aria-hidden="true"></div>
+                      <div data-framer-component-type="SVG" aria-hidden="true"></div>
                      </div>
                     </div>
                    </div>
@@ -292,91 +292,91 @@ test('formatHtmlForPrompt', async () => {
              </div>
             </div>
             <div data-framer-name="Fetch">
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>Fetch</p>
              </div>
              <div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/fetch-introduction">Introduction</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/fetch-introduction">Introduction</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/fetch-examples">Examples</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/fetch-examples">Examples</a>
                 </p>
                </div>
               </div>
              </div>
             </div>
             <div data-framer-name="Components">
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>Components</p>
              </div>
              <div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/components-introduction">Introduction</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/components-introduction">Introduction</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/component-examples">Examples</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/component-examples">Examples</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/component-sharing">Asset Sharing</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/component-sharing">Asset Sharing</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/auto-sizing">Auto-Sizing</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/auto-sizing">Auto-Sizing</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/property-controls">Property Controls</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/property-controls">Property Controls</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/components-reference">Reference</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/components-reference">Reference</a>
                 </p>
                </div>
               </div>
              </div>
             </div>
             <div data-framer-name="Overrides">
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>Overrides</p>
              </div>
              <div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/overrides-introduction">Introduction</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/overrides-introduction">Introduction</a>
                 </p>
                </div>
               </div>
               <div>
-               <div data-framer-name="Title">
+               <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                 <p>
-                 <a href="./developers/overrides-examples">Examples</a>
+                 <a data-styles-preset="QITH89Isy" href="./developers/overrides-examples">Examples</a>
                 </p>
                </div>
               </div>
@@ -387,17 +387,17 @@ test('formatHtmlForPrompt', async () => {
          </nav>
         </div>
         <div>
-         <div data-framer-name="Developers Mobile Nav" name="Developers Mobile Nav">
+         <div data-framer-layout-hint-center-x="true" data-framer-name="Developers Mobile Nav" name="Developers Mobile Nav">
           <div name="Developers Mobile Nav" data-framer-name="Phone">
            <div data-framer-name="Parent">
             <div data-framer-name="Backdrop"></div>
-            <div data-framer-name="Inner">
+            <div data-border="true" data-framer-name="Inner">
              <div>
-              <div data-framer-name="On">
+              <div data-framer-name="On" data-highlight="true">
                <div>
-                <div>
+                <div data-framer-component-type="RichTextContainer">
                  <p>
-                  <a href="./developers/">Developers</a>
+                  <a data-styles-preset="FYtNM2koB" href="./developers/">Developers</a>
                  </p>
                 </div>
                </div>
@@ -416,17 +416,17 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Search Input">
-                  <div data-framer-name="Mag Glass" aria-hidden="true">
+                  <div data-framer-component-type="SVG" data-framer-name="Mag Glass" aria-hidden="true">
                    <div></div>
                   </div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <h6>Search</h6>
                   </div>
                  </div>
                 </div>
                </div>
               </div>
-              <div data-framer-name="Dropdown">
+              <div data-framer-name="Dropdown" data-highlight="true">
                <div></div>
               </div>
              </div>
@@ -434,39 +434,39 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Sidebar Parent">
              <div>
               <nav data-framer-name="Mobile">
-               <div>
+               <div data-hide-scrollbars="true">
                 <div>
-                 <div data-framer-name="Developers">
+                 <div data-border="true" data-framer-name="Developers">
                   <div>
                    <div>
                     <button aria-label="Search Icon"></button>
                    </div>
                   </div>
                   <div></div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Search...</p>
                   </div>
                  </div>
                 </div>
                 <div>
                  <div data-framer-name="Fetch">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Get Started</p>
                   </div>
                   <div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/">Overview</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/">Overview</a>
                     </p>
                    </div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/comparison">Compare</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/comparison">Compare</a>
                     </p>
                    </div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/faq">FAQ</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/faq">FAQ</a>
                     </p>
                    </div>
                   </div>
@@ -474,9 +474,9 @@ test('formatHtmlForPrompt', async () => {
                  <div>
                   <div data-framer-name="Closed">
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./">Plugins</a>
+                      <a data-styles-preset="uexyNUZEC" href="./">Plugins</a>
                      </p>
                     </div>
                    </div>
@@ -484,51 +484,51 @@ test('formatHtmlForPrompt', async () => {
                     <div>
                      <div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/plugins-introduction">Introduction</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/plugins-introduction">Introduction</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/plugins-quick-start">Quick Start</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/plugins-quick-start">Quick Start</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/publishing">Publishing</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/publishing">Publishing</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/changelog">Changelog</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/changelog">Changelog</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/reference">Reference</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/reference">Reference</a>
                         </p>
                        </div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-highlight="true">
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>Guides</p>
                         </div>
                         <div>
                          <div data-framer-name="Closed">
                           <div>
-                           <div aria-hidden="true"></div>
+                           <div data-framer-component-type="SVG" aria-hidden="true"></div>
                           </div>
                          </div>
                         </div>
@@ -540,91 +540,91 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Fetch">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Fetch</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/fetch-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/fetch-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/fetch-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/fetch-examples">Examples</a>
                      </p>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Components">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Components</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/components-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/components-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/component-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/component-examples">Examples</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/component-sharing">Asset Sharing</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/component-sharing">Asset Sharing</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/auto-sizing">Auto-Sizing</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/auto-sizing">Auto-Sizing</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/property-controls">Property Controls</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/property-controls">Property Controls</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/components-reference">Reference</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/components-reference">Reference</a>
                      </p>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Overrides">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Overrides</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/overrides-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/overrides-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/overrides-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/overrides-examples">Examples</a>
                      </p>
                     </div>
                    </div>
@@ -640,17 +640,17 @@ test('formatHtmlForPrompt', async () => {
          </div>
         </div>
         <div>
-         <div data-framer-name="Developers Mobile Nav" name="Developers Mobile Nav">
+         <div data-framer-layout-hint-center-x="true" data-framer-name="Developers Mobile Nav" name="Developers Mobile Nav">
           <div name="Developers Mobile Nav" data-framer-name="Phone">
            <div data-framer-name="Parent">
             <div data-framer-name="Backdrop"></div>
-            <div data-framer-name="Inner">
+            <div data-border="true" data-framer-name="Inner">
              <div>
-              <div data-framer-name="On">
+              <div data-framer-name="On" data-highlight="true">
                <div>
-                <div>
+                <div data-framer-component-type="RichTextContainer">
                  <p>
-                  <a href="./developers/">Developers</a>
+                  <a data-styles-preset="FYtNM2koB" href="./developers/">Developers</a>
                  </p>
                 </div>
                </div>
@@ -669,17 +669,17 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Search Input">
-                  <div data-framer-name="Mag Glass" aria-hidden="true">
+                  <div data-framer-component-type="SVG" data-framer-name="Mag Glass" aria-hidden="true">
                    <div></div>
                   </div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <h6>Search</h6>
                   </div>
                  </div>
                 </div>
                </div>
               </div>
-              <div data-framer-name="Dropdown">
+              <div data-framer-name="Dropdown" data-highlight="true">
                <div></div>
               </div>
              </div>
@@ -687,39 +687,39 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Sidebar Parent">
              <div>
               <nav data-framer-name="Mobile">
-               <div>
+               <div data-hide-scrollbars="true">
                 <div>
-                 <div data-framer-name="Developers">
+                 <div data-border="true" data-framer-name="Developers">
                   <div>
                    <div>
                     <button aria-label="Search Icon"></button>
                    </div>
                   </div>
                   <div></div>
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Search...</p>
                   </div>
                  </div>
                 </div>
                 <div>
                  <div data-framer-name="Fetch">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Get Started</p>
                   </div>
                   <div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/">Overview</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/">Overview</a>
                     </p>
                    </div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/comparison">Compare</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/comparison">Compare</a>
                     </p>
                    </div>
-                   <div data-framer-name="Title">
+                   <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                     <p>
-                     <a href="./developers/faq">FAQ</a>
+                     <a data-styles-preset="QITH89Isy" href="./developers/faq">FAQ</a>
                     </p>
                    </div>
                   </div>
@@ -727,9 +727,9 @@ test('formatHtmlForPrompt', async () => {
                  <div>
                   <div data-framer-name="Closed">
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./">Plugins</a>
+                      <a data-styles-preset="uexyNUZEC" href="./">Plugins</a>
                      </p>
                     </div>
                    </div>
@@ -737,51 +737,51 @@ test('formatHtmlForPrompt', async () => {
                     <div>
                      <div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/plugins-introduction">Introduction</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/plugins-introduction">Introduction</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/plugins-quick-start">Quick Start</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/plugins-quick-start">Quick Start</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/publishing">Publishing</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/publishing">Publishing</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/changelog">Changelog</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/changelog">Changelog</a>
                         </p>
                        </div>
                       </div>
                       <div data-framer-name="Nav Item">
-                       <div data-framer-name="Title">
+                       <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                         <p>
-                         <a href="./developers/reference">Reference</a>
+                         <a data-styles-preset="QITH89Isy" href="./developers/reference">Reference</a>
                         </p>
                        </div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-highlight="true">
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>Guides</p>
                         </div>
                         <div>
                          <div data-framer-name="Closed">
                           <div>
-                           <div aria-hidden="true"></div>
+                           <div data-framer-component-type="SVG" aria-hidden="true"></div>
                           </div>
                          </div>
                         </div>
@@ -793,91 +793,91 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Fetch">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Fetch</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/fetch-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/fetch-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/fetch-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/fetch-examples">Examples</a>
                      </p>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Components">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Components</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/components-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/components-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/component-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/component-examples">Examples</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/component-sharing">Asset Sharing</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/component-sharing">Asset Sharing</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/auto-sizing">Auto-Sizing</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/auto-sizing">Auto-Sizing</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/property-controls">Property Controls</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/property-controls">Property Controls</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/components-reference">Reference</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/components-reference">Reference</a>
                      </p>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Overrides">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Overrides</p>
                   </div>
                   <div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/overrides-introduction">Introduction</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/overrides-introduction">Introduction</a>
                      </p>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Title">
+                    <div data-framer-name="Title" data-highlight="true" data-framer-component-type="RichTextContainer">
                      <p>
-                      <a href="./developers/overrides-examples">Examples</a>
+                      <a data-styles-preset="QITH89Isy" href="./developers/overrides-examples">Examples</a>
                      </p>
                     </div>
                    </div>
@@ -892,13 +892,13 @@ test('formatHtmlForPrompt', async () => {
           </div>
          </div>
         </div>
-        <div>
+        <div data-framer-root="">
          <main data-framer-name="Main">
           <section data-framer-name="Hero">
            <header data-framer-name="Header">
             <div></div>
             <div>
-             <div>
+             <div data-framer-appear-id="q19fl4">
               <a data-framer-name="Banner" href="./awards/">
                <div data-framer-name="Cube">
                 <div>
@@ -906,12 +906,12 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Text">
-                <div>
+                <div data-framer-appear-id="1bmd6t6" data-framer-component-type="RichTextContainer">
                  <p>2025 Framer Awards</p>
                 </div>
                 <div data-framer-name="CTA">
-                 <div>
-                  <p>Submissions now open</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="vvG68NbwN">Submissions now open</p>
                  </div>
                 </div>
                </div>
@@ -919,7 +919,7 @@ test('formatHtmlForPrompt', async () => {
              </div>
             </div>
             <div>
-             <div>
+             <div data-framer-appear-id="q19fl4">
               <a data-framer-name="Banner" href="./awards/">
                <div data-framer-name="Cube">
                 <div>
@@ -927,12 +927,12 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Text">
-                <div>
+                <div data-framer-appear-id="1bmd6t6" data-framer-component-type="RichTextContainer">
                  <p>2025 Framer Awards</p>
                 </div>
                 <div data-framer-name="CTA">
-                 <div>
-                  <p>Submissions now open</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="vvG68NbwN">Submissions now open</p>
                  </div>
                 </div>
                </div>
@@ -940,12 +940,12 @@ test('formatHtmlForPrompt', async () => {
              </div>
             </div>
             <div data-framer-name="Text">
-             <div>
-              <h1>Build better sites, faster</h1>
+             <div data-framer-appear-id="1rel4c6" data-framer-component-type="RichTextContainer">
+              <h1 data-styles-preset="V_kfGv2cj">Build better sites, faster</h1>
              </div>
              <div>
-              <div>
-               <p>
+              <div data-framer-appear-id="1dlfy3o" data-framer-component-type="RichTextContainer">
+               <p data-styles-preset="h59NUQSP8">
                 Framer is the site builder trusted by startups
                 <br>
                 to Fortune 500. Build fast and scale with an integrated CMS, SEO, Analytics, and more.
@@ -953,16 +953,16 @@ test('formatHtmlForPrompt', async () => {
               </div>
              </div>
              <div>
-              <div>
-               <p>Framer is the site builder trusted by startups to Fortune 500. Build fast and scale with an integrated CMS, SEO, Analytics, and more.</p>
+              <div data-framer-appear-id="1dlfy3o" data-framer-component-type="RichTextContainer">
+               <p data-styles-preset="h59NUQSP8">Framer is the site builder trusted by startups to Fortune 500. Build fast and scale with an integrated CMS, SEO, Analytics, and more.</p>
               </div>
              </div>
             </div>
-            <div data-framer-name="Buttons">
+            <div data-framer-appear-id="1t92ft3" data-framer-name="Buttons">
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://framer.com/r/signup">
-                <div data-framer-name="Default">
+               <a data-signup-debug-id="hero-sign-up" data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://framer.com/r/signup">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Start for free</p>
                 </div>
                </a>
@@ -970,8 +970,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="https://framer.com/r/signup">
-                <div data-framer-name="Default">
+               <a data-signup-debug-id="hero-sign-up" data-framer-name="Phone" data-highlight="true" data-reset="button" href="https://framer.com/r/signup">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Start for free</p>
                 </div>
                </a>
@@ -979,8 +979,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="./ai/">
-                <div data-framer-name="Default">
+               <a data-signup-debug-id="hero-sign-up" data-framer-name="Regular" data-highlight="true" data-reset="button" href="./ai/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Start with AI</p>
                 </div>
                </a>
@@ -988,8 +988,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="./ai/">
-                <div data-framer-name="Default">
+               <a data-signup-debug-id="hero-sign-up" data-framer-name="Phone" data-highlight="true" data-reset="button" href="./ai/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Start with AI</p>
                 </div>
                </a>
@@ -1004,35 +1004,35 @@ test('formatHtmlForPrompt', async () => {
                <div data-framer-name="Desktop">
                 <div data-framer-name="Parallax">
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Column">
+                  <div data-framer-appear-id="ijg9f3" data-framer-name="Column">
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
@@ -1040,35 +1040,35 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Column">
+                 <div data-framer-appear-id="1s5f0ix" data-framer-name="Column">
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
@@ -1076,35 +1076,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Phone">
+                  <div data-framer-appear-id="1d21oo9" data-framer-name="Phone">
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
@@ -1112,25 +1112,25 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Column">
+                 <div data-framer-appear-id="np8sg2" data-framer-name="Column">
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div>
                       <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                        <div>
                         <video></video>
@@ -1141,11 +1141,11 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
@@ -1153,15 +1153,15 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Border">
+                  <div data-border="true" data-framer-appear-id="whlatv" data-framer-name="Border">
                    <div data-framer-name="Column">
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div>
                         <div data-framer-name="Pause">
-                         <div>
-                          <img alt="Website made in Framer">
+                         <div data-framer-background-image-wrapper="true">
+                          <img alt="Website made in Framer" data-framer-original-sizes="360px">
                          </div>
                          <div>
                           <video></video>
@@ -1172,23 +1172,23 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Website made in Framer">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Website made in Framer" data-framer-original-sizes="360px">
                         </div>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div>
                         <div data-framer-name="Pause">
-                         <div>
-                          <img alt="Website made in Framer">
+                         <div data-framer-background-image-wrapper="true">
+                          <img alt="Website made in Framer" data-framer-original-sizes="360px">
                          </div>
                          <div>
                           <video></video>
@@ -1201,25 +1201,25 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Phone">
+                 <div data-framer-appear-id="cfto1h" data-framer-name="Phone">
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div>
                       <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                        <div>
                         <video></video>
@@ -1230,22 +1230,22 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
@@ -1253,35 +1253,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Column">
+                  <div data-framer-appear-id="w0kbi2" data-framer-name="Column">
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
@@ -1289,35 +1289,35 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Column">
+                 <div data-framer-appear-id="9mc5sv" data-framer-name="Column">
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
@@ -1325,35 +1325,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Column">
+                  <div data-framer-appear-id="12dmdwi" data-framer-name="Column">
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="360px">
                        </div>
                       </div>
                      </div>
@@ -1368,35 +1368,35 @@ test('formatHtmlForPrompt', async () => {
                <div data-framer-name="Tablet">
                 <div data-framer-name="Parallax">
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Phone">
+                  <div data-framer-appear-id="1d21oo9" data-framer-name="Phone">
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Phone Card">
+                    <div data-border="true" data-framer-name="Phone Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                       </div>
                      </div>
@@ -1404,25 +1404,25 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Column">
+                 <div data-framer-appear-id="np8sg2" data-framer-name="Column">
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="320px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div>
                       <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="320px">
                        </div>
                        <div>
                         <video></video>
@@ -1433,11 +1433,11 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Card">
+                   <div data-border="true" data-framer-name="Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="320px">
                       </div>
                      </div>
                     </div>
@@ -1445,15 +1445,15 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Border">
+                  <div data-border="true" data-framer-appear-id="whlatv" data-framer-name="Border">
                    <div data-framer-name="Column">
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div>
                         <div data-framer-name="Pause">
-                         <div>
-                          <img alt="Website made in Framer">
+                         <div data-framer-background-image-wrapper="true">
+                          <img alt="Website made in Framer" data-framer-original-sizes="320px">
                          </div>
                          <div>
                           <video></video>
@@ -1464,23 +1464,23 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Website made in Framer">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Website made in Framer" data-framer-original-sizes="320px">
                         </div>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Card">
+                     <div data-border="true" data-framer-name="Card">
                       <div data-framer-name="Visual">
                        <div>
                         <div data-framer-name="Pause">
-                         <div>
-                          <img alt="Website made in Framer">
+                         <div data-framer-background-image-wrapper="true">
+                          <img alt="Website made in Framer" data-framer-original-sizes="320px">
                          </div>
                          <div>
                           <video></video>
@@ -1493,25 +1493,25 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Phone">
+                 <div data-framer-appear-id="cfto1h" data-framer-name="Phone">
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div>
                       <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="160px">
                        </div>
                        <div>
                         <video></video>
@@ -1522,22 +1522,22 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div data-framer-name="Phone Card">
+                   <div data-border="true" data-framer-name="Phone Card">
                     <div data-framer-name="Visual">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="160px">
                       </div>
                      </div>
                     </div>
@@ -1545,35 +1545,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Scroll">
-                  <div data-framer-name="Column">
+                  <div data-framer-appear-id="w0kbi2" data-framer-name="Column">
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="320px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="320px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="320px">
                        </div>
                       </div>
                      </div>
@@ -1591,27 +1591,27 @@ test('formatHtmlForPrompt', async () => {
               <div data-framer-name="Phone">
                <div data-framer-name="Parallax">
                 <div data-framer-name="Scroll">
-                 <div data-framer-name="Phone"></div>
+                 <div data-framer-appear-id="1d21oo9" data-framer-name="Phone"></div>
                 </div>
-                <div data-framer-name="Column">
+                <div data-framer-appear-id="np8sg2" data-framer-name="Column">
                  <div>
-                  <div data-framer-name="Card">
+                  <div data-border="true" data-framer-name="Card">
                    <div data-framer-name="Visual">
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Website made in Framer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Website made in Framer" data-framer-original-sizes="200px">
                      </div>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div>
-                  <div data-framer-name="Card">
+                  <div data-border="true" data-framer-name="Card">
                    <div data-framer-name="Visual">
                     <div>
                      <div data-framer-name="Pause">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="200px">
                       </div>
                       <div>
                        <video></video>
@@ -1622,11 +1622,11 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div>
-                  <div data-framer-name="Card">
+                  <div data-border="true" data-framer-name="Card">
                    <div data-framer-name="Visual">
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Website made in Framer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Website made in Framer" data-framer-original-sizes="200px">
                      </div>
                     </div>
                    </div>
@@ -1634,15 +1634,15 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                 </div>
                 <div data-framer-name="Scroll">
-                 <div data-framer-name="Border">
+                 <div data-border="true" data-framer-appear-id="whlatv" data-framer-name="Border">
                   <div data-framer-name="Column">
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div>
                        <div data-framer-name="Pause">
-                        <div>
-                         <img alt="Website made in Framer">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Website made in Framer" data-framer-original-sizes="200px">
                         </div>
                         <div>
                          <video></video>
@@ -1653,23 +1653,23 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Website made in Framer">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Website made in Framer" data-framer-original-sizes="200px">
                        </div>
                       </div>
                      </div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Card">
+                    <div data-border="true" data-framer-name="Card">
                      <div data-framer-name="Visual">
                       <div>
                        <div data-framer-name="Pause">
-                        <div>
-                         <img alt="Website made in Framer">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Website made in Framer" data-framer-original-sizes="200px">
                         </div>
                         <div>
                          <video></video>
@@ -1682,25 +1682,25 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                 </div>
-                <div data-framer-name="Phone">
+                <div data-framer-appear-id="cfto1h" data-framer-name="Phone">
                  <div>
-                  <div data-framer-name="Phone Card">
+                  <div data-border="true" data-framer-name="Phone Card">
                    <div data-framer-name="Visual">
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Website made in Framer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Website made in Framer" data-framer-original-sizes="120px">
                      </div>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div>
-                  <div data-framer-name="Phone Card">
+                  <div data-border="true" data-framer-name="Phone Card">
                    <div data-framer-name="Visual">
                     <div>
                      <div data-framer-name="Pause">
-                      <div>
-                       <img alt="Website made in Framer">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Website made in Framer" data-framer-original-sizes="120px">
                       </div>
                       <div>
                        <video></video>
@@ -1711,22 +1711,22 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div>
-                  <div data-framer-name="Phone Card">
+                  <div data-border="true" data-framer-name="Phone Card">
                    <div data-framer-name="Visual">
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Website made in Framer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Website made in Framer" data-framer-original-sizes="120px">
                      </div>
                     </div>
                    </div>
                   </div>
                  </div>
                  <div>
-                  <div data-framer-name="Phone Card">
+                  <div data-border="true" data-framer-name="Phone Card">
                    <div data-framer-name="Visual">
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Website made in Framer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Website made in Framer" data-framer-original-sizes="120px">
                      </div>
                     </div>
                    </div>
@@ -1734,7 +1734,7 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                 </div>
                 <div data-framer-name="Scroll">
-                 <div data-framer-name="Column"></div>
+                 <div data-framer-appear-id="w0kbi2" data-framer-name="Column"></div>
                 </div>
                </div>
               </div>
@@ -1745,8 +1745,8 @@ test('formatHtmlForPrompt', async () => {
               <div>
                <div data-framer-name="Grid">
                 <div>
-                 <a data-framer-name="Small" href="./stories/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./stories/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Meet our customers</p>
                   </div>
                   <div>
@@ -1755,30 +1755,30 @@ test('formatHtmlForPrompt', async () => {
                  </a>
                 </div>
                 <div data-framer-name="Bird">
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div>
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div>
                  <div>
-                  <div data-framer-name="elevenlabs" aria-hidden="true"></div>
+                  <div data-framer-component-type="SVG" data-framer-name="elevenlabs" aria-hidden="true"></div>
                  </div>
                 </div>
                 <div>
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div data-framer-name="Miro">
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div>
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div>
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                 <div>
-                 <div aria-hidden="true"></div>
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 </div>
                </div>
               </div>
@@ -1787,8 +1787,8 @@ test('formatHtmlForPrompt', async () => {
               <div>
                <div data-framer-name="Ticker">
                 <div>
-                 <a data-framer-name="Small" href="./stories/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./stories/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Meet our customers</p>
                   </div>
                   <div>
@@ -1800,44 +1800,44 @@ test('formatHtmlForPrompt', async () => {
                  <ul role="group">
                   <li aria-hidden="false" aria-posinset="1" aria-setsize="8">
                    <div data-framer-name="Bird">
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="2" aria-setsize="8">
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="3" aria-setsize="8">
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="4" aria-setsize="8">
                    <div>
                     <div>
-                     <div data-framer-name="elevenlabs" aria-hidden="true"></div>
+                     <div data-framer-component-type="SVG" data-framer-name="elevenlabs" aria-hidden="true"></div>
                     </div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="5" aria-setsize="8">
                    <div data-framer-name="Miro">
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="6" aria-setsize="8">
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="7" aria-setsize="8">
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                   <li aria-hidden="false" aria-posinset="8" aria-setsize="8">
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </li>
                  </ul>
@@ -1852,28 +1852,28 @@ test('formatHtmlForPrompt', async () => {
           <div data-framer-name="ForcePaintComp (don't remove)" name="ForcePaintComp (don't remove)"></div>
           <section data-framer-name="Design Sidebar">
            <header data-framer-name="Header">
-            <div>
-             <h2>Create, collaborate, and go live</h2>
+            <div data-framer-component-type="RichTextContainer">
+             <h2 data-styles-preset="Y4paqDh7P">Create, collaborate, and go live</h2>
             </div>
            </header>
            <div data-framer-name="Desktop">
             <div>
              <div data-framer-name="AI">
               <div>
-               <div data-framer-name="Open">
+               <div data-border="true" data-framer-name="Open">
                 <div data-framer-name="Text">
-                 <div>
-                  <h3>
-                   <a href="./#feat-ai">AI</a>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h3 data-styles-preset="wVtX8xMgR">
+                   <a data-styles-preset="uexyNUZEC" href="./#feat-ai">AI</a>
                   </h3>
                  </div>
-                 <div>
-                  <p>Generate site layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Generate site layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Default" href="./ai/">
-                  <div>
+                 <a data-framer-name="Default" data-highlight="true" href="./ai/">
+                  <div data-framer-component-type="RichTextContainer">
                    <h3>Learn more</h3>
                   </div>
                   <div>
@@ -1884,20 +1884,20 @@ test('formatHtmlForPrompt', async () => {
                </div>
               </div>
               <div>
-               <div data-framer-name="Closed">
+               <div data-border="true" data-framer-name="Closed">
                 <div data-framer-name="Text">
-                 <div>
-                  <h3>
-                   <a href="./#feat-design">Design</a>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h3 data-styles-preset="wVtX8xMgR">
+                   <a data-styles-preset="Db1qJXtpu" href="./#feat-design">Design</a>
                   </h3>
                  </div>
-                 <div>
-                  <p>Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Default" href="./design/">
-                  <div>
+                 <a data-framer-name="Default" data-highlight="true" href="./design/">
+                  <div data-framer-component-type="RichTextContainer">
                    <h3>Learn more</h3>
                   </div>
                   <div>
@@ -1908,20 +1908,20 @@ test('formatHtmlForPrompt', async () => {
                </div>
               </div>
               <div>
-               <div data-framer-name="Closed">
+               <div data-border="true" data-framer-name="Closed">
                 <div data-framer-name="Text">
-                 <div>
-                  <h3>
-                   <a href="./#feat-cms">CMS</a>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h3 data-styles-preset="wVtX8xMgR">
+                   <a data-styles-preset="Db1qJXtpu" href="./#feat-cms">CMS</a>
                   </h3>
                  </div>
-                 <div>
-                  <p>Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Default" href="./scale/">
-                  <div>
+                 <a data-framer-name="Default" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <h3>Learn more</h3>
                   </div>
                   <div>
@@ -1932,20 +1932,20 @@ test('formatHtmlForPrompt', async () => {
                </div>
               </div>
               <div>
-               <div data-framer-name="Closed">
+               <div data-border="true" data-framer-name="Closed">
                 <div data-framer-name="Text">
-                 <div>
-                  <h3>
-                   <a href="./#feat-collab">Collaborate</a>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h3 data-styles-preset="wVtX8xMgR">
+                   <a data-styles-preset="Db1qJXtpu" href="./#feat-collab">Collaborate</a>
                   </h3>
                  </div>
-                 <div>
-                  <p>Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Default" href="./collaborate/">
-                  <div>
+                 <a data-framer-name="Default" data-highlight="true" href="./collaborate/">
+                  <div data-framer-component-type="RichTextContainer">
                    <h3>Learn more</h3>
                   </div>
                   <div>
@@ -1960,11 +1960,11 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Features">
              <div data-framer-name="AI">
               <div data-framer-name="Visual">
-               <div data-framer-name="New UI">
-                <div data-framer-name="Top Bar">
+               <div data-border="true" data-framer-name="New UI" data-nosnippet="true">
+                <div data-border="true" data-framer-name="Top Bar">
                  <div data-framer-name="Top Bar New">
-                  <div>
-                   <img alt="Framer UI">
+                  <div data-framer-background-image-wrapper="true">
+                   <img alt="Framer UI" data-framer-original-sizes="364px">
                   </div>
                  </div>
                  <div data-framer-name="Avatars">
@@ -1972,15 +1972,15 @@ test('formatHtmlForPrompt', async () => {
                    <div>
                     <div data-framer-name="Avatar">
                      <div>
-                      <div>
-                       <img alt="A smiling person with short hair, wearing a dark shirt, against a backdrop of blue sky and clouds.">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="A smiling person with short hair, wearing a dark shirt, against a backdrop of blue sky and clouds." data-framer-original-sizes="28px">
                       </div>
                      </div>
                     </div>
                     <div data-framer-name="Avatar">
                      <div>
-                      <div data-framer-name="Variant 1">
-                       <div>
+                      <div data-border="true" data-framer-name="Variant 1">
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
@@ -1989,35 +1989,35 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div data-framer-name="Topbar Right Simple@2x">
-                   <div>
-                    <img alt="Framer UI">
+                   <div data-framer-background-image-wrapper="true">
+                    <img alt="Framer UI" data-framer-original-sizes="285px">
                    </div>
                   </div>
                  </div>
                 </div>
                 <div data-framer-name="Content">
-                 <div data-framer-name="Left">
-                  <div data-framer-name="Layout Row">
-                   <div data-framer-name="Graphic" aria-hidden="true"></div>
-                   <div data-framer-name="Titile">
+                 <div data-border="true" data-framer-name="Left">
+                  <div data-border="true" data-framer-name="Layout Row">
+                   <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                   <div data-framer-name="Titile" data-framer-component-type="RichTextContainer">
                     <p>Wireframer</p>
                    </div>
-                   <div aria-hidden="true"></div>
+                   <div data-framer-component-type="SVG" aria-hidden="true"></div>
                   </div>
                   <div>
                    <div data-framer-name="Prompt@2x">
-                    <div>
-                     <img alt="">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="" data-framer-original-sizes="200px">
                     </div>
                    </div>
                   </div>
                   <div data-framer-name="Response">
                    <div data-framer-name="Framer@2x">
-                    <div>
-                     <img alt="UI">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="UI" data-framer-original-sizes="71px">
                     </div>
                    </div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>
                      <span>I</span>
                      <span>created</span>
@@ -2050,93 +2050,93 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Spacer"></div>
                   <div data-framer-name="Prompt@2x">
-                   <div>
-                    <img alt="">
+                   <div data-framer-background-image-wrapper="true">
+                    <img alt="" data-framer-original-sizes="230px">
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Canvas">
                   <div data-framer-name="Pages">
                    <div data-framer-name="Col">
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Landing Page 1</p>
                     </div>
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Example of a page generated by Wireframer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Example of a page generated by Wireframer" data-framer-original-sizes="550px">
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="Col">
                     <div data-framer-name="Text">
                      <div data-framer-name="Play Icon@2x">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="15px">
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Landing Page 2</p>
                      </div>
                     </div>
-                    <div data-framer-name="Image">
-                     <div>
-                      <img alt="Example of a page generated by Wireframer">
+                    <div data-border="true" data-framer-name="Image">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Example of a page generated by Wireframer" data-framer-original-sizes="550px">
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="Col">
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Landing Page 3</p>
                      <p>
                       <br>
                      </p>
                     </div>
                     <div data-framer-name="Image">
-                     <div>
-                      <img alt="Example of a page generated by Wireframer">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Example of a page generated by Wireframer" data-framer-original-sizes="550px">
                      </div>
                     </div>
                    </div>
                   </div>
-                  <div data-framer-name="Toolbar">
+                  <div data-border="true" data-framer-name="Toolbar">
                    <div>
-                    <div aria-hidden="true">
+                    <div data-framer-component-type="SVG" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                    <div>
-                    <div aria-hidden="true">
+                    <div data-framer-component-type="SVG" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Graphic" aria-hidden="true">
+                    <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                    <div>
-                    <div data-framer-name="Graphic" aria-hidden="true">
+                    <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                    <div>
-                    <div aria-hidden="true">
+                    <div data-framer-component-type="SVG" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>100%</p>
                     </div>
-                    <div data-framer-name="Graphic" aria-hidden="true">
+                    <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                      <div></div>
                     </div>
                    </div>
                   </div>
                  </div>
-                 <div data-framer-name="Right">
-                  <div>
-                   <img alt="">
+                 <div data-border="true" data-framer-name="Right">
+                  <div data-framer-background-image-wrapper="true">
+                   <img alt="" data-framer-original-sizes="260px">
                   </div>
                  </div>
                  <div data-framer-name="Fade"></div>
@@ -2148,11 +2148,11 @@ test('formatHtmlForPrompt', async () => {
               <div data-framer-name="Visual">
                <div>
                 <div data-framer-name="Start">
-                 <div data-framer-name="New UI">
-                  <div data-framer-name="Top Bar">
+                 <div data-border="true" data-framer-name="New UI">
+                  <div data-border="true" data-framer-name="Top Bar">
                    <div data-framer-name="Topbar New@2x">
-                    <div>
-                     <img alt="Framer UI">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="Framer UI" data-framer-original-sizes="364px">
                     </div>
                    </div>
                    <div data-framer-name="Avatars">
@@ -2160,15 +2160,15 @@ test('formatHtmlForPrompt', async () => {
                      <div>
                       <div data-framer-name="Avatar">
                        <div>
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="Avatar">
                        <div>
-                        <div data-framer-name="Variant 1">
-                         <div>
+                        <div data-border="true" data-framer-name="Variant 1">
+                         <div data-framer-background-image-wrapper="true">
                           <img alt="">
                          </div>
                         </div>
@@ -2177,8 +2177,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                     <div data-framer-name="Topbar Right Simple@2x">
-                     <div>
-                      <img alt="Framer UI">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Framer UI" data-framer-original-sizes="285px">
                      </div>
                     </div>
                    </div>
@@ -2186,81 +2186,81 @@ test('formatHtmlForPrompt', async () => {
                   <div data-framer-name="Content">
                    <div data-framer-name="Cursor">
                     <div data-framer-name="Pointer">
-                     <div data-framer-name="Pointer" aria-hidden="true">
+                     <div data-framer-component-type="SVG" data-framer-name="Pointer" aria-hidden="true">
                       <div></div>
                      </div>
                     </div>
                     <div data-framer-name="Pill">
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Benjamin</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="Cursor">
                     <div data-framer-name="Pointer">
-                     <div data-framer-name="Pointer" aria-hidden="true">
+                     <div data-framer-component-type="SVG" data-framer-name="Pointer" aria-hidden="true">
                       <div></div>
                      </div>
                     </div>
                     <div data-framer-name="Pill">
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Paul</p>
                      </div>
                     </div>
                    </div>
-                   <div data-framer-name="Left">
+                   <div data-border="true" data-framer-name="Left">
                     <div data-framer-name="Left@2x">
-                     <div>
-                      <img alt="Framer UI">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Framer UI" data-framer-original-sizes="260px">
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="Canvas Design">
-                    <div data-framer-name="Toolbar">
+                    <div data-border="true" data-framer-name="Toolbar">
                      <div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>100%</p>
                       </div>
-                      <div data-framer-name="Graphic" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                     </div>
                     <div data-framer-name="Headers@2x">
-                     <div>
-                      <img alt="Framer canvas">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Framer canvas" data-framer-original-sizes="776.1229px">
                      </div>
                     </div>
                    </div>
-                   <div data-framer-name="Right">
+                   <div data-border="true" data-framer-name="Right">
                     <div data-framer-name="Right@2x">
-                     <div>
-                      <img alt="Framer UI">
+                     <div data-framer-background-image-wrapper="true">
+                      <img alt="Framer UI" data-framer-original-sizes="260px">
                      </div>
                     </div>
                    </div>
@@ -2272,310 +2272,310 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div data-framer-name="CMS">
               <div data-framer-name="Visual">
-               <div data-framer-name="UI">
-                <div data-framer-name="Topbar">
+               <div data-border="true" data-framer-name="UI">
+                <div data-border="true" data-framer-name="Topbar">
                  <div data-framer-name="CMS Top Bar@2x">
-                  <div>
-                   <img alt="Framer UI">
+                  <div data-framer-background-image-wrapper="true">
+                   <img alt="Framer UI" data-framer-original-sizes="430px">
                   </div>
                  </div>
                  <div data-framer-name="Topbar Right@2x">
-                  <div>
-                   <img alt="">
+                  <div data-framer-background-image-wrapper="true">
+                   <img alt="" data-framer-original-sizes="360px">
                   </div>
                  </div>
                 </div>
                 <div data-framer-name="Editor">
-                 <div data-framer-name="CMS Sidebar">
+                 <div data-border="true" data-framer-name="CMS Sidebar">
                   <div data-framer-name="CMS Sidebar@2x">
-                   <div>
-                    <img alt="Framer UI">
+                   <div data-framer-background-image-wrapper="true">
+                    <img alt="Framer UI" data-framer-original-sizes="260px">
                    </div>
                   </div>
                  </div>
                  <div data-framer-name="Center">
                   <div data-framer-name="CMS / Header">
-                   <div>
-                    <div>
+                   <div data-border="true">
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Title</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Image</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Date</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Category</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Slug</p>
                     </div>
                    </div>
                   </div>
                   <div data-framer-name="Search Row">
-                   <div data-framer-name="Search Icon" aria-hidden="true"></div>
-                   <div>
+                   <div data-framer-component-type="SVG" data-framer-name="Search Icon" aria-hidden="true"></div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Search 153 items…</p>
                    </div>
                   </div>
                   <div data-framer-name="Updates List">
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Free Custom Domains</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Jan 8, 2026</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Publishing</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>free-custom-domains</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>On-Page Editing 2.0</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Jan 8, 2026</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>CMS</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>on-page-editing-2.0</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Plugins 3.9: Collections</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Dec 18, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Plugins</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>plugins-3-9</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Custom Code</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Custom Code">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Custom Code" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Dec 15, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Publishing</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>custom-code</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Flow Effect</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Flow Effect">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Flow Effect" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Dec 11, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Effects</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>flow-effect</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Localized Page Paths</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Dec 11, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Localization</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>localized-page-paths</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>December Update: Squircle</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Squircle">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Squircle" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Dec 10, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Design</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>december-update-2025</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Masonry Grids</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Masonry Grids">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Masonry Grids" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Nov 27, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Design</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>masonry</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Font Drop 16</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Font Drop 16">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Font Drop 16" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Nov 21, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Design</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>font-drop-16</p>
                      </div>
                     </div>
                    </div>
                    <div data-framer-name="CMS / Row">
-                    <div>
+                    <div data-border="true">
                      <div>
-                      <div data-framer-name="Graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Ticker Effect</p>
                       </div>
                      </div>
                      <div data-framer-name="Color">
-                      <div>
-                       <div>
-                        <img alt="Ticker FX">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Ticker FX" data-framer-original-sizes="50px">
                        </div>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Nov 13, 2025</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>AI</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>ticker-effect</p>
                      </div>
                     </div>
@@ -2584,84 +2584,84 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                 </div>
                 <div data-framer-name="Updates Sidebar">
-                 <div data-framer-name="Overlay">
+                 <div data-border="true" data-framer-name="Overlay">
                   <div>
                    <div>
-                    <div>
-                     <img alt="Framer UI">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="Framer UI" data-framer-original-sizes="550px">
                     </div>
                    </div>
                    <div>
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Title</p>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Free Custom Domains</p>
                       </div>
                       <div></div>
                      </div>
                     </div>
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Image</p>
                      </div>
                      <div>
-                      <div>
-                       <div>
-                        <img alt="">
+                      <div data-border="true">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="95px">
                        </div>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>free-custom-domains.jpg</p>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Categories</p>
                      </div>
                      <div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>Publishing</p>
                         </div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true">
+                       <div data-framer-component-type="SVG" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Slug</p>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>free-custom-domains</p>
                       </div>
                       <div></div>
                      </div>
                      <div>
-                      <div aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>framer.com/updates/free-custom-domains</p>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Content</p>
                      </div>
                      <div data-framer-name="CMS/Rich Text Toolbar">
                       <div data-framer-name="Style">
-                       <div>
+                       <div data-framer-component-type="Text">
                         <span>
                          <span>
                           <span>Paragraph</span>
@@ -2669,67 +2669,67 @@ test('formatHtmlForPrompt', async () => {
                          </span>
                         </span>
                        </div>
-                       <div data-framer-name="Caret" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" data-framer-name="Caret" aria-hidden="true"></div>
                       </div>
                       <div>
                        <div>
-                        <div data-framer-name="Link" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Link" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="Blod" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Blod" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="Italic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Italic" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                        <div>
-                        <div data-framer-name="graphic" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
                        </div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>
                         Today, we’re shipping an update where we offer a free custom domain for the first year when you upgrade your site to a yearly plan. We’ve partnered with
                         <a href="https://www.hover.com/" target="_blank">Hover</a>
                         to provide a seamless flow where you can select a free or discounted domain that will be automatically connected to your Framer site after purchase. To make use of this offer, upgrade your site to a yearly plan, then head over to the Domains tab in your project settings and select the “Claim a free custom domain” option.
                        </p>
                        <ul>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>This offer can be redeemed once per subscription</p>
                         </li>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>This offer is available only for sites on a yearly plan</p>
                         </li>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>Your domain will automatically renew at the standard rate</p>
                         </li>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>Redeeming this offer forfeits the option to request a refund</p>
                         </li>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>This offer is not valid in combination with a 100% discount code</p>
                         </li>
-                        <li>
+                        <li data-preset-tag="p">
                          <p>
                           Your domain and its subscription will be managed through
                           <a href="https://www.hover.com/" target="_blank">Hover</a>
@@ -2748,7 +2748,7 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div data-framer-name="Collaborate">
               <div data-framer-name="Visual">
-               <div data-framer-name="UI">
+               <div data-border="true" data-framer-name="UI" data-nosnippet="true">
                 <div data-framer-name="Top Bar">
                  <div data-framer-name="Left">
                   <div data-framer-name="Traffic Lights">
@@ -2756,7 +2756,7 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Search Bar">
-                  <div>
+                  <div data-framer-component-type="RichTextContainer">
                    <p>baseform.framer.website</p>
                   </div>
                  </div>
@@ -2765,10 +2765,10 @@ test('formatHtmlForPrompt', async () => {
                 <div data-framer-name="Content">
                  <div data-framer-name="Top Bar">
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Baseform®</p>
                    </div>
-                   <div>
+                   <div data-code-component-plugin-id="84d4c1" data-framer-appear-id="1j21mnp">
                     <div>
                      <div></div>
                      <div></div>
@@ -2777,10 +2777,10 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Art Direction</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2788,10 +2788,10 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                    </div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Visual Design</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2801,10 +2801,10 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Work,</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2812,10 +2812,10 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                    </div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Archive,</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2823,10 +2823,10 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                    </div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Profile,</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2834,10 +2834,10 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                    </div>
                    <div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Journal</p>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2846,10 +2846,10 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                   </div>
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>Let's Talk</p>
                    </div>
-                   <div>
+                   <div data-code-component-plugin-id="84d4c1">
                     <div>
                      <div></div>
                      <div></div>
@@ -2858,20 +2858,20 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                  </div>
                  <div data-framer-name="Body">
-                  <div>
-                   <div data-framer-name="Header">
+                  <div data-border="true">
+                   <div data-border="true" data-framer-name="Header">
                     <div>
                      <div data-framer-name="Pause">
                       <div>
                        <span>
                         <span>
-                         <span></span>
+                         <span data-testid="typewriter-wrapper"></span>
                         </span>
                        </span>
                       </div>
                      </div>
                     </div>
-                    <div>
+                    <div data-code-component-plugin-id="84d4c1">
                      <div>
                       <div></div>
                       <div></div>
@@ -2881,10 +2881,10 @@ test('formatHtmlForPrompt', async () => {
                    <div data-framer-name="Images">
                     <div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <h3>Latest News</h3>
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
@@ -2892,13 +2892,13 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View All Posts</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>→</p>
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
@@ -2908,21 +2908,21 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div>
                      <div>
-                      <div>
-                       <img alt="Photo">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Photo" data-framer-original-sizes="287.5px">
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
                        </div>
                       </div>
                      </div>
-                     <div>
-                      <div>
-                       <img alt="Photo">
+                     <div data-border="true">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Photo" data-framer-original-sizes="287.5px">
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
@@ -2931,10 +2931,10 @@ test('formatHtmlForPrompt', async () => {
                       <div></div>
                      </div>
                      <div>
-                      <div>
-                       <img alt="Photo">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Photo" data-framer-original-sizes="287.5px">
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
@@ -2942,10 +2942,10 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div>
-                      <div>
-                       <img alt="Photo">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Photo" data-framer-original-sizes="287.5px">
                       </div>
-                      <div>
+                      <div data-code-component-plugin-id="84d4c1">
                        <div>
                         <div></div>
                         <div></div>
@@ -2958,10 +2958,10 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                 </div>
                </div>
-               <div data-framer-name="Card">
+               <div data-border="true" data-framer-name="Card">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="Framer UI">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="Framer UI" data-framer-original-sizes="256px">
                  </div>
                 </div>
                </div>
@@ -2969,42 +2969,42 @@ test('formatHtmlForPrompt', async () => {
               <div data-framer-name="On Page Editing">
                <div data-framer-name="Text">
                 <div data-framer-name="Text 1">
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Click to edit</p>
                  </div>
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>·</p>
                  </div>
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Changes are auto-saved</p>
                  </div>
                 </div>
                 <div data-framer-name="Text 2">
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Site saved</p>
                  </div>
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>·</p>
                  </div>
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Collaborators are notified. Changes will be visible once the project is published.</p>
                  </div>
                 </div>
                </div>
                <div data-framer-name="Open in Framer">
                 <div>
-                 <div data-framer-name="Framer Logo" aria-hidden="true">
+                 <div data-framer-component-type="SVG" data-framer-name="Framer Logo" aria-hidden="true">
                   <div></div>
                  </div>
                 </div>
-                <div>
+                <div data-framer-component-type="RichTextContainer">
                  <p>Open in Framer</p>
                 </div>
                </div>
                <div>
                 <div data-framer-name="Finish Editing">
-                 <div data-framer-name="Check" aria-hidden="true"></div>
-                 <div>
+                 <div data-framer-component-type="SVG" data-framer-name="Check" aria-hidden="true"></div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Finish Editing</p>
                  </div>
                 </div>
@@ -3017,25 +3017,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="AI">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="100vw">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>AI</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">AI</h5>
                  </div>
-                 <div>
-                  <p>Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./ai/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./ai/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3050,25 +3050,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="AI">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 40px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>AI</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">AI</h5>
                  </div>
-                 <div>
-                  <p>Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./ai/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./ai/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3083,25 +3083,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="AI">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 80px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>AI</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">AI</h5>
                  </div>
-                 <div>
-                  <p>Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Generate page layouts and advanced components in seconds with AI, so you can skip the blank canvas and start designing with confidence.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./ai/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./ai/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3116,25 +3116,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Design">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="100vw">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Design</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Design</h5>
                  </div>
-                 <div>
-                  <p>Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./design/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./design/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3149,25 +3149,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Design">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 40px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Design</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Design</h5>
                  </div>
-                 <div>
-                  <p>Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./design/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./design/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3182,25 +3182,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Design">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 80px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Design</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Design</h5>
                  </div>
-                 <div>
-                  <p>Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Craft responsive layouts and bring them to life with smooth effects, interactions, and animations. Build exactly what you imagine, visually.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./design/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./design/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3215,25 +3215,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="CMS">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="100vw">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>CMS</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">CMS</h5>
                  </div>
-                 <div>
-                  <p>Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3248,25 +3248,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="CMS">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 40px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>CMS</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">CMS</h5>
                  </div>
-                 <div>
-                  <p>Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3281,25 +3281,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="CMS">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 80px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>CMS</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">CMS</h5>
                  </div>
-                 <div>
-                  <p>Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Manage and update your content effortlessly with a built-in CMS. Keep your site fresh without touching code.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3314,25 +3314,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Collaborate">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="100vw">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Collaborate</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Collaborate</h5>
                  </div>
-                 <div>
-                  <p>Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3347,25 +3347,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Collaborate">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 40px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Collaborate</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Collaborate</h5>
                  </div>
-                 <div>
-                  <p>Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3380,25 +3380,25 @@ test('formatHtmlForPrompt', async () => {
             <div>
              <div>
               <article data-framer-name="Collaborate">
-               <div data-framer-name="Visual">
+               <div data-border="true" data-framer-name="Visual">
                 <div data-framer-name="Image">
-                 <div>
-                  <img alt="">
+                 <div data-framer-background-image-wrapper="true">
+                  <img alt="" data-framer-original-sizes="calc(100vw - 80px)">
                  </div>
                 </div>
                </div>
                <div data-framer-name="Text">
                 <div>
-                 <div>
-                  <h5>Collaborate</h5>
+                 <div data-framer-component-type="RichTextContainer">
+                  <h5 data-styles-preset="wVtX8xMgR">Collaborate</h5>
                  </div>
-                 <div>
-                  <p>Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
+                 <div data-framer-component-type="RichTextContainer">
+                  <p data-styles-preset="kuibWYBoM">Whether you’re collaborating on the canvas or editing copy directly on the page, updates are seamless and handoff-free.</p>
                  </div>
                 </div>
                 <div>
-                 <a data-framer-name="Small" href="./scale/">
-                  <div>
+                 <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                  <div data-framer-component-type="RichTextContainer">
                    <p>Learn more</p>
                   </div>
                   <div>
@@ -3414,28 +3414,28 @@ test('formatHtmlForPrompt', async () => {
           </section>
           <section data-framer-name="Scale">
            <header data-framer-name="Header">
-            <div>
-             <h2>Scale without switching tools</h2>
+            <div data-framer-component-type="RichTextContainer">
+             <h2 data-styles-preset="Y4paqDh7P">Scale without switching tools</h2>
             </div>
            </header>
            <div data-framer-name="Features">
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="max((min(100vw - 80px, 1200px) - 30px) / 2, 50px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>Analytics &amp; insights</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">Analytics &amp; insights</h6>
                 </div>
-                <div>
-                 <p>Track traffic, measure performance, and monitor conversions.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Track traffic, measure performance, and monitor conversions.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./analytics">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -3448,26 +3448,26 @@ test('formatHtmlForPrompt', async () => {
                <div data-framer-name="Desktop">
                 <div data-framer-name="UI">
                  <div data-framer-name="Stats">
-                  <div data-framer-name="Content">
+                  <div data-border="true" data-framer-name="Content">
                    <div>
                     <p>January 9, 2026</p>
                    </div>
                    <div></div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Pageviews</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>258,156</p>
                     </div>
                    </div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Visitors</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>85,458</p>
                     </div>
                    </div>
@@ -3475,9 +3475,9 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div data-framer-name="Modal">
                   <div data-framer-name="Card">
-                   <div>
+                   <div data-border="true">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Overview</p>
                      </div>
                     </div>
@@ -3489,42 +3489,42 @@ test('formatHtmlForPrompt', async () => {
                        <div data-framer-name="Pulse"></div>
                        <div data-framer-name="Dot"></div>
                       </div>
-                      <div data-framer-name="Device Title">
+                      <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                        <p>Live Visitors</p>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>400</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Unique Visitors</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>1.7M</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Total Pageviews</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>3.2M</h6>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>330k</p>
                    </div>
                    <div></div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </div>
                   <div></div>
@@ -3532,14 +3532,14 @@ test('formatHtmlForPrompt', async () => {
                    <div data-framer-name="Card">
                     <div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Sources</p>
                       </div>
                       <div data-framer-name="Segment Control">
-                       <div data-framer-name="Hide">
+                       <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                         <p>Referrer</p>
                        </div>
-                       <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
@@ -3551,70 +3551,70 @@ test('formatHtmlForPrompt', async () => {
                       <div>
                        <div data-framer-name="bar"></div>
                        <div>
-                        <div data-framer-name="Graphic" aria-hidden="true">
+                        <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                          <div></div>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>google.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>436K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>chatgpt.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>189K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>linkedin.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>96K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>youtube.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>82K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>bing.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>71K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div data-framer-name="graphic" aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>x.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>49K</p>
                        </div>
                        <div data-framer-name="bar"></div>
@@ -3624,76 +3624,76 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                    <div data-framer-name="Card">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Pages</p>
                      </div>
                      <div data-framer-name="Segment Control">
-                      <div data-framer-name="Hide">
+                      <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                        <p>All</p>
                       </div>
-                      <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                     </div>
                     <div data-framer-name="pages-group">
                      <div data-framer-name="Page">
-                      <div data-framer-name="icon-layer-home" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="icon-layer-home" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>1.8M</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/pricing</p>
                       </div>
                       <div data-framer-name="bar"></div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>156K</p>
                       </div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/gallery</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>91K</p>
                       </div>
                       <div data-framer-name="bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/updates</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>44K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/design</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>39K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
                       <div data-framer-name="Bar"></div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/cms</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>27K</p>
                       </div>
                      </div>
@@ -3705,32 +3705,32 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="">
                 </div>
                </div>
               </div>
               <div data-framer-name="Fade"></div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 40px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>Analytics &amp; insights</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">Analytics &amp; insights</h6>
                 </div>
-                <div>
-                 <p>Track traffic, measure performance, and monitor conversions.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Track traffic, measure performance, and monitor conversions.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Small" href="./analytics">
-                 <div>
+                <a data-framer-name="Small" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Learn more</p>
                  </div>
                  <div>
@@ -3743,26 +3743,26 @@ test('formatHtmlForPrompt', async () => {
                <div data-framer-name="Desktop">
                 <div data-framer-name="UI">
                  <div data-framer-name="Stats">
-                  <div data-framer-name="Content">
+                  <div data-border="true" data-framer-name="Content">
                    <div>
                     <p>January 9, 2026</p>
                    </div>
                    <div></div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Pageviews</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>258,156</p>
                     </div>
                    </div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Visitors</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>85,458</p>
                     </div>
                    </div>
@@ -3770,9 +3770,9 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div data-framer-name="Modal">
                   <div data-framer-name="Card">
-                   <div>
+                   <div data-border="true">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Overview</p>
                      </div>
                     </div>
@@ -3784,42 +3784,42 @@ test('formatHtmlForPrompt', async () => {
                        <div data-framer-name="Pulse"></div>
                        <div data-framer-name="Dot"></div>
                       </div>
-                      <div data-framer-name="Device Title">
+                      <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                        <p>Live Visitors</p>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>400</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Unique Visitors</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>1.7M</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Total Pageviews</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>3.2M</h6>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>330k</p>
                    </div>
                    <div></div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </div>
                   <div></div>
@@ -3827,14 +3827,14 @@ test('formatHtmlForPrompt', async () => {
                    <div data-framer-name="Card">
                     <div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Sources</p>
                       </div>
                       <div data-framer-name="Segment Control">
-                       <div data-framer-name="Hide">
+                       <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                         <p>Referrer</p>
                        </div>
-                       <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
@@ -3846,70 +3846,70 @@ test('formatHtmlForPrompt', async () => {
                       <div>
                        <div data-framer-name="bar"></div>
                        <div>
-                        <div data-framer-name="Graphic" aria-hidden="true">
+                        <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                          <div></div>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>google.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>436K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>chatgpt.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>189K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>linkedin.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>96K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>youtube.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>82K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>bing.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>71K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div data-framer-name="graphic" aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>x.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>49K</p>
                        </div>
                        <div data-framer-name="bar"></div>
@@ -3919,76 +3919,76 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                    <div data-framer-name="Card">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Pages</p>
                      </div>
                      <div data-framer-name="Segment Control">
-                      <div data-framer-name="Hide">
+                      <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                        <p>All</p>
                       </div>
-                      <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                     </div>
                     <div data-framer-name="pages-group">
                      <div data-framer-name="Page">
-                      <div data-framer-name="icon-layer-home" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="icon-layer-home" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>1.8M</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/pricing</p>
                       </div>
                       <div data-framer-name="bar"></div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>156K</p>
                       </div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/gallery</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>91K</p>
                       </div>
                       <div data-framer-name="bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/updates</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>44K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/design</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>39K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
                       <div data-framer-name="Bar"></div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/cms</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>27K</p>
                       </div>
                      </div>
@@ -4000,32 +4000,32 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="480px">
                 </div>
                </div>
               </div>
               <div data-framer-name="Fade"></div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 80px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>Analytics &amp; insights</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">Analytics &amp; insights</h6>
                 </div>
-                <div>
-                 <p>Track traffic, measure performance, and monitor conversions.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Track traffic, measure performance, and monitor conversions.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./analytics">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -4038,26 +4038,26 @@ test('formatHtmlForPrompt', async () => {
                <div data-framer-name="Desktop">
                 <div data-framer-name="UI">
                  <div data-framer-name="Stats">
-                  <div data-framer-name="Content">
+                  <div data-border="true" data-framer-name="Content">
                    <div>
                     <p>January 9, 2026</p>
                    </div>
                    <div></div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Pageviews</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>258,156</p>
                     </div>
                    </div>
                    <div>
                     <div></div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>Visitors</p>
                     </div>
-                    <div>
+                    <div data-framer-component-type="RichTextContainer">
                      <p>85,458</p>
                     </div>
                    </div>
@@ -4065,9 +4065,9 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div data-framer-name="Modal">
                   <div data-framer-name="Card">
-                   <div>
+                   <div data-border="true">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Overview</p>
                      </div>
                     </div>
@@ -4079,42 +4079,42 @@ test('formatHtmlForPrompt', async () => {
                        <div data-framer-name="Pulse"></div>
                        <div data-framer-name="Dot"></div>
                       </div>
-                      <div data-framer-name="Device Title">
+                      <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                        <p>Live Visitors</p>
                       </div>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>400</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Unique Visitors</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>1.7M</h6>
                      </div>
                     </div>
                     <div>
-                     <div data-framer-name="Device Title">
+                     <div data-framer-name="Device Title" data-framer-component-type="RichTextContainer">
                       <p>Total Pageviews</p>
                      </div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <h6>3.2M</h6>
                      </div>
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
+                   <div data-framer-component-type="RichTextContainer">
                     <p>330k</p>
                    </div>
                    <div></div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                    <div>
-                    <div aria-hidden="true"></div>
+                    <div data-framer-component-type="SVG" aria-hidden="true"></div>
                    </div>
                   </div>
                   <div></div>
@@ -4122,14 +4122,14 @@ test('formatHtmlForPrompt', async () => {
                    <div data-framer-name="Card">
                     <div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Sources</p>
                       </div>
                       <div data-framer-name="Segment Control">
-                       <div data-framer-name="Hide">
+                       <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                         <p>Referrer</p>
                        </div>
-                       <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
@@ -4141,70 +4141,70 @@ test('formatHtmlForPrompt', async () => {
                       <div>
                        <div data-framer-name="bar"></div>
                        <div>
-                        <div data-framer-name="Graphic" aria-hidden="true">
+                        <div data-framer-component-type="SVG" data-framer-name="Graphic" aria-hidden="true">
                          <div></div>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>google.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>436K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>chatgpt.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>189K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>linkedin.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>96K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" data-framer-name="Youtube-svgrepo-com" aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>youtube.com</p>
                        </div>
                        <div data-framer-name="bar"></div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>82K</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div aria-hidden="true"></div>
+                        <div data-framer-component-type="SVG" aria-hidden="true"></div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>bing.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>71K</p>
                        </div>
                        <div data-framer-name="bar"></div>
                       </div>
                       <div>
-                       <div data-framer-name="graphic" aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>x.com</p>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>49K</p>
                        </div>
                        <div data-framer-name="bar"></div>
@@ -4214,76 +4214,76 @@ test('formatHtmlForPrompt', async () => {
                    </div>
                    <div data-framer-name="Card">
                     <div>
-                     <div>
+                     <div data-framer-component-type="RichTextContainer">
                       <p>Pages</p>
                      </div>
                      <div data-framer-name="Segment Control">
-                      <div data-framer-name="Hide">
+                      <div data-framer-name="Hide" data-framer-component-type="RichTextContainer">
                        <p>All</p>
                       </div>
-                      <div data-framer-name="Dropdown Icon" aria-hidden="true">
+                      <div data-framer-component-type="SVG" data-framer-name="Dropdown Icon" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                     </div>
                     <div data-framer-name="pages-group">
                      <div data-framer-name="Page">
-                      <div data-framer-name="icon-layer-home" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="icon-layer-home" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>1.8M</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/pricing</p>
                       </div>
                       <div data-framer-name="bar"></div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>156K</p>
                       </div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/gallery</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>91K</p>
                       </div>
                       <div data-framer-name="bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/updates</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>44K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/design</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>39K</p>
                       </div>
                       <div data-framer-name="Bar"></div>
                      </div>
                      <div>
                       <div data-framer-name="Bar"></div>
-                      <div data-framer-name="graphic" aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" data-framer-name="graphic" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>/features/cms</p>
                       </div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>27K</p>
                       </div>
                      </div>
@@ -4295,32 +4295,32 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="Framer UI">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="Framer UI" data-framer-original-sizes="560px">
                 </div>
                </div>
               </div>
               <div data-framer-name="Fade"></div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="max((min(100vw - 80px, 1200px) - 30px) / 2, 50px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>A/B Testing &amp; optimization</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">A/B Testing &amp; optimization</h6>
                 </div>
-                <div>
-                 <p>A/B testing, funnels, and built-in growth insights.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">A/B testing, funnels, and built-in growth insights.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./analytics">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -4331,141 +4331,141 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div>
+                <div data-border="true">
                  <div>
-                  <div data-framer-name="Topbar">
+                  <div data-border="true" data-framer-name="Topbar">
                    <div data-framer-name="Topbar New@2x">
-                    <div>
-                     <img alt="">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="" data-framer-original-sizes="364px">
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
-                    <div>
+                   <div data-border="true">
+                    <div data-border="true">
                      <div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Pages</p>
                        </div>
                       </div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Layers</p>
                        </div>
                       </div>
                       <div></div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Assets</p>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
-                      <div>
+                     <div data-border="true">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Design</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Pages</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
                       </div>
-                      <div aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
                      </div>
                      <div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>A</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Control</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>B</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version B</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>C</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version C</p>
                        </div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/pricing</p>
                        </div>
                        <div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>A</p>
                          </div>
                         </div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>B</p>
                          </div>
                         </div>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/features</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/blog</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/about</p>
                        </div>
                        <div></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/404</p>
                        </div>
                        <div></div>
@@ -4477,18 +4477,18 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="Desktop">
                      <div data-framer-name="Bar">
                       <div data-framer-name="Play Button">
-                       <div data-framer-name="Play Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Play Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
                       <div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>Desktop</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>·</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>1200</p>
                        </div>
                       </div>
@@ -4497,8 +4497,8 @@ test('formatHtmlForPrompt', async () => {
                      <div>
                       <div data-framer-name="Page">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer website">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer website" data-framer-original-sizes="347px">
                         </div>
                        </div>
                       </div>
@@ -4511,31 +4511,31 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="400px">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 40px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>A/B Testing &amp; optimization</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">A/B Testing &amp; optimization</h6>
                 </div>
-                <div>
-                 <p>A/B testing, funnels, and built-in growth insights.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">A/B testing, funnels, and built-in growth insights.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Small" href="./analytics">
-                 <div>
+                <a data-framer-name="Small" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Learn more</p>
                  </div>
                  <div>
@@ -4546,141 +4546,141 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div>
+                <div data-border="true">
                  <div>
-                  <div data-framer-name="Topbar">
+                  <div data-border="true" data-framer-name="Topbar">
                    <div data-framer-name="Topbar New@2x">
-                    <div>
-                     <img alt="">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="" data-framer-original-sizes="364px">
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
-                    <div>
+                   <div data-border="true">
+                    <div data-border="true">
                      <div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Pages</p>
                        </div>
                       </div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Layers</p>
                        </div>
                       </div>
                       <div></div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Assets</p>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
-                      <div>
+                     <div data-border="true">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Design</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Pages</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
                       </div>
-                      <div aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
                      </div>
                      <div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>A</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Control</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>B</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version B</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>C</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version C</p>
                        </div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/pricing</p>
                        </div>
                        <div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>A</p>
                          </div>
                         </div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>B</p>
                          </div>
                         </div>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/features</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/blog</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/about</p>
                        </div>
                        <div></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/404</p>
                        </div>
                        <div></div>
@@ -4692,18 +4692,18 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="Desktop">
                      <div data-framer-name="Bar">
                       <div data-framer-name="Play Button">
-                       <div data-framer-name="Play Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Play Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
                       <div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>Desktop</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>·</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>1200</p>
                        </div>
                       </div>
@@ -4712,8 +4712,8 @@ test('formatHtmlForPrompt', async () => {
                      <div>
                       <div data-framer-name="Page">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer website">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer website" data-framer-original-sizes="347px">
                         </div>
                        </div>
                       </div>
@@ -4726,31 +4726,31 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="400px">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 80px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>A/B Testing &amp; optimization</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">A/B Testing &amp; optimization</h6>
                 </div>
-                <div>
-                 <p>A/B testing, funnels, and built-in growth insights.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">A/B testing, funnels, and built-in growth insights.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./analytics">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./analytics">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -4761,141 +4761,141 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div>
+                <div data-border="true">
                  <div>
-                  <div data-framer-name="Topbar">
+                  <div data-border="true" data-framer-name="Topbar">
                    <div data-framer-name="Topbar New@2x">
-                    <div>
-                     <img alt="">
+                    <div data-framer-background-image-wrapper="true">
+                     <img alt="" data-framer-original-sizes="364px">
                     </div>
                    </div>
                   </div>
                   <div>
-                   <div>
-                    <div>
+                   <div data-border="true">
+                    <div data-border="true">
                      <div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Pages</p>
                        </div>
                       </div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Layers</p>
                        </div>
                       </div>
                       <div></div>
                       <div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Assets</p>
                        </div>
                       </div>
                      </div>
                     </div>
                     <div>
-                     <div>
-                      <div>
+                     <div data-border="true">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Design</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
-                      <div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Pages</p>
                       </div>
-                      <div aria-hidden="true">
+                      <div data-framer-component-type="SVG" aria-hidden="true">
                        <div></div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
                       </div>
-                      <div aria-hidden="true"></div>
-                      <div>
+                      <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                      <div data-framer-component-type="RichTextContainer">
                        <p>Home</p>
                       </div>
                      </div>
                      <div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>A</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Control</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>B</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version B</p>
                        </div>
                       </div>
                       <div>
                        <div>
-                        <div>
+                        <div data-framer-component-type="RichTextContainer">
                          <p>C</p>
                         </div>
                        </div>
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Version C</p>
                        </div>
                       </div>
                      </div>
                      <div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/pricing</p>
                        </div>
                        <div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>A</p>
                          </div>
                         </div>
                         <div>
-                         <div>
+                         <div data-framer-component-type="RichTextContainer">
                           <p>B</p>
                          </div>
                         </div>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/features</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/blog</p>
                        </div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/about</p>
                        </div>
                        <div></div>
                       </div>
                       <div>
-                       <div aria-hidden="true"></div>
-                       <div aria-hidden="true"></div>
-                       <div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>/404</p>
                        </div>
                        <div></div>
@@ -4907,18 +4907,18 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="Desktop">
                      <div data-framer-name="Bar">
                       <div data-framer-name="Play Button">
-                       <div data-framer-name="Play Icon" aria-hidden="true">
+                       <div data-framer-component-type="SVG" data-framer-name="Play Icon" aria-hidden="true">
                         <div></div>
                        </div>
                       </div>
                       <div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>Desktop</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>·</p>
                        </div>
-                       <div data-framer-name="iPhone 12">
+                       <div data-framer-name="iPhone 12" data-framer-component-type="RichTextContainer">
                         <p>1200</p>
                        </div>
                       </div>
@@ -4927,8 +4927,8 @@ test('formatHtmlForPrompt', async () => {
                      <div>
                       <div data-framer-name="Page">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer website">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer website" data-framer-original-sizes="347px">
                         </div>
                        </div>
                       </div>
@@ -4941,31 +4941,31 @@ test('formatHtmlForPrompt', async () => {
                 </div>
                </div>
                <div data-framer-name="Phone">
-                <div>
-                 <img alt="Framer UI">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="Framer UI" data-framer-original-sizes="480px">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="max((min(100vw - 80px, 1200px) - 30px) / 2, 50px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>SEO &amp; performance</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">SEO &amp; performance</h6>
                 </div>
-                <div>
-                 <p>Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./scale/">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./scale/">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -4977,13 +4977,13 @@ test('formatHtmlForPrompt', async () => {
               <div></div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div data-framer-name="Publish">
+                <div data-border="true" data-framer-name="Publish">
                  <div>
-                  <div data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
+                  <div data-framer-component-type="SVG" data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
                    <div></div>
                   </div>
-                  <div>
-                   <p>Google Lighthouse</p>
+                  <div data-framer-component-type="RichTextContainer">
+                   <p data-styles-preset="XHuCPIQKc">Google Lighthouse</p>
                   </div>
                  </div>
                  <div>
@@ -5011,8 +5011,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>SEO</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">SEO</p>
                    </div>
                   </div>
                   <div>
@@ -5039,8 +5039,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Performance</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Performance</p>
                    </div>
                   </div>
                   <div>
@@ -5067,39 +5067,39 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Accessibility</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Accessibility</p>
                    </div>
                   </div>
                  </div>
                 </div>
                </div>
-               <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+               <div data-border="true" data-framer-name="Phone">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 40px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>SEO &amp; performance</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">SEO &amp; performance</h6>
                 </div>
-                <div>
-                 <p>Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Small" href="./scale/">
-                 <div>
+                <a data-framer-name="Small" data-highlight="true" href="./scale/">
+                 <div data-framer-component-type="RichTextContainer">
                   <p>Learn more</p>
                  </div>
                  <div>
@@ -5111,13 +5111,13 @@ test('formatHtmlForPrompt', async () => {
               <div></div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div data-framer-name="Publish">
+                <div data-border="true" data-framer-name="Publish">
                  <div>
-                  <div data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
+                  <div data-framer-component-type="SVG" data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
                    <div></div>
                   </div>
-                  <div>
-                   <p>Google Lighthouse</p>
+                  <div data-framer-component-type="RichTextContainer">
+                   <p data-styles-preset="XHuCPIQKc">Google Lighthouse</p>
                   </div>
                  </div>
                  <div>
@@ -5145,8 +5145,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>SEO</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">SEO</p>
                    </div>
                   </div>
                   <div>
@@ -5173,8 +5173,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Performance</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Performance</p>
                    </div>
                   </div>
                   <div>
@@ -5201,39 +5201,39 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Accessibility</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Accessibility</p>
                    </div>
                   </div>
                  </div>
                 </div>
                </div>
-               <div data-framer-name="Phone">
-                <div>
-                 <img alt="">
+               <div data-border="true" data-framer-name="Phone">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="" data-framer-original-sizes="calc(min(100vw - 40px, 1200px) - 40px)">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
             <div>
              <div data-framer-name="Card">
-              <div>
-               <img alt="3D render">
+              <div data-framer-background-image-wrapper="true">
+               <img alt="3D render" data-framer-original-sizes="min(100vw - 80px, 1200px)">
               </div>
               <div data-framer-name="Header">
                <div data-framer-name="Text">
-                <div>
-                 <h6>SEO &amp; performance</h6>
+                <div data-framer-component-type="RichTextContainer">
+                 <h6 data-styles-preset="VQBQVu8qk">SEO &amp; performance</h6>
                 </div>
-                <div>
-                 <p>Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
+                <div data-framer-component-type="RichTextContainer">
+                 <p data-styles-preset="kuibWYBoM">Optimize every page with built-in SEO settings, metadata, and blazing-fast hosting.</p>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Default" href="./scale/">
-                 <div>
+                <a data-framer-name="Default" data-highlight="true" href="./scale/">
+                 <div data-framer-component-type="RichTextContainer">
                   <h3>Learn more</h3>
                  </div>
                  <div>
@@ -5245,13 +5245,13 @@ test('formatHtmlForPrompt', async () => {
               <div></div>
               <div data-framer-name="Visual">
                <div data-framer-name="Desktop">
-                <div data-framer-name="Publish">
+                <div data-border="true" data-framer-name="Publish">
                  <div>
-                  <div data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
+                  <div data-framer-component-type="SVG" data-framer-name="logo_google_svgrepo_com" aria-hidden="true">
                    <div></div>
                   </div>
-                  <div>
-                   <p>Google Lighthouse</p>
+                  <div data-framer-component-type="RichTextContainer">
+                   <p data-styles-preset="XHuCPIQKc">Google Lighthouse</p>
                   </div>
                  </div>
                  <div>
@@ -5279,8 +5279,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>SEO</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">SEO</p>
                    </div>
                   </div>
                   <div>
@@ -5307,8 +5307,8 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Performance</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Performance</p>
                    </div>
                   </div>
                   <div>
@@ -5335,28 +5335,28 @@ test('formatHtmlForPrompt', async () => {
                      </div>
                     </div>
                    </div>
-                   <div>
-                    <p>Accessibility</p>
+                   <div data-framer-component-type="RichTextContainer">
+                    <p data-styles-preset="XHuCPIQKc">Accessibility</p>
                    </div>
                   </div>
                  </div>
                 </div>
                </div>
-               <div data-framer-name="Phone">
-                <div>
-                 <img alt="Lighthouse score">
+               <div data-border="true" data-framer-name="Phone">
+                <div data-framer-background-image-wrapper="true">
+                 <img alt="Lighthouse score" data-framer-original-sizes="max((min(100vw - 80px, 1200px) - 100px) / 2, 1px)">
                 </div>
                </div>
               </div>
-              <div data-framer-name="Border"></div>
+              <div data-border="true" data-framer-name="Border"></div>
              </div>
             </div>
            </div>
           </section>
           <div data-framer-name="Stories">
            <header data-framer-name="Header">
-            <div>
-             <h2>Powering ambitious teams worldwide</h2>
+            <div data-framer-component-type="RichTextContainer">
+             <h2 data-styles-preset="Y4paqDh7P">Powering ambitious teams worldwide</h2>
             </div>
            </header>
            <div aria-label="Customer Stories" data-framer-name="Sites">
@@ -5367,40 +5367,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5412,9 +5412,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5422,8 +5422,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5434,40 +5434,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5479,9 +5479,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5489,8 +5489,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5501,40 +5501,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5546,9 +5546,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5556,8 +5556,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5568,40 +5568,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5613,9 +5613,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5623,8 +5623,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5635,40 +5635,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5680,9 +5680,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5690,8 +5690,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5702,40 +5702,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5747,9 +5747,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5757,8 +5757,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5769,40 +5769,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5814,9 +5814,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5824,8 +5824,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5836,40 +5836,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5881,9 +5881,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5891,8 +5891,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5903,40 +5903,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -5948,9 +5948,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -5958,8 +5958,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -5970,40 +5970,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6015,9 +6015,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6025,8 +6025,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6037,40 +6037,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6082,9 +6082,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6092,8 +6092,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6104,40 +6104,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6149,9 +6149,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6159,8 +6159,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6171,40 +6171,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6216,9 +6216,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6226,8 +6226,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6238,40 +6238,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6283,9 +6283,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6293,8 +6293,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6305,40 +6305,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6350,9 +6350,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6360,8 +6360,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6372,40 +6372,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6417,9 +6417,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6427,8 +6427,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6439,40 +6439,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6484,9 +6484,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6494,8 +6494,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6506,40 +6506,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6551,9 +6551,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6561,8 +6561,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6573,40 +6573,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6618,9 +6618,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6628,8 +6628,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6640,40 +6640,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Desktop" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Desktop" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6685,9 +6685,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(1160px / 2, 1px) - 120px)">
                        </div>
                        <div>
                         <video></video>
@@ -6695,8 +6695,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(1160px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6742,40 +6742,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6787,9 +6787,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -6797,8 +6797,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6809,40 +6809,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6854,9 +6854,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -6864,8 +6864,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6876,40 +6876,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6921,9 +6921,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -6931,8 +6931,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -6943,40 +6943,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -6988,9 +6988,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -6998,8 +6998,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7010,40 +7010,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7055,9 +7055,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7065,8 +7065,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7077,40 +7077,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7122,9 +7122,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7132,8 +7132,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7144,40 +7144,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7189,9 +7189,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7199,8 +7199,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7211,40 +7211,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7256,9 +7256,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7266,8 +7266,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7278,40 +7278,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7323,9 +7323,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7333,8 +7333,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7345,40 +7345,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7390,9 +7390,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7400,8 +7400,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7412,40 +7412,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7457,9 +7457,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7467,8 +7467,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7479,40 +7479,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7524,9 +7524,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7534,8 +7534,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7546,40 +7546,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7591,9 +7591,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7601,8 +7601,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7613,40 +7613,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7658,9 +7658,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7668,8 +7668,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7680,40 +7680,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7725,9 +7725,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7735,8 +7735,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7747,40 +7747,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7792,9 +7792,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Perplexity website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Perplexity website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7802,8 +7802,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7814,40 +7814,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7859,9 +7859,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Visual Electric website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Visual Electric website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7869,8 +7869,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7881,40 +7881,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7926,9 +7926,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Biograph website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Biograph website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -7936,8 +7936,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -7948,40 +7948,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -7993,9 +7993,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Cradle website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Cradle website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -8003,8 +8003,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -8015,40 +8015,40 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Tablet" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Tablet" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8060,9 +8060,9 @@ test('formatHtmlForPrompt', async () => {
                     </div>
                     <div data-framer-name="Right">
                      <div>
-                      <div data-framer-name="Pause">
-                       <div>
-                        <img alt="Miro website">
+                      <div data-border="true" data-framer-name="Pause">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Miro website" data-framer-original-sizes="calc(max(730px / 2, 1px) - 80px)">
                        </div>
                        <div>
                         <video></video>
@@ -8070,8 +8070,8 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="BG Image">
-                      <div>
-                       <img alt="Background">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Background" data-framer-original-sizes="max(730px / 2, 1px)">
                       </div>
                      </div>
                     </div>
@@ -8117,18 +8117,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8137,23 +8137,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
@@ -8167,18 +8167,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8187,23 +8187,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
@@ -8217,18 +8217,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8237,23 +8237,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
@@ -8267,18 +8267,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8287,23 +8287,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
@@ -8317,18 +8317,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="false">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8337,23 +8337,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
@@ -8367,18 +8367,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8387,23 +8387,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
@@ -8417,18 +8417,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8437,23 +8437,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
@@ -8467,18 +8467,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8487,23 +8487,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
@@ -8517,18 +8517,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8537,23 +8537,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
@@ -8567,18 +8567,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8587,23 +8587,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
@@ -8617,18 +8617,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8637,23 +8637,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
@@ -8667,18 +8667,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8687,23 +8687,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
@@ -8717,18 +8717,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8737,23 +8737,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
@@ -8767,18 +8767,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8787,23 +8787,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
@@ -8817,18 +8817,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8837,23 +8837,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
@@ -8867,18 +8867,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Perplexity">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/perplexity/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/perplexity/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Perplexity logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Perplexity logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8887,23 +8887,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gives us everything we need to move fast. We don’t wait on dev. We don’t compromise on design.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Henry Modisett</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Henry Modisett</p>
                         </div>
-                        <div>
-                         <p>Head of Design at Perplexity</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Head of Design at Perplexity</p>
                         </div>
                        </div>
                       </div>
@@ -8917,18 +8917,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Visual Electric">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/visual-electric/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/visual-electric/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8937,23 +8937,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Launching on Framer was seamless. Live in no time, no friction.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Colin Dunn</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Colin Dunn</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Visual Electric</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Visual Electric</p>
                         </div>
                        </div>
                       </div>
@@ -8967,18 +8967,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Biograph">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/biograph/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/biograph/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Biograph logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Biograph logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -8987,23 +8987,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer gave us full creative freedom. No code limits, no handoffs. We shipped an immersive brand site in days.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Adam Jiwa</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Adam Jiwa</p>
                         </div>
-                        <div>
-                         <p>Partnerships at Metalab</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Partnerships at Metalab</p>
                         </div>
                        </div>
                       </div>
@@ -9017,18 +9017,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Cradle">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/cradle/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/cradle/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Cradle logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Cradle logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -9037,23 +9037,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“With Framer, our designers can ship updates daily. No dev handoff. No staging hassle.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Jelle Prins</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Jelle Prins</p>
                         </div>
-                        <div>
-                         <p>Co-Founder at Cradle</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Co-Founder at Cradle</p>
                         </div>
                        </div>
                       </div>
@@ -9067,18 +9067,18 @@ test('formatHtmlForPrompt', async () => {
                 <li aria-hidden="true">
                  <div data-framer-name="Miro">
                   <div>
-                   <a data-framer-name="Phone" href="./stories/miro/">
+                   <a data-border="true" data-framer-name="Phone" href="./stories/miro/">
                     <div data-framer-name="Left">
                      <div data-framer-name="Top">
                       <div data-framer-name="Logo">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Miro logo">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Miro logo" data-framer-original-sizes="60px">
                         </div>
                        </div>
                       </div>
                       <div data-framer-name="CTA 2025">
-                       <div>
+                       <div data-framer-component-type="RichTextContainer">
                         <p>Read more</p>
                        </div>
                        <div>
@@ -9087,23 +9087,23 @@ test('formatHtmlForPrompt', async () => {
                       </div>
                      </div>
                      <div data-framer-name="Pad Quote">
-                      <div data-framer-name="Quote">
+                      <div data-framer-name="Quote" data-framer-component-type="RichTextContainer">
                        <p>“Framer allowed us to ship high-performing, beautifully designed pages at record speed, all while keeping design control in-house.”</p>
                       </div>
                      </div>
                      <div data-framer-name="Bottom">
                       <div data-framer-name="User">
                        <div data-framer-name="Image">
-                        <div>
+                        <div data-framer-background-image-wrapper="true">
                          <img alt="Avatar">
                         </div>
                        </div>
                        <div data-framer-name="Name">
-                        <div>
-                         <p>Radoslav Bali</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Radoslav Bali</p>
                         </div>
-                        <div>
-                         <p>Design Lead at Miro</p>
+                        <div data-framer-component-type="RichTextContainer">
+                         <p data-styles-preset="XHuCPIQKc">Design Lead at Miro</p>
                         </div>
                        </div>
                       </div>
@@ -9149,14 +9149,14 @@ test('formatHtmlForPrompt', async () => {
           </div>
           <section data-framer-name="Experts">
            <header data-framer-name="Header">
-            <div>
-             <h2>Get pro help from handpicked experts</h2>
+            <div data-framer-component-type="RichTextContainer">
+             <h2 data-styles-preset="Y4paqDh7P">Get pro help from handpicked experts</h2>
             </div>
             <div data-framer-name="Buttons">
              <div>
               <div>
-               <a data-framer-name="Regular" href="./match/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="./match/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Get matched</p>
                 </div>
                </a>
@@ -9164,8 +9164,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="./match/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Phone" data-highlight="true" data-reset="button" href="./match/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Get matched</p>
                 </div>
                </a>
@@ -9173,8 +9173,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="./match/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="./match/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Get matched</p>
                 </div>
                </a>
@@ -9182,8 +9182,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/experts/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/experts/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Find an Expert</p>
                 </div>
                </a>
@@ -9191,8 +9191,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="https://www.framer.com/experts/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Phone" data-highlight="true" data-reset="button" href="https://www.framer.com/experts/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Find an Expert</p>
                 </div>
                </a>
@@ -9200,8 +9200,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/experts/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/experts/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Find an Expert</p>
                 </div>
                </a>
@@ -9218,21 +9218,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9240,17 +9240,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -9258,21 +9258,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9280,17 +9280,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -9298,21 +9298,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9320,17 +9320,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -9338,21 +9338,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9360,17 +9360,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9382,21 +9382,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9404,17 +9404,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -9422,21 +9422,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9444,17 +9444,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9462,21 +9462,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9484,17 +9484,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9502,21 +9502,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9524,17 +9524,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9546,21 +9546,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9568,17 +9568,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -9586,21 +9586,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9608,17 +9608,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -9626,21 +9626,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9648,17 +9648,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -9666,21 +9666,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9688,17 +9688,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9710,21 +9710,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9732,17 +9732,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -9750,21 +9750,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9772,17 +9772,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9790,21 +9790,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9812,17 +9812,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9830,21 +9830,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9852,17 +9852,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -9874,21 +9874,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9896,17 +9896,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -9914,21 +9914,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9936,17 +9936,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -9954,21 +9954,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -9976,17 +9976,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -9994,21 +9994,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10016,17 +10016,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10038,21 +10038,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10060,17 +10060,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -10078,21 +10078,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10100,17 +10100,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10118,21 +10118,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10140,17 +10140,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10158,21 +10158,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10180,17 +10180,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10202,21 +10202,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10224,17 +10224,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -10242,21 +10242,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10264,17 +10264,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -10282,21 +10282,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10304,17 +10304,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -10322,21 +10322,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10344,17 +10344,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10366,21 +10366,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Desktop 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10388,17 +10388,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -10406,21 +10406,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10428,17 +10428,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10446,21 +10446,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10468,17 +10468,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10486,21 +10486,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="292.5px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10508,17 +10508,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10556,21 +10556,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10578,17 +10578,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -10596,21 +10596,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10618,17 +10618,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -10636,21 +10636,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10658,17 +10658,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -10676,21 +10676,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10698,17 +10698,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10720,21 +10720,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10742,17 +10742,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -10760,21 +10760,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10782,17 +10782,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10800,21 +10800,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10822,17 +10822,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10840,21 +10840,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10862,17 +10862,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -10884,21 +10884,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10906,17 +10906,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -10924,21 +10924,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10946,17 +10946,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -10964,21 +10964,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -10986,17 +10986,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -11004,21 +11004,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11026,17 +11026,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11048,21 +11048,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11070,17 +11070,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -11088,21 +11088,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11110,17 +11110,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11128,21 +11128,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11150,17 +11150,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11168,21 +11168,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11190,17 +11190,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11212,21 +11212,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11234,17 +11234,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -11252,21 +11252,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11274,17 +11274,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -11292,21 +11292,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11314,17 +11314,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -11332,21 +11332,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11354,17 +11354,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11376,21 +11376,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11398,17 +11398,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -11416,21 +11416,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11438,17 +11438,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11456,21 +11456,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11478,17 +11478,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11496,21 +11496,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11518,17 +11518,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11540,21 +11540,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11562,17 +11562,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Trueform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Trueform</p>
                       </div>
-                      <div>
-                       <p>Switzerland</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Switzerland</p>
                       </div>
                      </div>
                     </div>
@@ -11580,21 +11580,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11602,17 +11602,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Alex Aperios</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Alex Aperios</p>
                       </div>
-                      <div>
-                       <p>United Kingdom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United Kingdom</p>
                       </div>
                      </div>
                     </div>
@@ -11620,21 +11620,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11642,17 +11642,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Analogue Agency</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Analogue Agency</p>
                       </div>
-                      <div>
-                       <p>Netherlands</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Netherlands</p>
                       </div>
                      </div>
                     </div>
@@ -11660,21 +11660,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11682,17 +11682,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Fabian Albert</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fabian Albert</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11704,21 +11704,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Tablet 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11726,17 +11726,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Allsite Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Allsite Studio</p>
                       </div>
-                      <div>
-                       <p>Germany</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Germany</p>
                       </div>
                      </div>
                     </div>
@@ -11744,21 +11744,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11766,17 +11766,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Aerolab</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Aerolab</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11784,21 +11784,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11806,17 +11806,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Adriano Reis</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Adriano Reis</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11824,21 +11824,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="380px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11846,17 +11846,17 @@ test('formatHtmlForPrompt', async () => {
                     <div data-framer-name="User">
                      <div data-framer-name="Avatar">
                       <div data-framer-name="Image">
-                       <div>
+                       <div data-framer-background-image-wrapper="true">
                         <img alt="Avatar">
                        </div>
                       </div>
                      </div>
                      <div data-framer-name="Name">
-                      <div>
-                       <p>Deserve Studio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Deserve Studio</p>
                       </div>
-                      <div>
-                       <p>United States</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">United States</p>
                       </div>
                      </div>
                     </div>
@@ -11894,21 +11894,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11917,21 +11917,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11940,21 +11940,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11963,21 +11963,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -11990,21 +11990,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12013,21 +12013,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12036,21 +12036,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12059,21 +12059,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12086,21 +12086,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12109,21 +12109,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12132,21 +12132,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12155,21 +12155,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12182,21 +12182,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12205,21 +12205,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12228,21 +12228,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12251,21 +12251,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12278,21 +12278,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12301,21 +12301,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12324,21 +12324,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12347,21 +12347,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12374,21 +12374,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12397,21 +12397,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12420,21 +12420,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12443,21 +12443,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12470,21 +12470,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 1">
                   <div data-framer-name="Trueform" name="Trueform">
                    <a name="Trueform" data-framer-name="Expert" href="https://www.framer.com/@trueform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12493,21 +12493,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Alex Aperios" name="Alex Aperios">
                    <a name="Alex Aperios" data-framer-name="Expert" href="https://www.framer.com/@alex-aperios/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12516,21 +12516,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Analogue Agency" name="Analogue Agency">
                    <a name="Analogue Agency" data-framer-name="Expert" href="https://www.framer.com/@analogueagency/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12539,21 +12539,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Fabian Albert" name="Fabian Albert">
                    <a name="Fabian Albert" data-framer-name="Expert" href="https://www.framer.com/@fabian-albert/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12566,21 +12566,21 @@ test('formatHtmlForPrompt', async () => {
                  <div data-framer-name="Experts Phone 2">
                   <div data-framer-name="Allsite Studio" name="Allsite Studio">
                    <a name="Allsite Studio" data-framer-name="Expert" href="https://www.framer.com/@ben-libor/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12589,21 +12589,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Aerolab" name="Aerolab">
                    <a name="Aerolab" data-framer-name="Expert" href="https://www.framer.com/@aerolab/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12612,21 +12612,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Adriano Reis" name="Adriano Reis">
                    <a name="Adriano Reis" data-framer-name="Expert" href="https://www.framer.com/@adrianoreis/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12635,21 +12635,21 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Deserve Studio" name="Deserve Studio">
                    <a name="Deserve Studio" data-framer-name="Expert" href="https://www.framer.com/@deservestudio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image 1">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                       <div data-framer-name="Image 2">
-                       <div>
-                        <img alt="">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="" data-framer-original-sizes="170px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div>
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-component-type="RichTextContainer">
                        <p>View Expert</p>
                       </div>
                      </button>
@@ -12684,14 +12684,14 @@ test('formatHtmlForPrompt', async () => {
           </section>
           <section data-framer-name="Community">
            <header data-framer-name="Header">
-            <div>
-             <h2>Launch faster with community resources</h2>
+            <div data-framer-component-type="RichTextContainer">
+             <h2 data-styles-preset="Y4paqDh7P">Launch faster with community resources</h2>
             </div>
             <div data-framer-name="Buttons">
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/templates/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/templates/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Templates</p>
                 </div>
                </a>
@@ -12699,8 +12699,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="https://www.framer.com/marketplace/templates/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Phone" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/templates/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Templates</p>
                 </div>
                </a>
@@ -12708,8 +12708,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/templates/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/templates/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Templates</p>
                 </div>
                </a>
@@ -12717,8 +12717,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/plugins/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/plugins/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Plugins</p>
                 </div>
                </a>
@@ -12726,8 +12726,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="https://www.framer.com/marketplace/plugins/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Phone" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/plugins/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Plugins</p>
                 </div>
                </a>
@@ -12735,8 +12735,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/plugins/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/plugins/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Plugins</p>
                 </div>
                </a>
@@ -12744,8 +12744,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/components/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/components/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Components</p>
                 </div>
                </a>
@@ -12753,8 +12753,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Phone" href="https://www.framer.com/marketplace/components/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Phone" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/components/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Components</p>
                 </div>
                </a>
@@ -12762,8 +12762,8 @@ test('formatHtmlForPrompt', async () => {
              </div>
              <div>
               <div>
-               <a data-framer-name="Regular" href="https://www.framer.com/marketplace/components/">
-                <div data-framer-name="Default">
+               <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://www.framer.com/marketplace/components/">
+                <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                  <p>Components</p>
                 </div>
                </a>
@@ -12779,33 +12779,33 @@ test('formatHtmlForPrompt', async () => {
                 <div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/components/image-slider/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div>
                       <video></video>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Component</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Image Slider</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Image Slider</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Component</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Component</p>
                      </div>
-                     <div>
-                      <p>Before and after images</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Before and after images</p>
                      </div>
                     </div>
                    </div>
@@ -12813,35 +12813,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/milo/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Template</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Milo</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Milo</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Template</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Template</p>
                      </div>
-                     <div>
-                      <p>Furniture shop website</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Furniture shop website</p>
                      </div>
                     </div>
                    </div>
@@ -12849,35 +12849,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/notion/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Plugin</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Notion</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Notion</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Plugin</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Plugin</p>
                      </div>
-                     <div>
-                      <p>Sync with Notion</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Sync with Notion</p>
                      </div>
                     </div>
                    </div>
@@ -12885,33 +12885,33 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/components/hover-image-zoom/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div>
                       <video></video>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Component</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Hover Zoom</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Hover Zoom</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Component</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Component</p>
                      </div>
-                     <div>
-                      <p>Zoom and pan on hover</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Zoom and pan on hover</p>
                      </div>
                     </div>
                    </div>
@@ -12919,35 +12919,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/archer/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Template</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Archer</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Archer</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Template</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Template</p>
                      </div>
-                     <div>
-                      <p>Creative portfolio</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Creative portfolio</p>
                      </div>
                     </div>
                    </div>
@@ -12955,35 +12955,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/workshop/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Plugin</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Workshop</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Workshop</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Plugin</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Plugin</p>
                      </div>
-                     <div>
-                      <p>Turn ideas into components</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Turn ideas into components</p>
                      </div>
                     </div>
                    </div>
@@ -12999,33 +12999,33 @@ test('formatHtmlForPrompt', async () => {
                 <div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/components/digital-rotary-radio/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div>
                       <video></video>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Component</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Digital Rotary Radio</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Digital Rotary Radio</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Component</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Component</p>
                      </div>
-                     <div>
-                      <p>Fully functional radio</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Fully functional radio</p>
                      </div>
                     </div>
                    </div>
@@ -13033,35 +13033,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/apex-films/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Template</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Apex Films</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Apex Films</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Template</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Template</p>
                      </div>
-                     <div>
-                      <p>Multimedia portfolio</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Multimedia portfolio</p>
                      </div>
                     </div>
                    </div>
@@ -13069,33 +13069,33 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/components/flipcard-component/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div>
                       <video></video>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Component</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Flip Card</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Flip Card</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Component</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Component</p>
                      </div>
-                     <div>
-                      <p>Drag to flip cards</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Drag to flip cards</p>
                      </div>
                     </div>
                    </div>
@@ -13103,33 +13103,33 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/components/animated-gradient/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div>
                       <video></video>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Component</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Animated Gradients</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Animated Gradients</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Component</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Component</p>
                      </div>
-                     <div>
-                      <p>Image reveal effect</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Image reveal effect</p>
                      </div>
                     </div>
                    </div>
@@ -13137,35 +13137,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/json-sync/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Plugin</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>JSON Sync</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">JSON Sync</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Plugin</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Plugin</p>
                      </div>
-                     <div>
-                      <p>Import &amp; export CMS with JSON</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Import &amp; export CMS with JSON</p>
                      </div>
                     </div>
                    </div>
@@ -13173,35 +13173,35 @@ test('formatHtmlForPrompt', async () => {
                  </div>
                  <div>
                   <a data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/baseform/">
-                   <div data-framer-name="Visual">
+                   <div data-border="true" data-framer-name="Visual">
                     <div data-framer-name="Wrapper">
                      <div data-framer-name="Image">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                      <div data-framer-name="Hover">
-                      <div>
-                       <img alt="Framer marketplace item">
+                      <div data-framer-background-image-wrapper="true">
+                       <img alt="Framer marketplace item" data-framer-original-sizes="360px">
                       </div>
                      </div>
                     </div>
-                    <button data-framer-name="Button 2025">
-                     <div data-framer-name="Default">
+                    <button data-framer-name="Button 2025" data-reset="button">
+                     <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                       <p>View Template</p>
                      </div>
                     </button>
                    </div>
                    <div data-framer-name="Text">
-                    <div>
-                     <p>Baseform</p>
+                    <div data-framer-component-type="RichTextContainer">
+                     <p data-styles-preset="XHuCPIQKc">Baseform</p>
                     </div>
                     <div data-framer-name="Bottom">
-                     <div>
-                      <p>Template</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Template</p>
                      </div>
-                     <div>
-                      <p>Modern design portfolio</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Modern design portfolio</p>
                      </div>
                     </div>
                    </div>
@@ -13221,33 +13221,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/image-slider/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Image Slider</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Image Slider</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Before and after images</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Before and after images</p>
                        </div>
                       </div>
                      </div>
@@ -13257,33 +13257,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/image-slider/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Image Slider</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Image Slider</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Before and after images</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Before and after images</p>
                        </div>
                       </div>
                      </div>
@@ -13293,35 +13293,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/milo/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Milo</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Milo</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Furniture shop website</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Furniture shop website</p>
                        </div>
                       </div>
                      </div>
@@ -13331,35 +13331,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/milo/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Milo</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Milo</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Furniture shop website</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Furniture shop website</p>
                        </div>
                       </div>
                      </div>
@@ -13369,35 +13369,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/notion/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Notion</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Notion</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Sync with Notion</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Sync with Notion</p>
                        </div>
                       </div>
                      </div>
@@ -13407,35 +13407,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/notion/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Notion</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Notion</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Sync with Notion</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Sync with Notion</p>
                        </div>
                       </div>
                      </div>
@@ -13445,33 +13445,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/hover-image-zoom/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Hover Zoom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Hover Zoom</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Zoom and pan on hover</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Zoom and pan on hover</p>
                        </div>
                       </div>
                      </div>
@@ -13481,33 +13481,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/hover-image-zoom/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Hover Zoom</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Hover Zoom</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Zoom and pan on hover</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Zoom and pan on hover</p>
                        </div>
                       </div>
                      </div>
@@ -13517,35 +13517,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/archer/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Archer</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Archer</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Creative portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Creative portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -13555,35 +13555,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/archer/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Archer</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Archer</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Creative portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Creative portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -13593,35 +13593,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/workshop/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Workshop</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Workshop</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Turn ideas into components</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Turn ideas into components</p>
                        </div>
                       </div>
                      </div>
@@ -13631,35 +13631,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/workshop/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Workshop</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Workshop</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Turn ideas into components</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Turn ideas into components</p>
                        </div>
                       </div>
                      </div>
@@ -13669,33 +13669,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/digital-rotary-radio/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Digital Rotary Radio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Digital Rotary Radio</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Fully functional radio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Fully functional radio</p>
                        </div>
                       </div>
                      </div>
@@ -13705,33 +13705,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/digital-rotary-radio/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Digital Rotary Radio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Digital Rotary Radio</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Fully functional radio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Fully functional radio</p>
                        </div>
                       </div>
                      </div>
@@ -13746,33 +13746,33 @@ test('formatHtmlForPrompt', async () => {
                  <div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/image-slider/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Image Slider</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Image Slider</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Before and after images</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Before and after images</p>
                       </div>
                      </div>
                     </div>
@@ -13780,35 +13780,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/milo/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Template</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Milo</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Milo</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Template</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Template</p>
                       </div>
-                      <div>
-                       <p>Furniture shop website</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Furniture shop website</p>
                       </div>
                      </div>
                     </div>
@@ -13816,35 +13816,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/notion/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Plugin</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Notion</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Notion</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Plugin</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Plugin</p>
                       </div>
-                      <div>
-                       <p>Sync with Notion</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Sync with Notion</p>
                       </div>
                      </div>
                     </div>
@@ -13852,33 +13852,33 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/hover-image-zoom/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Hover Zoom</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Hover Zoom</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Zoom and pan on hover</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Zoom and pan on hover</p>
                       </div>
                      </div>
                     </div>
@@ -13886,35 +13886,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/archer/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Template</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Archer</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Archer</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Template</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Template</p>
                       </div>
-                      <div>
-                       <p>Creative portfolio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Creative portfolio</p>
                       </div>
                      </div>
                     </div>
@@ -13922,35 +13922,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/workshop/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Plugin</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Workshop</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Workshop</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Plugin</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Plugin</p>
                       </div>
-                      <div>
-                       <p>Turn ideas into components</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Turn ideas into components</p>
                       </div>
                      </div>
                     </div>
@@ -13958,33 +13958,33 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/digital-rotary-radio/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Digital Rotary Radio</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Digital Rotary Radio</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Fully functional radio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Fully functional radio</p>
                       </div>
                      </div>
                     </div>
@@ -14003,35 +14003,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/apex-films/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Apex Films</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Apex Films</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Multimedia portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Multimedia portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -14041,35 +14041,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/apex-films/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Apex Films</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Apex Films</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Multimedia portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Multimedia portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -14079,33 +14079,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/flipcard-component/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Flip Card</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Flip Card</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Drag to flip cards</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Drag to flip cards</p>
                        </div>
                       </div>
                      </div>
@@ -14115,33 +14115,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/flipcard-component/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Flip Card</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Flip Card</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Drag to flip cards</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Drag to flip cards</p>
                        </div>
                       </div>
                      </div>
@@ -14151,33 +14151,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/animated-gradient/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Animated Gradients</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Animated Gradients</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Image reveal effect</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Image reveal effect</p>
                        </div>
                       </div>
                      </div>
@@ -14187,33 +14187,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/animated-gradient/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Animated Gradients</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Animated Gradients</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Image reveal effect</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Image reveal effect</p>
                        </div>
                       </div>
                      </div>
@@ -14223,35 +14223,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/json-sync/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>JSON Sync</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">JSON Sync</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Import &amp; export CMS with JSON</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Import &amp; export CMS with JSON</p>
                        </div>
                       </div>
                      </div>
@@ -14261,35 +14261,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/json-sync/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>JSON Sync</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">JSON Sync</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Import &amp; export CMS with JSON</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Import &amp; export CMS with JSON</p>
                        </div>
                       </div>
                      </div>
@@ -14299,35 +14299,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/baseform/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Baseform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Baseform</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Modern design portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Modern design portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -14337,35 +14337,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/baseform/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Template</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Baseform</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Baseform</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Template</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Template</p>
                        </div>
-                       <div>
-                        <p>Modern design portfolio</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Modern design portfolio</p>
                        </div>
                       </div>
                      </div>
@@ -14375,35 +14375,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/asset-manager/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Asset Manager</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Asset Manager</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Manage your site's assets</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Manage your site's assets</p>
                        </div>
                       </div>
                      </div>
@@ -14413,35 +14413,35 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/asset-manager/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div data-framer-name="Image">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Plugin</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Asset Manager</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Asset Manager</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Plugin</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Plugin</p>
                        </div>
-                       <div>
-                        <p>Manage your site's assets</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Manage your site's assets</p>
                        </div>
                       </div>
                      </div>
@@ -14451,33 +14451,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/videoplayer/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Video Player</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Video Player</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Beautiful video player</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Beautiful video player</p>
                        </div>
                       </div>
                      </div>
@@ -14487,33 +14487,33 @@ test('formatHtmlForPrompt', async () => {
                   <div>
                    <div data-framer-name="Milo" name="Milo">
                     <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/videoplayer/">
-                     <div data-framer-name="Visual">
+                     <div data-border="true" data-framer-name="Visual">
                       <div data-framer-name="Wrapper">
                        <div>
                         <video></video>
                        </div>
                        <div data-framer-name="Hover">
-                        <div>
-                         <img alt="Framer marketplace item">
+                        <div data-framer-background-image-wrapper="true">
+                         <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                         </div>
                        </div>
                       </div>
-                      <button data-framer-name="Button 2025">
-                       <div data-framer-name="Default">
+                      <button data-framer-name="Button 2025" data-reset="button">
+                       <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                         <p>View Component</p>
                        </div>
                       </button>
                      </div>
                      <div data-framer-name="Text">
-                      <div>
-                       <p>Video Player</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Video Player</p>
                       </div>
                       <div data-framer-name="Bottom">
-                       <div>
-                        <p>Component</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Component</p>
                        </div>
-                       <div>
-                        <p>Beautiful video player</p>
+                       <div data-framer-component-type="RichTextContainer">
+                        <p data-styles-preset="XHuCPIQKc">Beautiful video player</p>
                        </div>
                       </div>
                      </div>
@@ -14528,35 +14528,35 @@ test('formatHtmlForPrompt', async () => {
                  <div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/apex-films/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Template</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Apex Films</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Apex Films</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Template</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Template</p>
                       </div>
-                      <div>
-                       <p>Multimedia portfolio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Multimedia portfolio</p>
                       </div>
                      </div>
                     </div>
@@ -14564,33 +14564,33 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/flipcard-component/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Flip Card</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Flip Card</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Drag to flip cards</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Drag to flip cards</p>
                       </div>
                      </div>
                     </div>
@@ -14598,33 +14598,33 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/animated-gradient/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Animated Gradients</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Animated Gradients</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Image reveal effect</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Image reveal effect</p>
                       </div>
                      </div>
                     </div>
@@ -14632,35 +14632,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/json-sync/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Plugin</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>JSON Sync</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">JSON Sync</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Plugin</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Plugin</p>
                       </div>
-                      <div>
-                       <p>Import &amp; export CMS with JSON</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Import &amp; export CMS with JSON</p>
                       </div>
                      </div>
                     </div>
@@ -14668,35 +14668,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/templates/baseform/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Template</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Baseform</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Baseform</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Template</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Template</p>
                       </div>
-                      <div>
-                       <p>Modern design portfolio</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Modern design portfolio</p>
                       </div>
                      </div>
                     </div>
@@ -14704,35 +14704,35 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/plugins/asset-manager/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div data-framer-name="Image">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Plugin</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Asset Manager</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Asset Manager</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Plugin</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Plugin</p>
                       </div>
-                      <div>
-                       <p>Manage your site's assets</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Manage your site's assets</p>
                       </div>
                      </div>
                     </div>
@@ -14740,33 +14740,33 @@ test('formatHtmlForPrompt', async () => {
                   </div>
                   <div data-framer-name="Milo" name="Milo">
                    <a name="Milo" data-framer-name="Pause" href="https://www.framer.com/marketplace/components/videoplayer/">
-                    <div data-framer-name="Visual">
+                    <div data-border="true" data-framer-name="Visual">
                      <div data-framer-name="Wrapper">
                       <div>
                        <video></video>
                       </div>
                       <div data-framer-name="Hover">
-                       <div>
-                        <img alt="Framer marketplace item">
+                       <div data-framer-background-image-wrapper="true">
+                        <img alt="Framer marketplace item" data-framer-original-sizes="240px">
                        </div>
                       </div>
                      </div>
-                     <button data-framer-name="Button 2025">
-                      <div data-framer-name="Default">
+                     <button data-framer-name="Button 2025" data-reset="button">
+                      <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
                        <p>View Component</p>
                       </div>
                      </button>
                     </div>
                     <div data-framer-name="Text">
-                     <div>
-                      <p>Video Player</p>
+                     <div data-framer-component-type="RichTextContainer">
+                      <p data-styles-preset="XHuCPIQKc">Video Player</p>
                      </div>
                      <div data-framer-name="Bottom">
-                      <div>
-                       <p>Component</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Component</p>
                       </div>
-                      <div>
-                       <p>Beautiful video player</p>
+                      <div data-framer-component-type="RichTextContainer">
+                       <p data-styles-preset="XHuCPIQKc">Beautiful video player</p>
                       </div>
                      </div>
                     </div>
@@ -14787,24 +14787,24 @@ test('formatHtmlForPrompt', async () => {
         <div data-framer-name="New Pivot">
          <header data-framer-name="Header">
           <div data-framer-name="Text">
-           <div>
-            <h5>Design bold. Launch fast.</h5>
+           <div data-framer-component-type="RichTextContainer">
+            <h5 data-styles-preset="MdQYemVBT">Design bold. Launch fast.</h5>
            </div>
-           <div>
-            <p></p>
+           <div data-framer-component-type="RichTextContainer">
+            <p data-styles-preset="h59NUQSP8"></p>
            </div>
           </div>
           <div data-framer-name="Buttons">
            <div>
-            <a data-framer-name="Regular" href="https://framer.com/r/signup">
-             <div data-framer-name="Default">
+            <a data-signup-debug-id="bottom-sign-up" data-framer-name="Regular" data-highlight="true" data-reset="button" href="https://framer.com/r/signup">
+             <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
               <p>Start for free</p>
              </div>
             </a>
            </div>
            <div>
-            <a data-framer-name="Regular" href="./wireframer/">
-             <div data-framer-name="Default">
+            <a data-framer-name="Regular" data-highlight="true" data-reset="button" href="./wireframer/">
+             <div data-framer-name="Default" data-framer-component-type="RichTextContainer">
               <p>Start with AI</p>
              </div>
             </a>
@@ -14839,8 +14839,8 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Logo">
              <div>
               <div>
-               <a data-framer-name="On" href="./">
-                <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+               <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+                <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
                </a>
               </div>
               <div>
@@ -14872,11 +14872,11 @@ test('formatHtmlForPrompt', async () => {
                    <div></div>
                   </div>
                   <div>
-                   <div data-framer-name="Item">
+                   <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                     <div>Loading status</div>
                    </div>
                   </div>
-                  <div data-framer-name="Item">
+                  <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                    <div>loading</div>
                   </div>
                  </a>
@@ -14886,19 +14886,19 @@ test('formatHtmlForPrompt', async () => {
               <div></div>
               <div>
                <div>
-                <div aria-hidden="true"></div>
-                <div aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 <div>
-                 <div aria-hidden="true"></div>
-                 <div data-framer-name="Layer Title">
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                 <div data-framer-name="Layer Title" data-framer-component-type="RichTextContainer">
                   <p>CCPA</p>
                  </div>
                 </div>
-                <div aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
                </div>
                <div>
                 <div data-framer-name="Variant 1">
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>© Framer B.V.</p>
                  </div>
                  <div>
@@ -14913,53 +14913,53 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Product">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Product</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./ai/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./ai/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>AI</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./publish/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./publish/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Publish</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./cms/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./cms/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>CMS</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./scale/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./scale/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Scale</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./seo/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./seo/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>SEO</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -14967,8 +14967,8 @@ test('formatHtmlForPrompt', async () => {
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./collaborate/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./collaborate/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Collaborate</div>
                  </div>
                 </a>
@@ -14976,41 +14976,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Business</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./pricing">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./pricing">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Pricing</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./switch/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./switch/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Switch</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./startups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./startups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Startups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./agencies/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./agencies/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Agencies</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./enterprise/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./enterprise/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Enterprise</div>
                  </div>
                 </a>
@@ -15020,48 +15020,48 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Compare">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Compare</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-figma">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-figma">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-webflow">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-webflow">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Webflow</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wordpress">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wordpress">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wordpress</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-squarespace">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-squarespace">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Squarespace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-unbounce">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-unbounce">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Unbounce</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wix">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wix">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wix</div>
                  </div>
                 </a>
@@ -15069,48 +15069,48 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Solutions">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Solutions</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/figma-to-html/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/figma-to-html/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma to HTML</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Website builder</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/portfolio-website/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/portfolio-website/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Portfolio maker</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/landing-pages/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/landing-pages/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Landing pages</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/ui-ux-design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/ui-ux-design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>UI/UX design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/no-code-website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/no-code-website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>No-code</div>
                  </div>
                 </a>
@@ -15120,104 +15120,104 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Resources">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Resources</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/templates/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/templates/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Templates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/components/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/components/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Components</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/plugins/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/plugins/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Plugins</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/vectors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/vectors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Vectors</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Marketplace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./downloads/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./downloads/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Downloads</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./developers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./developers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Developers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./wallpapers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./wallpapers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wallpapers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./newsletter">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./newsletter">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Newsletter</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./updates">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./updates">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Updates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./help/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./help/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Support</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./contact/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./contact/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Contact</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Brand</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./blog/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./blog/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Blog</div>
                  </div>
                 </a>
@@ -15227,60 +15227,60 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Company</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./meetups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./meetups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Meetups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./careers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./careers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Careers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/security/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/security/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Security</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="mailto:abuse@framer.com">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="mailto:abuse@framer.com">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Abuse</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Media</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/terms-of-service/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/terms-of-service/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Legal</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./store">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./store">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Store</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -15290,41 +15290,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Programs</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Affiliates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./expert/apply/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./expert/apply/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Experts</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Creators</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/students/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/students/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Students</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/ambassadors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/ambassadors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Ambassadors</div>
                  </div>
                 </a>
@@ -15342,8 +15342,8 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Logo">
              <div>
               <div>
-               <a data-framer-name="On" href="./">
-                <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+               <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+                <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
                </a>
               </div>
               <div>
@@ -15375,11 +15375,11 @@ test('formatHtmlForPrompt', async () => {
                    <div></div>
                   </div>
                   <div>
-                   <div data-framer-name="Item">
+                   <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                     <div>Loading status</div>
                    </div>
                   </div>
-                  <div data-framer-name="Item">
+                  <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                    <div>loading</div>
                   </div>
                  </a>
@@ -15389,19 +15389,19 @@ test('formatHtmlForPrompt', async () => {
               <div></div>
               <div>
                <div>
-                <div aria-hidden="true"></div>
-                <div aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
                 <div>
-                 <div aria-hidden="true"></div>
-                 <div data-framer-name="Layer Title">
+                 <div data-framer-component-type="SVG" aria-hidden="true"></div>
+                 <div data-framer-name="Layer Title" data-framer-component-type="RichTextContainer">
                   <p>CCPA</p>
                  </div>
                 </div>
-                <div aria-hidden="true"></div>
+                <div data-framer-component-type="SVG" aria-hidden="true"></div>
                </div>
                <div>
                 <div data-framer-name="Variant 1">
-                 <div>
+                 <div data-framer-component-type="RichTextContainer">
                   <p>© Framer B.V.</p>
                  </div>
                  <div>
@@ -15416,53 +15416,53 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Product">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Product</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./ai/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./ai/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>AI</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./publish/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./publish/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Publish</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./cms/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./cms/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>CMS</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./scale/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./scale/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Scale</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./seo/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./seo/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>SEO</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -15470,8 +15470,8 @@ test('formatHtmlForPrompt', async () => {
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./collaborate/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./collaborate/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Collaborate</div>
                  </div>
                 </a>
@@ -15479,41 +15479,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Business</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./pricing">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./pricing">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Pricing</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./switch/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./switch/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Switch</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./startups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./startups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Startups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./agencies/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./agencies/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Agencies</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./enterprise/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./enterprise/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Enterprise</div>
                  </div>
                 </a>
@@ -15523,48 +15523,48 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Compare">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Compare</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-figma">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-figma">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-webflow">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-webflow">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Webflow</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wordpress">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wordpress">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wordpress</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-squarespace">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-squarespace">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Squarespace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-unbounce">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-unbounce">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Unbounce</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wix">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wix">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wix</div>
                  </div>
                 </a>
@@ -15572,48 +15572,48 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Solutions">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Solutions</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/figma-to-html/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/figma-to-html/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma to HTML</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Website builder</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/portfolio-website/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/portfolio-website/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Portfolio maker</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/landing-pages/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/landing-pages/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Landing pages</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/ui-ux-design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/ui-ux-design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>UI/UX design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/no-code-website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/no-code-website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>No-code</div>
                  </div>
                 </a>
@@ -15623,104 +15623,104 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Resources">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Resources</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/templates/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/templates/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Templates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/components/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/components/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Components</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/plugins/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/plugins/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Plugins</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/vectors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/vectors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Vectors</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Marketplace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./downloads/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./downloads/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Downloads</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./developers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./developers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Developers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./wallpapers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./wallpapers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wallpapers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./newsletter">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./newsletter">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Newsletter</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./updates">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./updates">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Updates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./help/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./help/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Support</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./contact/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./contact/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Contact</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Brand</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./blog/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./blog/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Blog</div>
                  </div>
                 </a>
@@ -15730,60 +15730,60 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Company</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./meetups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./meetups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Meetups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./careers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./careers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Careers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/security/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/security/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Security</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="mailto:abuse@framer.com">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="mailto:abuse@framer.com">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Abuse</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Media</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/terms-of-service/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/terms-of-service/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Legal</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./store">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./store">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Store</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -15793,41 +15793,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Programs</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Affiliates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./expert/apply/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./expert/apply/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Experts</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Creators</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/students/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/students/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Students</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/ambassadors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/ambassadors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Ambassadors</div>
                  </div>
                 </a>
@@ -15845,8 +15845,8 @@ test('formatHtmlForPrompt', async () => {
             <div data-framer-name="Logo">
              <div>
               <div>
-               <a data-framer-name="On" href="./">
-                <div data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
+               <a data-framer-name="On" data-highlight="true" href="./" data-framer-page-link-current="true">
+                <div data-framer-component-type="SVG" data-framer-name="Logo" role="img" aria-label="Framer Logo"></div>
                </a>
               </div>
               <div>
@@ -15858,11 +15858,11 @@ test('formatHtmlForPrompt', async () => {
                    <div></div>
                   </div>
                   <div>
-                   <div data-framer-name="Item">
+                   <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                     <div>Loading status</div>
                    </div>
                   </div>
-                  <div data-framer-name="Item">
+                  <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                    <div>loading</div>
                   </div>
                  </a>
@@ -15875,53 +15875,53 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Product">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Product</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./ai/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./ai/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>AI</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./publish/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./publish/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Publish</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./cms/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./cms/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>CMS</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./scale/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./scale/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Scale</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./seo/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./seo/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>SEO</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -15929,8 +15929,8 @@ test('formatHtmlForPrompt', async () => {
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./collaborate/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./collaborate/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Collaborate</div>
                  </div>
                 </a>
@@ -15938,41 +15938,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Business</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./pricing">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./pricing">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Pricing</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./switch/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./switch/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Switch</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./startups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./startups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Startups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./agencies/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./agencies/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Agencies</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./enterprise/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./enterprise/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Enterprise</div>
                  </div>
                 </a>
@@ -15982,48 +15982,48 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Compare">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Compare</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-figma">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-figma">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-webflow">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-webflow">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Webflow</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wordpress">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wordpress">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wordpress</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-squarespace">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-squarespace">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Squarespace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-unbounce">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-unbounce">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Unbounce</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./compare/framer-vs-wix">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./compare/framer-vs-wix">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wix</div>
                  </div>
                 </a>
@@ -16031,48 +16031,48 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Solutions">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Solutions</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/figma-to-html/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/figma-to-html/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Figma to HTML</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Website builder</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/portfolio-website/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/portfolio-website/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Portfolio maker</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/landing-pages/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/landing-pages/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Landing pages</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/ui-ux-design/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/ui-ux-design/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>UI/UX design</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./solutions/no-code-website-builder/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./solutions/no-code-website-builder/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>No-code</div>
                  </div>
                 </a>
@@ -16082,104 +16082,104 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Resources">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Resources</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/templates/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/templates/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Templates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/components/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/components/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Components</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/plugins/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/plugins/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Plugins</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/vectors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/vectors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Vectors</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="https://www.framer.com/marketplace/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="https://www.framer.com/marketplace/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Marketplace</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./downloads/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./downloads/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Downloads</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./developers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./developers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Developers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./wallpapers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./wallpapers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Wallpapers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./newsletter">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./newsletter">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Newsletter</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./updates">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./updates">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Updates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./help/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./help/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Support</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./contact/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./contact/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Contact</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Brand</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./blog/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./blog/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Blog</div>
                  </div>
                 </a>
@@ -16189,60 +16189,60 @@ test('formatHtmlForPrompt', async () => {
              <div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Company</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./meetups/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./meetups/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Meetups</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./careers/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./careers/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Careers</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/security/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/security/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Security</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="mailto:abuse@framer.com">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="mailto:abuse@framer.com">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Abuse</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./brand">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./brand">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Media</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./legal/terms-of-service/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./legal/terms-of-service/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Legal</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./store">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./store">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Store</div>
                  </div>
                  <div>
-                  <div data-framer-name="Label">
-                   <div>
+                  <div data-border="true" data-framer-name="Label">
+                   <div data-framer-component-type="RichTextContainer">
                     <p>New</p>
                    </div>
                   </div>
@@ -16252,41 +16252,41 @@ test('formatHtmlForPrompt', async () => {
               </div>
               <div data-framer-name="Company">
                <div data-framer-name="Nav/Topbar Link">
-                <div data-framer-name="Item">
+                <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                  <div>Programs</div>
                 </div>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Affiliates</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./expert/apply/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./expert/apply/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Experts</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./creators">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./creators">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Creators</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/students/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/students/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Students</div>
                  </div>
                 </a>
                </div>
                <div>
-                <a data-framer-name="Label" href="./education/ambassadors/">
-                 <div data-framer-name="Item">
+                <a data-framer-name="Label" data-highlight="true" href="./education/ambassadors/">
+                 <div data-framer-name="Item" data-framer-component-type="RichTextContainer">
                   <div>Ambassadors</div>
                  </div>
                 </a>
@@ -16297,12 +16297,12 @@ test('formatHtmlForPrompt', async () => {
            </div>
            <div data-framer-name="COOKIE BANNER — DO NOT REMOVE" name="COOKIE BANNER — DO NOT REMOVE"></div>
            <div>
-            <div aria-hidden="true"></div>
-            <div aria-hidden="true"></div>
-            <div aria-hidden="true"></div>
+            <div data-framer-component-type="SVG" aria-hidden="true"></div>
+            <div data-framer-component-type="SVG" aria-hidden="true"></div>
+            <div data-framer-component-type="SVG" aria-hidden="true"></div>
             <div>
-             <div aria-hidden="true"></div>
-             <div data-framer-name="Layer Title">
+             <div data-framer-component-type="SVG" aria-hidden="true"></div>
+             <div data-framer-name="Layer Title" data-framer-component-type="RichTextContainer">
               <p>CCPA</p>
              </div>
             </div>
@@ -16329,7 +16329,7 @@ test('formatHtmlForPrompt', async () => {
            </div>
            <div>
             <div data-framer-name="Variant 1">
-             <div>
+             <div data-framer-component-type="RichTextContainer">
               <p>© Framer B.V.</p>
              </div>
              <div>
@@ -16363,7 +16363,7 @@ test('collapses 3+ consecutive empty elements of same type', async () => {
       <div></div>
     </div>
   `
-  const result = await formatHtmlForPrompt(html)
+  const result = await formatHtmlForPrompt({ html })
 
   // Should collapse 4 spans into 1, but keep 2 divs (not >= 3)
   expect(result).toMatchInlineSnapshot(`
@@ -16385,7 +16385,7 @@ test('does not collapse empty elements with attributes', async () => {
       <span data-framer-name="c"></span>
     </div>
   `
-  const result = await formatHtmlForPrompt(html)
+  const result = await formatHtmlForPrompt({ html })
 
   // All 3 should remain because they have attributes
   expect(result).toMatchInlineSnapshot(`
@@ -16393,6 +16393,92 @@ test('does not collapse empty elements with attributes', async () => {
      <span data-framer-name="a"></span>
      <span data-framer-name="b"></span>
      <span data-framer-name="c"></span>
+    </div>
+    "
+  `)
+})
+
+test('keeps style and class attributes when keepStyles is true', async () => {
+  const html = `
+    <div class="container" style="color: red;">
+      <span class="text" style="font-size: 16px;">Hello</span>
+    </div>
+  `
+  const result = await formatHtmlForPrompt({ html, keepStyles: true })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<div class="container" style="color: red;">
+     <span class="text" style="font-size: 16px;">Hello</span>
+    </div>
+    "
+  `)
+})
+
+test('removes style and class attributes by default', async () => {
+  const html = `
+    <div class="container" style="color: red;">
+      <span class="text">Hello</span>
+    </div>
+  `
+  const result = await formatHtmlForPrompt({ html })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<div>
+     <span>Hello</span>
+    </div>
+    "
+  `)
+})
+
+test('always keeps data-* attributes', async () => {
+  const html = `
+    <div data-testid="main" data-custom="value" class="hidden">
+      <span data-id="123">Text</span>
+    </div>
+  `
+  const result = await formatHtmlForPrompt({ html })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<div data-testid="main" data-custom="value">
+     <span data-id="123">Text</span>
+    </div>
+    "
+  `)
+})
+
+test('truncates long attribute values', async () => {
+  const longValue = 'a'.repeat(50)
+  const html = `<div data-long="${longValue}">short</div>`
+  const result = await formatHtmlForPrompt({ html, maxAttrLen: 20 })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<div data-long="aaaaaaaaaaaaaaaaaaaa...30 more characters">short</div>
+    "
+  `)
+})
+
+test('truncates long text content', async () => {
+  const longContent = 'word '.repeat(50)
+  const html = `<p>${longContent}</p>`
+  const result = await formatHtmlForPrompt({ html, maxContentLen: 30 })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<p>word word word word word word ...220 more characters</p>
+    "
+  `)
+})
+
+test('always keeps test ID attributes', async () => {
+  const html = `
+    <div data-testid="container" data-cy="main" class="hidden">
+      <button testid="btn" test-id="submit" data-test="action">Click</button>
+    </div>
+  `
+  const result = await formatHtmlForPrompt({ html })
+
+  expect(result).toMatchInlineSnapshot(`
+    "<div data-testid="container" data-cy="main">
+     <button testid="btn" test-id="submit" data-test="action">Click</button>
     </div>
     "
   `)
