@@ -747,9 +747,10 @@ server.tool(
           }
 
           const lines = snapshotStr.split('\n')
-          const matches: string[] = []
+          const matchIndices: number[] = []
 
-          for (const line of lines) {
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i]
             let isMatch = false
             if (isRegExp(search)) {
               isMatch = search.test(line)
@@ -758,16 +759,38 @@ server.tool(
             }
 
             if (isMatch) {
-              matches.push(line)
-              if (matches.length >= 10) break
+              matchIndices.push(i)
+              if (matchIndices.length >= 10) break
             }
           }
 
-          if (matches.length === 0) {
+          if (matchIndices.length === 0) {
             return 'No matches found'
           }
 
-          return matches.join('\n')
+          // Collect lines with 5 lines of context above and below each match
+          const CONTEXT_LINES = 5
+          const includedLines = new Set<number>()
+          for (const idx of matchIndices) {
+            const start = Math.max(0, idx - CONTEXT_LINES)
+            const end = Math.min(lines.length - 1, idx + CONTEXT_LINES)
+            for (let i = start; i <= end; i++) {
+              includedLines.add(i)
+            }
+          }
+
+          // Build result with separators between non-contiguous sections
+          const sortedIndices = [...includedLines].sort((a, b) => a - b)
+          const result: string[] = []
+          for (let i = 0; i < sortedIndices.length; i++) {
+            const lineIdx = sortedIndices[i]
+            if (i > 0 && sortedIndices[i - 1] !== lineIdx - 1) {
+              result.push('---')
+            }
+            result.push(lines[lineIdx])
+          }
+
+          return result.join('\n')
         }
         throw new Error('accessibilitySnapshot is not available on this page')
       }
@@ -812,14 +835,43 @@ server.tool(
         }
 
         if (search) {
-          allLogs = allLogs.filter((log) => {
+          const matchIndices: number[] = []
+          for (let i = 0; i < allLogs.length; i++) {
+            const log = allLogs[i]
+            let isMatch = false
             if (typeof search === 'string') {
-              return log.includes(search)
+              isMatch = log.includes(search)
             } else if (isRegExp(search)) {
-              return search.test(log)
+              isMatch = search.test(log)
             }
-            return false
-          })
+            if (isMatch) {
+              matchIndices.push(i)
+            }
+          }
+
+          // Collect logs with 5 lines of context above and below each match
+          const CONTEXT_LINES = 5
+          const includedIndices = new Set<number>()
+          for (const idx of matchIndices) {
+            const start = Math.max(0, idx - CONTEXT_LINES)
+            const end = Math.min(allLogs.length - 1, idx + CONTEXT_LINES)
+            for (let i = start; i <= end; i++) {
+              includedIndices.add(i)
+            }
+          }
+
+          // Build result with separators between non-contiguous sections
+          const sortedIndices = [...includedIndices].sort((a, b) => a - b)
+          const result: string[] = []
+          for (let i = 0; i < sortedIndices.length; i++) {
+            const logIdx = sortedIndices[i]
+            if (i > 0 && sortedIndices[i - 1] !== logIdx - 1) {
+              result.push('---')
+            }
+            result.push(allLogs[logIdx])
+          }
+
+          allLogs = result
         }
 
         return count !== undefined ? allLogs.slice(-count) : allLogs

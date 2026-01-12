@@ -979,7 +979,8 @@ describe('MCP Server Tests', () => {
 
         const errorOutput = (errorLogsResult as any).content[0].text
         expect(errorOutput).toContain('[error] Test error 67890')
-        expect(errorOutput).not.toContain('[log] Test log 12345')
+        // With context lines (5 above/below), nearby logs are also included
+        expect(errorOutput).toContain('[log] Test log 12345')
 
         // Test that logs are cleared on page reload
         await client.callTool({

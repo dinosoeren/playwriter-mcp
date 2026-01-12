@@ -104,9 +104,10 @@ export async function getCleanHTML(options: GetCleanHTMLOptions): Promise<string
   // Handle search
   if (search) {
     const lines = htmlStr.split('\n')
-    const matches: string[] = []
+    const matchIndices: number[] = []
 
-    for (const line of lines) {
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
       let isMatch = false
       if (isRegExp(search)) {
         isMatch = search.test(line)
@@ -115,16 +116,38 @@ export async function getCleanHTML(options: GetCleanHTMLOptions): Promise<string
       }
 
       if (isMatch) {
-        matches.push(line)
-        if (matches.length >= 10) break
+        matchIndices.push(i)
+        if (matchIndices.length >= 10) break
       }
     }
 
-    if (matches.length === 0) {
+    if (matchIndices.length === 0) {
       return 'No matches found'
     }
 
-    return matches.join('\n')
+    // Collect lines with 5 lines of context above and below each match
+    const CONTEXT_LINES = 5
+    const includedLines = new Set<number>()
+    for (const idx of matchIndices) {
+      const start = Math.max(0, idx - CONTEXT_LINES)
+      const end = Math.min(lines.length - 1, idx + CONTEXT_LINES)
+      for (let i = start; i <= end; i++) {
+        includedLines.add(i)
+      }
+    }
+
+    // Build result with separators between non-contiguous sections
+    const sortedIndices = [...includedLines].sort((a, b) => a - b)
+    const result: string[] = []
+    for (let i = 0; i < sortedIndices.length; i++) {
+      const lineIdx = sortedIndices[i]
+      if (i > 0 && sortedIndices[i - 1] !== lineIdx - 1) {
+        result.push('---')
+      }
+      result.push(lines[lineIdx])
+    }
+
+    return result.join('\n')
   }
 
   return htmlStr
