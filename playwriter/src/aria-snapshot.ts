@@ -583,11 +583,18 @@ export async function screenshotWithAccessibilityLabels({ page, interactiveOnly 
   const viewport = await page.evaluate('(() => ({ width: window.innerWidth, height: window.innerHeight }))()') as { width: number; height: number }
 
   // Take screenshot clipped to actual viewport (excludes browser chrome)
+  // Limit to 2000px max to avoid Claude API rejection for many-image requests
+  const MAX_SCREENSHOT_DIMENSION = 2000
   const buffer = await page.screenshot({
     type: 'jpeg',
     quality: 80,
     scale: 'css',
-    clip: { x: 0, y: 0, width: viewport.width, height: viewport.height },
+    clip: {
+      x: 0,
+      y: 0,
+      width: Math.min(viewport.width, MAX_SCREENSHOT_DIMENSION),
+      height: Math.min(viewport.height, MAX_SCREENSHOT_DIMENSION),
+    },
   })
 
   // Save to file
