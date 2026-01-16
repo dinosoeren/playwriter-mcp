@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.49
+
+### Features
+
+- **CORS support for relay server**: Added CORS middleware to allow extension's fetch/XHR requests during development. Only allows requests from our specific extension IDs for security.
+
+### Bug Fixes
+
+- **Clearer error messages**: Improved error messages when another Playwriter extension connects, making it easier to diagnose connection issues
+
 ## 0.0.48
 
 ### Bug Fixes
