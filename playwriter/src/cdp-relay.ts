@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 import { serve } from '@hono/node-server'
 import { getConnInfo } from '@hono/node-server/conninfo'
 import { createNodeWebSocket } from '@hono/node-ws'
@@ -418,6 +419,22 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
   }
 
   const app = new Hono()
+  // CORS middleware for HTTP endpoints - only allows our specific extension IDs.
+  // This prevents other extensions from reading responses via fetch/XHR.
+  // WebSocket connections have their own separate origin validation.
+  app.use('*', cors({
+    origin: (origin) => {
+      if (!origin.startsWith('chrome-extension://')) {
+        return null
+      }
+      const extensionId = origin.replace('chrome-extension://', '')
+      if (!OUR_EXTENSION_IDS.includes(extensionId)) {
+        return null
+      }
+      return origin
+    },
+    allowMethods: ['GET', 'POST', 'HEAD', 'OPTIONS'],
+  }))
   const { injectWebSocket, upgradeWebSocket } = createNodeWebSocket({ app })
 
   const getCdpWsUrl = (c: { req: { header: (name: string) => string | undefined } }) => {
@@ -531,7 +548,7 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
   // from connecting to the local WebSocket server.
   app.get('/cdp/:clientId?', (c, next) => {
     const origin = c.req.header('origin')
-    
+
     // Validate Origin header if present (Node.js clients don't send it)
     if (origin) {
       if (origin.startsWith('chrome-extension://')) {
@@ -736,7 +753,7 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
       logger?.log(pc.red(`Rejecting /extension WebSocket: origin must be chrome-extension://, got: ${origin || 'none'}`))
       return c.text('Forbidden', 403)
     }
-    
+
     const extensionId = origin.replace('chrome-extension://', '')
     if (!OUR_EXTENSION_IDS.includes(extensionId)) {
       logger?.log(pc.red(`Rejecting /extension WebSocket from unknown extension: ${extensionId}`))
@@ -962,8 +979,8 @@ export async function startPlayWriterCDPRelayServer({ port = 19988, host = '127.
         // If this is an old connection closing after we've already established a new one,
         // don't clear the global state
         if (extensionWs && extensionWs !== ws) {
-           logger?.log('Old extension connection closed, keeping new one active')
-           return
+          logger?.log('Old extension connection closed, keeping new one active')
+          return
         }
 
         for (const pending of extensionPendingRequests.values()) {
