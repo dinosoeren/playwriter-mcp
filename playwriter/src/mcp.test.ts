@@ -16,7 +16,7 @@ import { Editor } from './editor.js'
 import { startPlayWriterCDPRelayServer, type RelayServer } from './cdp-relay.js'
 import { createFileLogger } from './create-logger.js'
 import type { CDPCommand } from './cdp-types.js'
-import { killPortProcess } from 'kill-port-process'
+import fkill from 'fkill'
 
 declare const window: any
 declare const document: any
@@ -55,7 +55,7 @@ function js(strings: TemplateStringsArray, ...values: any[]): string {
 
 async function killProcessOnPort(port: number): Promise<void> {
     try {
-        await killPortProcess(port)
+        await fkill(`:${port}`)
         console.log(`Killed processes on port ${port}`)
     } catch (err) {
         console.error('Error killing process on port:', err)

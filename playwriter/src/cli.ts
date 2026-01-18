@@ -4,7 +4,7 @@ import { cac } from 'cac'
 import { startPlayWriterCDPRelayServer } from './cdp-relay.js'
 import { createFileLogger } from './create-logger.js'
 import { VERSION } from './utils.js'
-import { killPortProcess } from 'kill-port-process'
+import fkill from 'fkill'
 
 const RELAY_PORT = 19988
 
@@ -64,7 +64,7 @@ cli
 
       // Kill existing process on the port
       console.log(`Killing existing server on port ${RELAY_PORT}...`)
-      await killPortProcess(RELAY_PORT)
+      await fkill(`:${RELAY_PORT}`)
     }
 
     const logger = createFileLogger()

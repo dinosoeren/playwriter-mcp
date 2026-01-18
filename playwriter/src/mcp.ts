@@ -13,7 +13,7 @@ import vm from 'node:vm'
 import dedent from 'string-dedent'
 import { createPatch } from 'diff'
 import { getCdpUrl, LOG_FILE_PATH, VERSION, sleep } from './utils.js'
-import { killPortProcess } from 'kill-port-process'
+import fkill from 'fkill';
 import { waitForPageLoad, WaitForPageLoadOptions, WaitForPageLoadResult } from './wait-for-page-load.js'
 import { getCDPSessionForPage, CDPSession, ICDPSession } from './cdp-session.js'
 import { Debugger } from './debugger.js'
@@ -317,7 +317,7 @@ async function getServerVersion(port: number): Promise<string | null> {
 
 async function killRelayServer(port: number): Promise<void> {
   try {
-    await killPortProcess(port)
+    await fkill(`:${port}`)
     await sleep(500)
   } catch {}
 }
