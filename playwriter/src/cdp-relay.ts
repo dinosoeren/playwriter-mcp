@@ -20,7 +20,7 @@ type ConnectedTarget = {
 // Our extension IDs - allow attaching to our own extension pages for debugging
 const OUR_EXTENSION_IDS = [
   'jfeammnjpkecdekppnclgkkffahnhfhe', // Production extension (Chrome Web Store)
-  'elnnakgjclnapgflmidlpobefkdmapdm', // Dev extension (loaded unpacked)
+  'gloapfeenigcmokddhajhkboopdidkkk', // Dev extension (loaded unpacked)
 ]
 
 /**
