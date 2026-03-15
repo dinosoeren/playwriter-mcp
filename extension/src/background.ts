@@ -909,7 +909,9 @@ async function resetDebugger(): Promise<void> {
 // Our extension IDs - allow attaching to our own extension pages for debugging
 const OUR_EXTENSION_IDS = [
   'jfeammnjpkecdekppnclgkkffahnhfhe', // Production extension (Chrome Web Store)
+  'gloapfeenigcmokddhajhkboopdidkkk', // Dev extension (loaded unpacked)
   'elnnakgjclnapgflmidlpobefkdmapdm', // Dev extension (loaded unpacked)
+  chrome.runtime.id, // Current extension ID
 ]
 
 // undefined URL is for about:blank pages (not restricted) and chrome:// URLs (restricted).

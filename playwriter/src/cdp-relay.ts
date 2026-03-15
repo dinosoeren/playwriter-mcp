@@ -21,6 +21,8 @@ type ConnectedTarget = {
 const OUR_EXTENSION_IDS = [
   'jfeammnjpkecdekppnclgkkffahnhfhe', // Production extension (Chrome Web Store)
   'gloapfeenigcmokddhajhkboopdidkkk', // Dev extension (loaded unpacked)
+  'elnnakgjclnapgflmidlpobefkdmapdm', // Dev extension (loaded unpacked)
+  ...(process.env.PLAYWRITER_EXTENSION_IDS ? process.env.PLAYWRITER_EXTENSION_IDS.split(',').map(id => id.trim()) : [])
 ]
 
 /**
