@@ -1,6 +1,6 @@
 {
     "name": "mcp-extension",
-    "version": "0.0.67",
+    "version": "0.0.68",
     "description": "Playwright MCP Browser Extension",
     "private": true,
     "repository": {
@@ -17,6 +17,7 @@
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc --project . && vite build --config vite.config.mts",
+        "build:auto-connect": "cross-env PLAYWRITER_AUTO_CONNECT=1 tsc --project . && cross-env PLAYWRITER_AUTO_CONNECT=1 vite build --config vite.config.mts",
         "reload": "bun run build && osascript -e 'tell application \"Google Chrome\" to open location \"chrome://extensions/?id=elnnakgjclnapgflmidlpobefkdmapdm\"'",
         "watch": "vite build --watch --config vite.config.mts",
         "clean": "rm -rf dist"
@@ -24,6 +25,7 @@
     "devDependencies": {
         "@types/chrome": "^0.0.315",
         "concurrently": "^8.2.2",
+        "cross-env": "^10.1.0",
         "typescript": "^5.8.2",
         "vite": "^5.4.21",
         "vite-plugin-static-copy": "^3.1.1"

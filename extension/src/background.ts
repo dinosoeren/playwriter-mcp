@@ -8,6 +8,8 @@ import type { ExtensionCommandMessage, ExtensionResponseMessage } from 'playwrit
 const RELAY_PORT = process.env.PLAYWRITER_PORT
 const RELAY_URL = `ws://127.0.0.1:${RELAY_PORT}/extension`
 
+const AUTO_CONNECT = import.meta.env.PLAYWRITER_AUTO_CONNECT === 'true'
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -1092,8 +1094,70 @@ async function onActionClicked(tab: chrome.tabs.Tab): Promise<void> {
   }
 }
 
+async function connectAllEligibleTabs(): Promise<void> {
+  if (!AUTO_CONNECT || import.meta.env.TESTING) {
+    return
+  }
+
+  try {
+    const allTabs = await chrome.tabs.query({})
+    const tabIdsToConnect = allTabs
+      .filter((tab) => tab.id !== undefined)
+      .filter((tab) => !store.getState().tabs.has(tab.id!))
+      .filter((tab) => !isRestrictedUrl(tab.url))
+      .map((tab) => tab.id!)
+
+    for (const tabId of tabIdsToConnect) {
+      void connectTab(tabId)
+    }
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    logger.debug('connectAllEligibleTabs failed:', message)
+  }
+}
+
+function initAutoConnect(): void {
+  if (!AUTO_CONNECT || import.meta.env.TESTING) {
+    return
+  }
+
+  void connectAllEligibleTabs()
+
+  chrome.tabs.onCreated.addListener((tab) => {
+    if (tab.id === undefined) {
+      return
+    }
+    if (isRestrictedUrl(tab.url)) {
+      return
+    }
+    if (store.getState().tabs.has(tab.id)) {
+      return
+    }
+    void connectTab(tab.id)
+  })
+
+  chrome.runtime.onStartup.addListener(() => {
+    void connectAllEligibleTabs()
+  })
+
+  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status !== 'complete') {
+      return
+    }
+    if (isRestrictedUrl(tab.url)) {
+      return
+    }
+    const existing = store.getState().tabs.get(tabId)
+    if (existing?.state === 'connected' || existing?.state === 'connecting') {
+      return
+    }
+    void connectTab(tabId)
+  })
+}
+
 resetDebugger()
 connectionManager.maintainLoop()
+initAutoConnect()
 
 chrome.contextMenus.remove('playwriter-pin-element').catch(() => {}).finally(() => {
   chrome.contextMenus.create({
@@ -1114,6 +1178,14 @@ chrome.runtime.onInstalled.addListener((details) => {
   if (import.meta.env.TESTING) return
   if (details.reason === 'install') {
     void chrome.tabs.create({ url: 'welcome.html' })
+  }
+  if (
+    AUTO_CONNECT &&
+    (details.reason === 'install' ||
+      details.reason === 'update' ||
+      details.reason === 'chrome_update')
+  ) {
+    void connectAllEligibleTabs()
   }
 })
 
