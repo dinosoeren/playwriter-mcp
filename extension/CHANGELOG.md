@@ -2,6 +2,13 @@
 
 ## 0.0.68
 
+### Features
+
+- **Optional auto-connect build**: Set `PLAYWRITER_AUTO_CONNECT=1` or pass
+  `--playwriter-auto-connect` to the Vite build so the extension attaches to
+  all eligible tabs on install/startup and new tabs without clicking the icon.
+  Use `pnpm build:auto-connect` for a cross-platform one-liner.
+
 ### Bug Fixes
 
 - **Improved connection reliability**: Use `127.0.0.1` instead of `localhost` to avoid DNS/IPv6 resolution issues
