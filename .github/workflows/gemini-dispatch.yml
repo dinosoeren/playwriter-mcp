@@ -27,13 +27,16 @@ defaults:
 
 jobs:
   dispatch:
-    # Automatic: non-draft, non-fork PRs
+    # Automatic: non-draft PRs where base and head are the same repo (default-branch
+    # PRs on your fork, or branch PRs on the canonical repo). We intentionally skip
+    # cross-repo PRs (e.g. fork → upstream): head.repo.fork is the wrong signal — it
+    # is true for every branch on a fork repo, which blocked all internal fork PRs.
     # On-demand: OWNER/MEMBER/COLLABORATOR comments/reviews starting with @gemini-cli
     if: |-
       (
         github.event_name == 'pull_request' &&
         github.event.pull_request.draft == false &&
-        github.event.pull_request.head.repo.fork == false
+        github.event.pull_request.base.repo.full_name == github.event.pull_request.head.repo.full_name
       ) || (
         (github.event.issue.pull_request || github.event.pull_request) &&
         github.event.sender.type == 'User' &&
